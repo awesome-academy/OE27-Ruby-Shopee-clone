@@ -1,57 +1,48 @@
-*.gem
-*.rbc
-/.config
-/coverage/
-/InstalledFiles
-/pkg/
-/spec/reports/
-/spec/examples.txt
-/test/tmp/
-/test/version_tmp/
-/tmp/
-
-# Used by dotenv library to load environment variables.
-# .env
-
-# Ignore Byebug command history file.
+/.bundle
+/db/.sqlite3
+/db/.sqlite3-journal
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+/storage/*
+!/storage/.keep
+/node_modules
+/yarn-error.log
+/public/assets
 .byebug_history
+/config/master.key
+/config/database.yml
+/config/credentials.yml.enc
+config/settings.local.yml
+config/settings/.local.yml
+config/environments/.local.yml
+.framgia-ci-reports/
+.framgia-ci-result.temp.yml
+.DS_Store
+Dockerfile
+/.idea
+..swp
+.env
+coverage
+/public/javascripts/
+/public/uploads/*
+/lib/tasks//.xlsx
+/lib/tasks//.xls
+/lib/tasks/**/.json
+.env.
+!.env.example
+gkc_*
+/log.txt
+/.vscode/settings.json
+.rdb
+/bin/
+/test/*
 
-## Specific to RubyMotion:
-.dat*
-.repl_history
-build/
-*.bridgesupport
-build-iPhoneOS/
-build-iPhoneSimulator/
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
 
-## Specific to RubyMotion (use of CocoaPods):
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
-#
-# vendor/Pods/
-
-## Documentation cache and generated files:
-/.yardoc/
-/_yardoc/
-/doc/
-/rdoc/
-
-## Environment normalization:
-/.bundle/
-/vendor/bundle
-/lib/bundler/man/
-
-# for a library or gem, you might want to ignore these files since the code is
-# intended to run in multiple environments; otherwise, check them in:
-# Gemfile.lock
-# .ruby-version
-# .ruby-gemset
-
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
-
-# Used by RuboCop. Remote config files pulled in from inherit_from directive.
-# .rubocop-https?--*
-config/database.yml
+# Ignore application configuration
+/config/application.yml
+/storage
