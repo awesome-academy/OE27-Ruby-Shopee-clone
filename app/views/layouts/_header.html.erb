@@ -1,0 +1,28 @@
+<header>
+  <div class="top-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+        </div>
+        <div class="col-lg-6 text-right">
+          <ul class="header-dropdown">
+            <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
+              <%= t "home.header.account" %>
+              <ul class="onhover-show-div">
+                <li><%= link_to t("home.login"), "#" %></li>
+                <li><%= link_to t("home.logout"), "#" %></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="main-menu"></div>
+      </div>
+    </div>
+  </div>
+</header>

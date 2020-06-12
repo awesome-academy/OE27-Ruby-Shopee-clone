@@ -3,6 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.1"
 
+gem "jquery-slick-rails"
+gem "popper_js", "~> 1.14.5"
+gem "jquery-ui-rails"
+gem "jquery-rails"
+gem "animate-rails"
+gem "font-awesome-sass", "~> 4.2.0"
+gem "config"
 gem "figaro"
 gem "rails-i18n"
 gem "rails", "~> 5.2.0"
