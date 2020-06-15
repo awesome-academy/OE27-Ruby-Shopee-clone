@@ -17,3 +17,18 @@ vi:
       address: "Multikart Demo Store, Demo store India 345-659"
       phone: "123-456-7898"
       mail: "Email Us: Support@Fiot.com"
+  shop:
+    header:
+      profile: "Trang cá nhân"
+      setting: "Thiết lập"
+      logout: "Đăng xuất"
+    sidebar:
+      home: "Trang chủ"
+      product: "Sản phẩm"
+      order: "Đơn hàng"
+    index:
+      title: "Gian hàng"
+      earning: "Doanh thu"
+      product: "Sản phẩm"
+      order: "Đơn hàng"
+      this_month: "Tháng này"

@@ -20,4 +20,3 @@
 //= require jquery-ui
 //= require popper
 //= require jquery.slick
-//= require_tree .
