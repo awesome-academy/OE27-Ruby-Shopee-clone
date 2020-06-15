@@ -1,0 +1,19 @@
+vi:
+  home:
+    header:
+      account: "Tài khoản của tôi"
+      login: "Đăng nhập"
+      logout: "Đăng xuất"
+
+    footer:
+      know_text: "BIẾT TẤT CẢ ĐỀU ĐẦU TIÊN!"
+      remember_text: "Không bao giờ bỏ lỡ bất cứ điều gì từ Multikart bằng cách đăng ký nhận bản tin của chúng tôi."
+      subscribe: "Đăng ký"
+      about: "Về chúng tôi"
+      introduction: "Công ty tỷ đô đầu tiên của Việt Nam"
+      account: "Tài khoản của tôi"
+      cause: "Tại sao chúng ta chọn"
+      store_information: "Thông tin cửa hàng"
+      address: "Multikart Demo Store, Demo store India 345-659"
+      phone: "123-456-7898"
+      mail: "Email Us: Support@Fiot.com"

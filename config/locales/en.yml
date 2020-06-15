@@ -1,3 +1,11 @@
 en:
   home:
-    title: "Shopee"
+    footer:
+      know_text: "KNOW IT ALL FIRST!"
+      remember_text: "Never Miss Anything From Multikart By Signing Up To Our Newsletter."
+      subscribe: "subscribe"
+      about: "about"
+      introduction: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
+      account: "My account"
+      cause: "why we choose"
+      store_information: "store information"
