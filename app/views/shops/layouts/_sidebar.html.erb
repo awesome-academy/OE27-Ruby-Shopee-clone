@@ -1,0 +1,33 @@
+<div class="page-sidebar">
+  <div class="main-header-left d-none d-lg-block">
+    <div class="logo-wrapper">
+      <%= link_to "#" do %>
+        <%= image_tag "multikart-logo.png", class: "blur-up lazyloaded" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="sidebar custom-scrollbar">
+    <div class="sidebar-user text-center">
+      <div>
+        <%= image_tag "avatar-default.png", class: "img-60 rounded-circle lazyloaded blur-up" %>
+      </div>
+      <h6 class="mt-3 f-14">STAR</h6>
+    </div>
+    <ul class="sidebar-menu">
+      <li>
+        <%= link_to shops_root_path, class: "sidebar-header" do %>
+          <span><%= t "shop.sidebar.home" %></span>
+        <% end %>
+      <li>
+        <%= link_to "#", class: "sidebar-header" do %>
+          <span><%= t "shop.sidebar.product" %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "#", class: "sidebar-header" do %>
+          <span><%= t "shop.sidebar.order" %></span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>

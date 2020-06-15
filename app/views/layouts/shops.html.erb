@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield :title %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "shops/shop", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "shops/shop", "data-turbolinks-track": "reload" %>
+
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <%= render "shops/layouts/header" %>
+      <div class="page-body-wrapper">
+        <%= render "shops/layouts/sidebar" %>
+        <div class="page-body">
+          <%= yield %>
+        </div>
+        <%= render "shops/layouts/footer" %>
+      </div>
+    </div>
+  </body>
+</html>
