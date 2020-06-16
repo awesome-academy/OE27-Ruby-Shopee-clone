@@ -1,2 +1,6 @@
 home:
   link_index: "index.html"
+shop:
+  footer:
+    copyright: "Copyright 2020 © Shopee All rights reserved."
+    madeby: "Made by Sun Asterisk"

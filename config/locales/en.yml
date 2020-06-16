@@ -9,3 +9,18 @@ en:
       account: "My account"
       cause: "why we choose"
       store_information: "store information"
+  shop:
+    header:
+      profile: "Profile"
+      setting: "Setting"
+      logout: "Logout"
+    sidebar:
+      home: "Dashboard"
+      product: "Products"
+      order: "Orders"
+    index:
+      title: "Shop"
+      earning: "Earning"
+      product: "Products"
+      order: "Orders"
+      this_month: "This month"
