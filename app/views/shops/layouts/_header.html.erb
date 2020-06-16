@@ -18,7 +18,7 @@
           <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
             <li><%= link_to t("shop.header.profile"), "#" %></li>
             <li><%= link_to t("shop.header.setting"), "#" %></li>
-            <li><%= link_to t("shop.header.logout"), "#" %></li>
+            <li><%= link_to t("shop.header.logout"), logout_path, method: :delete %></li>
           </ul>
         </li>
       </ul>

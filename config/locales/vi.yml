@@ -18,6 +18,14 @@ vi:
       address: "Multikart Demo Store, Demo store India 345-659"
       phone: "123-456-7898"
       mail: "Email Us: Support@Fiot.com"
+    login:
+      success: "Đăng nhập thành công"
+      fail: "Đăng nhập thất bại"
+      require: "Bạn chưa đăng nhâp"
+
+    sign_up:
+      success: "Tạo tài khoản thành công"
+      fail: "Tạo tài khoản thất bại"
 
   shop:
     header:
@@ -34,12 +42,20 @@ vi:
       product: "Sản phẩm"
       order: "Đơn hàng"
       this_month: "Tháng này"
-
-    login:
-      success: "Đăng nhập thành công"
-      fail: "Đăng nhập thất bại"
-      require: "Bạn chưa đăng nhâp"
-
-    sign_up:
-      success: "Tạo tài khoản thành công"
-      fail: "Tạo tài khoản thất bại"
+    product:
+      create:
+        title: "Thêm mới sản phẩm"
+        name: "Tên sản phẩm"
+        avatar: "Ảnh đại diện"
+        price: "Giá bán"
+        brand: "Thương hiệu"
+        category: "Danh mục"
+        color: "Màu sắc"
+        quantity: "Số lượng"
+        submit: "Thêm"
+        create_success: "Thêm sản phẩm thành công"
+        create_fail: "Thêm sản phẩm thất bại"
+        add: "Thêm"
+        remove: "Xóa"
+        more_images: "Ảnh chi tiết"
+        validate_image: "Chỉ hỗ trợ ảnh .png, .jpg và .jpeg, dung lượng phải nhỏ hơn 1MB"

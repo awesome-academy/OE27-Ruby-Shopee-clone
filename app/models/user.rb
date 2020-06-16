@@ -6,7 +6,7 @@ class User < ApplicationRecord
   before_save :email_downcase
   has_many :orders, dependent: :destroy
   has_many :reviews, dependent: :destroy
-  has_many :products, through: :reviews
+  has_many :products, dependent: :destroy
   validates :name, presence: true, length: {maximum: Settings.name.maximum}
   validates :email, format: {with: VALID_EMAIL_REGEX},
                              presence: true, uniqueness: true, length: { maximum: Settings.email.maximum}

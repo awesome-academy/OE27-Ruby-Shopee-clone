@@ -15,6 +15,14 @@ en:
       account: "My account"
       cause: "why we choose"
       store_information: "store information"
+    login:
+      success: "Login successfuly"
+      fail: "Login fail"
+      require: "You have to login"
+
+    sign_up:
+      success: "sign_up successfuly"
+      fail: "sign_up fail"
 
   shop:
     header:
@@ -31,12 +39,20 @@ en:
       product: "Products"
       order: "Orders"
       this_month: "This month"
-
-    login:
-      success: "Login successfuly"
-      fail: "Login fail"
-      require: "You have to login"
-
-    sign_up:
-      success: "sign_up successfuly"
-      fail: "sign_up fail"
+    product:
+      create:
+        title: "Add new product"
+        name: "Name"
+        avatar: "Avatar"
+        price: "Price"
+        brand: "Brand"
+        category: "Category"
+        color: "Color"
+        quantity: "Quantity"
+        submit: "Create"
+        create_success: "Created successfully"
+        create_fail: "Created un-successfully"
+        add_color: "Add color"
+        remove_color: "Remove color"
+        more_images: "More images"
+        validate_image: "Only support file type: .png, .jpg and .jpeg. File size must be smaller than 1MB"

@@ -1,0 +1,11 @@
+<tr class="nested-fields">
+  <td>
+    <%= f.file_field :image, accept: Settings.shop.file_type.gsub(" ", ", ")  %>
+    <%= f.hidden_field :image_cache, value: f.object.image_cache %>
+  </td>
+  <td class="preview-images">
+  </td>
+  <td>
+    <%= link_to_remove_association t("shop.product.create.add"), f %>
+  </td>
+</tr>
