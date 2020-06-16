@@ -1,0 +1,11 @@
+<tr class="nested-fields">
+  <td>
+    <%= f.collection_select :color_id, get_color, :id, :color, {}, {class: "form-control"} %>
+  </td>
+  <td>
+    <%= f.number_field :quantity, class: "form-control" %>
+  </td>
+  <td>
+    <%= link_to_remove_association t("shop.product.create.remove"), f %>
+  </td>
+</tr>

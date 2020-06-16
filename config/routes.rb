@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
     namespace :shops do
       root to: "homes#index"
+
+      resources :products
     end
   end
 end

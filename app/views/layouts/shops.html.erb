@@ -7,7 +7,7 @@
 
     <%= stylesheet_link_tag "shops/shop", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "shops/shop", "data-turbolinks-track": "reload" %>
-
+    <%= javascript_include_tag "translations", skip_pipeline: true %>
   </head>
 
   <body>
@@ -16,10 +16,19 @@
       <div class="page-body-wrapper">
         <%= render "shops/layouts/sidebar" %>
         <div class="page-body">
+          <div class="container-fluid">
+            <% flash.each do |msg_type, msg| %>
+              <div class="alert alert-<%= msg_type %>"><%= msg %></div>
+            <% end %>
+          </div>
           <%= yield %>
         </div>
         <%= render "shops/layouts/footer" %>
       </div>
     </div>
+    <script type="text/javascript">
+	    I18n.defaultLocale = "<%= I18n.default_locale %>";
+	    I18n.locale = "<%= I18n.locale %>";
+    </script>
   </body>
 </html>
