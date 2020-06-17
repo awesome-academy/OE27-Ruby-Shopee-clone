@@ -1,0 +1,82 @@
+<%= form_for [:shops, @product] do |f| %>
+  <%= render "shops/shared/error", object: f.object %>
+  <div class="form-group">
+    <%= f.label :name, t("shop.product.create.name") %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :brand_id, t("shop.product.create.brand") %>
+      <%= f.collection_select :brand_id, load_brand, :id, :name, {}, {class: "form-control"} %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :category_id, t("shop.product.create.category") %>
+      <%= f.collection_select :category_id, load_category, :id, :name, {}, {class: "form-control"} %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= f.label :price, t("shop.product.create.price") %>
+      <%= f.number_field :price, class: "form-control" %>
+    </div>
+  </div>
+  <div class="color col-md-6">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th><%= t "shop.product.create.color" %></th>
+        <th><%= t "shop.product.create.quantity" %></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody class="product-colors">
+      <%= f.fields_for :product_colors do |color| %>
+        <%= render "product_color_fields", f: color %>
+      <% end %>
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="3">
+          <%= link_to_add_association t("shop.product.create.add"), f,
+                                      :product_colors,
+                                      data: {
+                                          association_insertion_node: ".product-colors",
+                                          association_insertion_method: :append,
+                                      }
+          %>
+        </td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="form-group mb-0">
+    <div class="description-sm">
+      <%= f.text_area :description, size: "40x10" %>
+    </div>
+  </div>
+  <div class="avatar form-group">
+    <%= f.label :avatar, t("shop.product.create.avatar") %>
+    <%= f.file_field :avatar, accept: Settings.shop.file_type.gsub(" ", ", ") %>
+    <div class="preview-avatar col-md-3">
+      <%= image_tag @product.avatar.url if @product.avatar? %>
+    </div>
+  </div>
+  <table>
+    <div class="images form-group col-md-6">
+      <%= f.label t("shop.product.create.more_images") %>
+      <%= f.fields_for :images do |image| %>
+        <%= render "image_fields", f: image %>
+      <% end %>
+    </div>
+    <%= link_to_add_association t("shop.product.create.add"), f,
+                                :images, class: "btn btn-default",
+                                data: {
+                                    association_insertion_node: ".images",
+                                    association_insertion_method: :append,
+                                }
+    %>
+  </table>
+  <div class="form-group mb-0">
+    <div class="product-buttons text-center">
+      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
