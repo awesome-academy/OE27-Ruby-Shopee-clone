@@ -4,6 +4,7 @@ vi:
       account: "Tài khoản của tôi"
       login: "Đăng nhập"
       logout: "Đăng xuất"
+      sign_up: "Đăng ký"
 
     footer:
       know_text: "BIẾT TẤT CẢ ĐỀU ĐẦU TIÊN!"
@@ -17,6 +18,7 @@ vi:
       address: "Multikart Demo Store, Demo store India 345-659"
       phone: "123-456-7898"
       mail: "Email Us: Support@Fiot.com"
+
   shop:
     header:
       profile: "Trang cá nhân"
@@ -32,3 +34,12 @@ vi:
       product: "Sản phẩm"
       order: "Đơn hàng"
       this_month: "Tháng này"
+
+    login:
+      success: "Đăng nhập thành công"
+      fail: "Đăng nhập thất bại"
+      require: "Bạn chưa đăng nhâp"
+
+    sign_up:
+      success: "Tạo tài khoản thành công"
+      fail: "Tạo tài khoản thất bại"

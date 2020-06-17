@@ -1,5 +1,11 @@
 en:
   home:
+    header:
+      account: "My account"
+      login: "Login"
+      logout: "Logout"
+      sign_up: "Sign up"
+
     footer:
       know_text: "KNOW IT ALL FIRST!"
       remember_text: "Never Miss Anything From Multikart By Signing Up To Our Newsletter."
@@ -9,6 +15,7 @@ en:
       account: "My account"
       cause: "why we choose"
       store_information: "store information"
+
   shop:
     header:
       profile: "Profile"
@@ -24,3 +31,12 @@ en:
       product: "Products"
       order: "Orders"
       this_month: "This month"
+
+    login:
+      success: "Login successfuly"
+      fail: "Login fail"
+      require: "You have to login"
+
+    sign_up:
+      success: "sign_up successfuly"
+      fail: "sign_up fail"
