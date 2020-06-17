@@ -14,11 +14,11 @@
               <div class="row">
                 <div class="form-group col-md-4">
                   <%= f.label :brand_id, t("shop.product.create.brand") %>
-                  <%= f.collection_select :brand_id, get_brand, :id, :name, {}, {class: "form-control"} %>
+                  <%= f.collection_select :brand_id, load_brand, :id, :name, {}, {class: "form-control"} %>
                 </div>
                 <div class="form-group col-md-4">
                   <%= f.label :category_id, t("shop.product.create.category") %>
-                  <%= f.collection_select :category_id, get_category, :id, :name, {}, {class: "form-control"} %>
+                  <%= f.collection_select :category_id, load_category, :id, :name, {}, {class: "form-control"} %>
                 </div>
                 <div class="form-group col-md-4">
                   <%= f.label :price, t("shop.product.create.price") %>

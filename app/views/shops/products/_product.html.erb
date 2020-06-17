@@ -1,0 +1,12 @@
+<tr>
+  <td><%= product_counter %></td>
+  <td><%= product.name %></td>
+  <td><%= format_currency product.price %></td>
+  <td><%= product.brand_name %></td>
+  <td><%= product.category_name %></td>
+  <td><%= format_date product.created_at %></td>
+  <td>
+    <%= link_to t("shop.product.index.edit"), edit_shops_product_path(product.slug), class: "btn btn-warning" %>
+    <%= link_to t("shop.product.index.delete"), "#", class: "btn btn-danger" %>
+  </td>
+</tr>
