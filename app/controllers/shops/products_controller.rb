@@ -1,5 +1,6 @@
 class Shops::ProductsController < ShopsController
   before_action :check_login
+  before_action :load_product, only: %i(edit update)
 
   def index
     @products = current_user.products
@@ -14,7 +15,7 @@ class Shops::ProductsController < ShopsController
   end
 
   def create
-    @product = current_user.products.build create_product_params
+    @product = current_user.products.build product_params
     if @product.save
       flash[:success] = t "shop.product.create.create_success"
       redirect_to shops_root_path
@@ -24,9 +25,29 @@ class Shops::ProductsController < ShopsController
     end
   end
 
+  def edit; end
+
+  def update
+    if @product.update_attributes product_params
+      flash[:success] = t "shop.product.update.update_success"
+      redirect_to shops_products_path
+    else
+      flash[:danger] = t "shop.product.update.update_fail"
+      render :edit
+    end
+  end
+
   private
 
-  def create_product_params
-    params.require(:product).permit Product::CREATE_PRODUCT_PARAMS
+  def load_product
+    @product = Product.find_by slug: params[:slug]
+    return if @product
+
+    flash[:warning] = t "shop.product.not_exist_product"
+    redirect_to shops_root_path
+  end
+
+  def product_params
+    params.require(:product).permit Product::PRODUCT_PARAMS
   end
 end

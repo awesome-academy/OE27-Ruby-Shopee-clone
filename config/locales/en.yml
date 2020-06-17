@@ -1,15 +1,4 @@
 en:
-  datetime:
-    formats:
-      default: "%m/%d/%Y - %H:%M"
-  number:
-    currency:
-      format:
-        unit: "$"
-        delimiter: ","
-        separator: "."
-        precision: 2
-        format: "%u%n"
   home:
     header:
       account: "My account"
@@ -73,6 +62,10 @@ en:
         function: "Function"
         edit: "Edit"
         delete: "Delete"
+      update:
+        submit: "Update"
+        update_success: "Edited product successfully"
+        update_fail: "Edited product un-successfully"
     datatable:
       search: "Search"
       empty: "You do not have any products"
