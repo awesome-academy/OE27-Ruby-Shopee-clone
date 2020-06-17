@@ -1,6 +1,13 @@
 class Shops::ProductsController < ShopsController
   before_action :check_login
 
+  def index
+    @products = current_user.products
+                   .select_product_field
+                   .order_by_created_at
+                   .eager_load :brand, :category
+  end
+
   def new
     @product = Product.new
     @product.product_colors.build

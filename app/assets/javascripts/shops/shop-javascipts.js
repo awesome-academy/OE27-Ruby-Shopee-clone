@@ -1,14 +1,14 @@
-$(function () {
+$(function() {
   $('tbody > tr:first .del-row').click(false);
   
-  $('#new-row').click(function () {
+  $('#new-row').click(function() {
     let row = $('tbody > tr:first').clone();
     $('tbody').append(row);
-  })
+  });
   
-  $('tbody').on('click', '.del-row', function (e) {
+  $('tbody').on('click', '.del-row', function(e) {
     $(this).closest('tr').remove();
-  })
+  });
   
   function validate_image(file_size, tag, e) {
     if (file_size > 1) {
@@ -19,15 +19,36 @@ $(function () {
     }
   }
   
-  $('.images').on('change', 'input[type=file]', function (e) {
+  $('.images').on('change', 'input[type=file]', function(e) {
     let file_size = this.files[0].size / 1024 / 1024;
-    let tag = $(this).closest('td').next('td')
-    validate_image(file_size, tag, e)
-  })
-  
-  $('input[type=file]').bind('change', function (e) {
-    let file_size = this.files[0].size / 1024 / 1024;
-    let tag = $(this).parent().find('.preview-avatar')
-    validate_image(file_size, tag, e)
+    let tag = $(this).closest('td').next('td');
+    validate_image(file_size, tag, e);
   });
-})
+  
+  $('input[type=file]').bind('change', function(e) {
+    let file_size = this.files[0].size / 1024 / 1024;
+    let tag = $(this).parent().find('.preview-avatar');
+    validate_image(file_size, tag, e);
+  });
+  
+  $('#data-table').DataTable({
+    'columnDefs': [
+      {'orderable': false, 'targets': 6},
+    ],
+    'language': {
+      'emptyTable': I18n.t("shop.datatable.empty"),
+      'search': I18n.t("shop.datatable.search"),
+      'paginate': {
+        'next': I18n.t("shop.datatable.paginate.next"),
+        'previous': I18n.t("shop.datatable.paginate.previous"),
+      },
+      'info': I18n.t("shop.datatable.info"),
+      'lengthMenu': I18n.t("shop.datatable.lengthMenu"),
+    },
+    'paging': true,
+    'lengthChange': true,
+    'searching': true,
+    'info': true,
+    'autoWidth': true,
+  });
+});

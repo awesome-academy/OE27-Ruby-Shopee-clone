@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.1"
@@ -32,6 +32,9 @@ gem "cocoon"
 gem "carrierwave"
 gem "active_storage_validations", "0.8.2"
 gem "i18n-js"
+gem "jquery-datatables-rails"
+gem "ajax-datatables-rails"
+gem "kaminari"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

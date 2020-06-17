@@ -1,13 +1,13 @@
 module Shops::ProductsHelper
-  def get_brand
+  def load_brand
     Brand.select(:id, :name)
   end
 
-  def get_category
+  def load_category
     Category.select(:id, :name)
   end
 
-  def get_color
+  def load_color
     Color.select(:id, :color)
   end
 end

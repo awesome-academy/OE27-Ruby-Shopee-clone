@@ -1,4 +1,15 @@
 vi:
+  datetime:
+    formats:
+      default: "%d/%m/%Y - %H:%M"
+  number:
+    currency:
+      format:
+        unit: "đ"
+        delimiter: ","
+        separator: "."
+        precision: 0
+        format: "%u%n"
   home:
     header:
       account: "Tài khoản của tôi"
@@ -59,3 +70,17 @@ vi:
         remove: "Xóa"
         more_images: "Ảnh chi tiết"
         validate_image: "Chỉ hỗ trợ ảnh .png, .jpg và .jpeg, dung lượng phải nhỏ hơn 1MB"
+      index:
+        title: "Danh sách sản phẩm"
+        created_at: "Ngày tạo"
+        function: "Chức năng"
+        edit: "Sửa"
+        delete: "Xóa"
+    datatable:
+      search: "Tìm kiếm"
+      empty: "Bạn không có sản phẩm nào"
+      paginate:
+        next: "Sau"
+        previous: "Trước"
+      info: "Hiển thị từ _START_ tới _END_ trên tổng _TOTAL_ bản ghi"
+      lengthMenu: "Hiển thị _MENU_ bản ghi"
