@@ -12,6 +12,9 @@
 
   <body>
     <div class="banner-top container-fluid" id="home">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
       <%= render "layouts/header" %>
       <%= yield %>
       <%= render "layouts/footer" %></body>
