@@ -1,4 +1,15 @@
 en:
+  datetime:
+    formats:
+      default: "%m/%d/%Y - %H:%M"
+  number:
+    currency:
+      format:
+        unit: "$"
+        delimiter: ","
+        separator: "."
+        precision: 2
+        format: "%u%n"
   home:
     header:
       account: "My account"
@@ -56,3 +67,17 @@ en:
         remove_color: "Remove color"
         more_images: "More images"
         validate_image: "Only support file type: .png, .jpg and .jpeg. File size must be smaller than 1MB"
+      index:
+        title: "List products"
+        created_at: "Created at"
+        function: "Function"
+        edit: "Edit"
+        delete: "Delete"
+    datatable:
+      search: "Search"
+      empty: "You do not have any products"
+      paginate:
+        next: "Next"
+        previous: "Previous"
+      info: "Show from _START_ to _END_ of _TOTAL_ entries"
+      lengthMenu: "Show _MENU_ entries"

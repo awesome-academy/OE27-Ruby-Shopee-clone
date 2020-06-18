@@ -1,6 +1,6 @@
 <tr class="nested-fields">
   <td>
-    <%= f.collection_select :color_id, get_color, :id, :color, {}, {class: "form-control"} %>
+    <%= f.collection_select :color_id, load_color, :id, :color, {}, {class: "form-control"} %>
   </td>
   <td>
     <%= f.number_field :quantity, class: "form-control" %>

@@ -8,6 +8,7 @@ shop:
   file_type: "image/jpeg image/jpg image/png"
   name_max_length: 255
   description_max_length: 10240
+  dollar: 24000
 reg:
   email: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 name:
