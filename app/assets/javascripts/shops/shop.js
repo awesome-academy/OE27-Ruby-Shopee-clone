@@ -7,3 +7,5 @@
 //= require i18n.js
 //= require i18n/translations
 //= require dataTables/jquery.dataTables
+//= require toastr
+global.toastr = require("toastr")

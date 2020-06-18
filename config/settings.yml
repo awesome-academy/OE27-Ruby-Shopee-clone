@@ -9,6 +9,9 @@ shop:
   name_max_length: 255
   description_max_length: 10240
   dollar: 24000
+response_success: 1
+response_error: 0
+upload_product: "/public/uploads/products/"
 reg:
   email: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 name:

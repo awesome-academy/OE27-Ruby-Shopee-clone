@@ -3,7 +3,8 @@
 }
 
 .preview-avatar > img {
-  max-width: 100%;
+  max-width: 350px;
+  margin-left: 15px;
 }
 
 .preview-images {
@@ -11,6 +12,14 @@
 }
 
 .preview-images img {
+  max-width: 350px;
+}
+
+.image-detail {
+  max-width: 350px;
+}
+
+.image-detail img {
   max-width: 350px;
 }
 

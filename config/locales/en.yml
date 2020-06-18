@@ -66,6 +66,11 @@ en:
         submit: "Update"
         update_success: "Edited product successfully"
         update_fail: "Edited product un-successfully"
+      delete:
+        image: "Are you sure to delete this image ?"
+        color: "Are you sure to delete this color type ?"
+        delete_success: "You deleted successfully"
+        delete_fail: "Your deleted un-successfully"
     datatable:
       search: "Search"
       empty: "You do not have any products"

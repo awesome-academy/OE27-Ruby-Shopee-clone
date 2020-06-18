@@ -81,6 +81,11 @@ vi:
         submit: "Cập nhật"
         update_success: "Sửa sản phẩm thành công"
         update_fail: "Sửa sản phẩm thất bại"
+      delete:
+        image: "Bạn có chắc chắn muốn xóa ảnh này ?"
+        color: "Bạn có chắc chắn muốn xóa loại màu này ?"
+        delete_success: "Bạn đã xóa thành công"
+        delete_fail: "Bạn đã xóa không thành công"
     datatable:
       search: "Tìm kiếm"
       empty: "Bạn không có sản phẩm nào"

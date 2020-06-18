@@ -13,4 +13,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 #Rails.application.config.assets.precompile += %w()
 Rails.application.config.assets.precompile += %w(shops/shop.scss)
-Rails.application.config.assets.precompile += %w(shops/shop.js)
+Rails.application.config.assets.precompile += %w(shops/shop.js shops/delete.js)

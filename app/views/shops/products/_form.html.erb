@@ -55,15 +55,27 @@
   <div class="avatar form-group">
     <%= f.label :avatar, t("shop.product.create.avatar") %>
     <%= f.file_field :avatar, accept: Settings.shop.file_type.gsub(" ", ", ") %>
-    <div class="preview-avatar col-md-3">
+    <div class="preview-avatar">
       <%= image_tag @product.avatar.url if @product.avatar? %>
     </div>
   </div>
   <table>
-    <div class="images form-group col-md-6">
+    <div class="form-group">
       <%= f.label t("shop.product.create.more_images") %>
-      <%= f.fields_for :images do |image| %>
-        <%= render "image_fields", f: image %>
+      <% if @product.images.any? %>
+        <% @product.images.each do |img| %>
+          <div id="img-<%= img.id %>" class="image-detail col-md-3">
+            <%= image_tag img.image.url %>
+            <%= link_to t("shop.product.create.remove"),
+                        shops_image_path(img.id),
+                        class: "btn btn-warning btn-del-img",
+                        data: {
+                          id: img.id,
+                          product_id: @product.id
+                        }
+            %>
+          </div>
+        <% end %>
       <% end %>
     </div>
     <%= link_to_add_association t("shop.product.create.add"), f,
@@ -73,6 +85,10 @@
                                     association_insertion_method: :append,
                                 }
     %>
+    <%= f.fields_for :images do |image| %>
+      <%= render "image_fields", f: image %>
+    <% end %>
+    <div class="images"></div>
   </table>
   <div class="form-group mb-0">
     <div class="product-buttons text-center">
