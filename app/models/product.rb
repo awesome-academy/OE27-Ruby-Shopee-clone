@@ -1,9 +1,11 @@
 class Product < ApplicationRecord
-  CREATE_PRODUCT_PARAMS = [
+  PRODUCT_PARAMS = [
       :name, :brand_id, :category_id, :price, :description, :avatar,
-      product_colors_attributes: [:product_id, :color_id, :quantity],
-      images_attributes: [:image]
+      product_colors_attributes: [:id, :product_id, :color_id, :quantity],
+      images_attributes: [:id, :image]
   ]
+
+  before_save :set_slug
 
   scope :order_by_created_at, -> {order created_at: :desc}
   scope :select_product_field, -> {select :id, :name, :price, :brand_id, :category_id, :created_at}
@@ -29,4 +31,15 @@ class Product < ApplicationRecord
   validates :brand_id, :category_id, :user_id, presence: true
   validates :price, presence: true, numericality: true
   validates :description, presence: true, length: {maximum: Settings.shop.description_max_length}
+  validates :description, presence: true, length: {maximum: Settings.shop.description_max_length}
+
+  def to_param
+    slug
+  end
+
+  private
+
+  def set_slug
+    self.slug = name.to_s.parameterize
+  end
 end

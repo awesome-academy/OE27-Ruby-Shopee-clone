@@ -6,6 +6,21 @@
   max-width: 100%;
 }
 
+.preview-images {
+  max-width: 350px;
+}
+
 .preview-images img {
-  max-width: 100%;
+  max-width: 350px;
+}
+
+.image-detail .btn-warning {
+  opacity: 25%;
+  position: relative;
+  left: 287px;
+  bottom: 38px;
+}
+
+.image-detail .btn-warning:hover {
+  opacity: 100%;
 }

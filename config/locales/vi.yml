@@ -54,6 +54,7 @@ vi:
       order: "Đơn hàng"
       this_month: "Tháng này"
     product:
+      not_exist_product: "Sản phẩm không tồn tại"
       create:
         title: "Thêm mới sản phẩm"
         name: "Tên sản phẩm"
@@ -76,6 +77,10 @@ vi:
         function: "Chức năng"
         edit: "Sửa"
         delete: "Xóa"
+      update:
+        submit: "Cập nhật"
+        update_success: "Sửa sản phẩm thành công"
+        update_fail: "Sửa sản phẩm thất bại"
     datatable:
       search: "Tìm kiếm"
       empty: "Bạn không có sản phẩm nào"
