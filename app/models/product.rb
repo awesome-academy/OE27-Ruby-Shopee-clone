@@ -1,8 +1,8 @@
 class Product < ApplicationRecord
   PRODUCT_PARAMS = [
       :name, :brand_id, :category_id, :price, :description, :avatar,
-      product_colors_attributes: [:id, :product_id, :color_id, :quantity],
-      images_attributes: [:id, :image]
+      product_colors_attributes: [:id, :product_id, :color_id, :quantity, :_destroy],
+      images_attributes: [:id, :image, :_destroy]
   ]
 
   before_save :set_slug

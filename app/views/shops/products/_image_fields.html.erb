@@ -8,12 +8,12 @@
       <% @product.images.each do |img| %>
         <div class="image-detail">
           <%= image_tag img.image.url %>
-          <%= link_to t("shop.product.create.remove"), "#", class: "btn btn-warning" %>
         </div>
       <% end %>
     <% end %>
   </td>
-  <td>
+  <td class="del-img">
+    <%= f.check_box :_destroy %>
     <%= link_to_remove_association t("shop.product.create.remove"), f %>
   </td>
 </tr>
