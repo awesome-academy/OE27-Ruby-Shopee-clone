@@ -1,12 +1,13 @@
 class Shops::ProductsController < ShopsController
   before_action :check_login
-  before_action :load_product, only: %i(edit update)
+  before_action :load_product, only: %i(edit update destroy)
 
   def index
     @products = current_user.products
-                   .select_product_field
-                   .order_by_created_at
-                   .eager_load :brand, :category
+                    .select_fields
+                    .not_deleted
+                    .by_created_at
+                    .eager_load :brand, :category
   end
 
   def new
@@ -37,14 +38,23 @@ class Shops::ProductsController < ShopsController
     end
   end
 
+  def destroy
+    if @product.update_attribute :deleted_at, Time.now.zone
+      flash[:success] = t "shop.product.index.delete_success"
+    else
+      flash[:danger] = t "shop.product.index.delete_fail"
+    end
+    redirect_to shops_products_path
+  end
+
   private
 
   def load_product
-    @product = Product.find_by slug: params[:slug]
+    @product = Product.by_slug(params[:slug]).by_deleted.first
     return if @product
 
     flash[:warning] = t "shop.product.not_exist_product"
-    redirect_to shops_root_path
+    redirect_to shops_products_path
   end
 
   def product_params

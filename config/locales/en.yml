@@ -1,4 +1,15 @@
 en:
+  datetime:
+    formats:
+      default: "%m/%d/%Y - %H:%M"
+  number:
+    currency:
+      format:
+        unit: "$"
+        delimiter: ","
+        separator: "."
+        precision: 2
+        format: "%u%n"
   home:
     header:
       account: "My account"
@@ -61,7 +72,9 @@ en:
         created_at: "Created at"
         function: "Function"
         edit: "Edit"
-        delete: "Delete"
+        confirm_delete: "Are you sure to delete ?"
+        delete_success: "Deleted successfully"
+        delete_fail: "Deleted un-successfully"
       update:
         submit: "Update"
         update_success: "Edited product successfully"
