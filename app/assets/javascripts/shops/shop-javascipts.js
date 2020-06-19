@@ -1,15 +1,4 @@
 $(function() {
-  $('tbody > tr:first .del-row').click(false);
-  
-  $('#new-row').click(function() {
-    let row = $('tbody > tr:first').clone();
-    $('tbody').append(row);
-  });
-  
-  $('tbody').on('click', '.del-row', function(e) {
-    $(this).closest('tr').remove();
-  });
-  
   function validate_image(file_size, tag, e) {
     if (file_size > 1) {
       alert(I18n.t("shop.product.create.validate_image"));
@@ -51,4 +40,20 @@ $(function() {
     'info': true,
     'autoWidth': true,
   });
+  
+  function checkbox(param) {
+    if (param.is(':checked')) {
+      param.parent().find('input[type=hidden]').val(true);
+    } else {
+      param.parent().find('input[type=hidden]').val(false);
+    }
+  }
+  
+  $('.del-img input[type=checkbox]').change(function() {
+    checkbox($(this));
+  })
+  
+  $('.del-color input[type=checkbox]').change(function() {
+    checkbox($(this));
+  })
 });
