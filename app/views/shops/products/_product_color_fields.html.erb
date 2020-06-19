@@ -5,7 +5,8 @@
   <td>
     <%= f.number_field :quantity, class: "form-control" %>
   </td>
-  <td>
+  <td class="del-color">
+    <%= f.check_box :_destroy %>
     <%= link_to_remove_association t("shop.product.create.remove"), f %>
   </td>
 </tr>
