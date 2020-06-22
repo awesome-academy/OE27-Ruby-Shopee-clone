@@ -19,10 +19,12 @@ password:
   minimum: 6
 length_input: 80
 user_mail: "https://gravatar.com/emails"
-record_per_page: 10
+record_per_page: 4
 paginate_theme: "twitter-bootstrap-3"
 size_avatar: 50
 norep_email: "Anhlinh12369@icloud.com"
 max_content: 140
 size_max: 5
 resize_to_limit: "100x100"
+price_100: 100
+price_200: 200

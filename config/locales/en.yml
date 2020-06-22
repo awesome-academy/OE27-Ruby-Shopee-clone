@@ -1,4 +1,15 @@
 en:
+  datetime:
+    formats:
+      default: "%m/%d/%Y - %H:%M"
+  number:
+    currency:
+      format:
+        unit: "$"
+        delimiter: ","
+        separator: "."
+        precision: 2
+        format: "%u%n"
   home:
     header:
       account: "My account"
@@ -23,6 +34,12 @@ en:
     sign_up:
       success: "sign_up successfuly"
       fail: "sign_up fail"
+
+  product:
+    filter:
+      price_100: "100$ 200$"
+      price_200: "200$ 300$"
+    filter_fail: "Can not find product"
 
   shop:
     header:
@@ -61,11 +78,23 @@ en:
         created_at: "Created at"
         function: "Function"
         edit: "Edit"
-        delete: "Delete"
+        confirm_delete: "Are you sure to delete ?"
+        delete_success: "Deleted successfully"
+        delete_fail: "Deleted un-successfully"
       update:
         submit: "Update"
         update_success: "Edited product successfully"
         update_fail: "Edited product un-successfully"
+    order:
+      index:
+        customer: "Customer"
+        address: "Address"
+        total_money: "Total money"
+        created_at: "Created at"
+        status: "Status"
+        choose_select: "Choose an option"
+        pending: "Pending"
+        checked: "Checked"
     datatable:
       search: "Search"
       empty: "You do not have any products"

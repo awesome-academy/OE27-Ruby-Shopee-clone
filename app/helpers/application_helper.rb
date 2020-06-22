@@ -12,4 +12,5 @@ module ApplicationHelper
     number = locale == :en ? number / Settings.shop.dollar : number
     number_to_currency(number, unit: t("number.currency.format.unit"), separator: ",", delimiter: ".")
   end
+
 end

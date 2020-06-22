@@ -38,6 +38,12 @@ vi:
       success: "Tạo tài khoản thành công"
       fail: "Tạo tài khoản thất bại"
 
+  product:
+    filter:
+      price_100: "100$ 200$"
+      price_200: "200$ 300$"
+    filter_fail: "Không tìm thấy sản phẩm"
+
   shop:
     header:
       profile: "Trang cá nhân"
@@ -77,10 +83,23 @@ vi:
         function: "Chức năng"
         edit: "Sửa"
         delete: "Xóa"
+        confirm_delete: "Bạn có chắc chắn muốn xóa ?"
+        delete_success: "Bạn đã xóa thành công"
+        delete_fail: "Bạn đã xóa không thành công"
       update:
         submit: "Cập nhật"
         update_success: "Sửa sản phẩm thành công"
         update_fail: "Sửa sản phẩm thất bại"
+    order:
+      index:
+        customer: "Khách hàng"
+        address: "Địa chỉ"
+        total_money: "Tổng tiền"
+        created_at: "Ngày mua"
+        status: "Trạng thái"
+        choose_select: "Chọn trạng thái"
+        pending: "Chờ xác nhận"
+        checked: "Đã xác thực"
     datatable:
       search: "Tìm kiếm"
       empty: "Bạn không có sản phẩm nào"

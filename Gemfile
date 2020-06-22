@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.1"
 
+gem "ransack"
+gem "bootstrap-kaminari-views"
+gem "kaminari"
 gem "faker", "1.7.3"
 gem "bcrypt", "3.1.13"
 gem "jquery-slick-rails"
