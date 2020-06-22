@@ -1,0 +1,41 @@
+<%= provide :title, t("shop.product.index.title") %>
+<div class="container-fluid">
+  <div class="row product-adding">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="digital-add needs-validation">
+            <%= form_tag shops_orders_path, id: "select-status", method: :get do %>
+              <div class="row mb-3">
+                <%= label_tag :status, t("shop.order.index.status"), class: "col-md-2" %>
+                <%= select_tag :status,
+                               options_for_select(
+                                   select_status.unshift(t("shop.order.index.choose_select")),
+                                   selected: params[:status],
+                               ),
+                               {class: "form-control col-md-3"}
+                %>
+              </div>
+            <% end %>
+            <table id="data-table" class="table table-hover table-bordered">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th><%= t "shop.order.index.customer" %></th>
+                  <th><%= t "shop.order.index.address" %></th>
+                  <th><%= t "shop.order.index.total_money" %></th>
+                  <th><%= t "shop.order.index.created_at" %></th>
+                  <th><%= t "shop.order.index.status" %></th>
+                  <th><%= t "shop.product.index.function" %></th>
+                </tr>
+              </thead>
+              <tbody class="list-order">
+                <%= render @orders %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
