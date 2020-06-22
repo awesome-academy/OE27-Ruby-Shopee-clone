@@ -56,4 +56,9 @@ $(function() {
   $('.del-color input[type=checkbox]').change(function() {
     checkbox($(this));
   })
+  
+  $('#select-status .form-control').change(function() {
+    $('#select-status #status option:first').val('');
+    $('#select-status').submit();
+  })
 });

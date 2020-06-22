@@ -84,6 +84,16 @@ vi:
         submit: "Cập nhật"
         update_success: "Sửa sản phẩm thành công"
         update_fail: "Sửa sản phẩm thất bại"
+    order:
+      index:
+        customer: "Khách hàng"
+        address: "Địa chỉ"
+        total_money: "Tổng tiền"
+        created_at: "Ngày mua"
+        status: "Trạng thái"
+        choose_select: "Chọn trạng thái"
+        pending: "Chờ xác nhận"
+        checked: "Đã xác thực"
     datatable:
       search: "Tìm kiếm"
       empty: "Bạn không có sản phẩm nào"
