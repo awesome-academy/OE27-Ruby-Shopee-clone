@@ -1,4 +1,15 @@
 en:
+  datetime:
+    formats:
+      default: "%m/%d/%Y - %H:%M"
+  number:
+    currency:
+      format:
+        unit: "$"
+        delimiter: ","
+        separator: "."
+        precision: 2
+        format: "%u%n"
   home:
     header:
       account: "My account"
@@ -66,6 +77,16 @@ en:
         submit: "Update"
         update_success: "Edited product successfully"
         update_fail: "Edited product un-successfully"
+    order:
+      index:
+        customer: "Customer"
+        address: "Address"
+        total_money: "Total money"
+        created_at: "Created at"
+        status: "Status"
+        choose_select: "Choose an option"
+        pending: "Pending"
+        checked: "Checked"
     datatable:
       search: "Search"
       empty: "You do not have any products"

@@ -1,0 +1,15 @@
+<tr>
+  <td><%= order_counter %></td>
+  <td><%= order.user_name %></td>
+  <td><%= order.address %></td>
+  <td>
+    <% total = 0 %>
+    <% order.order_item.each {|item| total += (item.price_product * item.quantity) } %>
+    <%= format_currency total %>
+  </td>
+  <td><%= format_date order.created_at %></td>
+  <td>
+    <%= check_status order %>
+  </td>
+  <td>Function</td>
+</tr>
