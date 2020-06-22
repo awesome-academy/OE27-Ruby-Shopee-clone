@@ -10,4 +10,8 @@ module Shops::OrdersHelper
   def total_money order
     order.inject(0){|total, item| total += (item.price_product * item.quantity)}
   end
+
+  def sub_total price, qty
+    price * qty
+  end
 end

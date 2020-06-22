@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       root to: "homes#index"
 
       resources :products, param: :slug
-      resources :orders, only: :index
+      resources :orders, only: %i(index show update)
     end
   end
 end

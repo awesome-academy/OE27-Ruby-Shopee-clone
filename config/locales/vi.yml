@@ -86,6 +86,7 @@ vi:
         update_fail: "Sửa sản phẩm thất bại"
     order:
       index:
+        title: "Danh sách đơn hàng"
         customer: "Khách hàng"
         address: "Địa chỉ"
         total_money: "Tổng tiền"
@@ -94,6 +95,15 @@ vi:
         choose_select: "Chọn trạng thái"
         pending: "Chờ xác nhận"
         checked: "Đã xác thực"
+      detail:
+        title: "Chi tiết đơn hàng"
+        detail: "Chi tiết"
+        phone: "Số điện thoại"
+        sub_total: "Tổng tiền"
+        total: "Tổng thanh toán"
+        no_order: "Không tìm thấy đơn hàng"
+        update_success: "Cập nhật đơn hàng thành công"
+        update_fail: "Cập nhật đơn hàng không thành công"
     datatable:
       search: "Tìm kiếm"
       empty: "Bạn không có sản phẩm nào"

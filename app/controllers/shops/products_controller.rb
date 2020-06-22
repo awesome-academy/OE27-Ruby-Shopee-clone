@@ -50,7 +50,7 @@ class Shops::ProductsController < ShopsController
   private
 
   def load_product
-    @product = Product.by_slug(params[:slug]).by_deleted.first
+    @product = Product.by_slug(params[:slug]).not_deleted.first
     return if @product
 
     flash[:warning] = t "shop.product.not_exist_product"
