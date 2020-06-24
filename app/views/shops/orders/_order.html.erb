@@ -3,11 +3,13 @@
   <td><%= order.user_name %></td>
   <td><%= order.address %></td>
   <td>
-    <%= format_currency(total_money order.order_item) %>
+    <%= format_currency(total_money order.order_items) %>
   </td>
   <td><%= format_date order.created_at %></td>
   <td>
     <%= get_status order %>
   </td>
-  <td></td>
+  <td>
+    <%= link_to t("shop.order.detail.detail"), shops_order_path(order), class: "btn btn-primary" %>
+  </td>
 </tr>

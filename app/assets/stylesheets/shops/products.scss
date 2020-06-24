@@ -24,3 +24,16 @@
 .image-detail .btn-warning:hover {
   opacity: 100%;
 }
+
+.order-img img {
+  max-width: 100px;
+}
+
+select.form-control {
+  display: inline;
+}
+
+.this-month {
+  margin-top: 20px;
+  display: block;
+}
