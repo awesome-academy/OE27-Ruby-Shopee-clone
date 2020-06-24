@@ -1,0 +1,72 @@
+<%= provide :title, t("shop.order.detail.title") %>
+<div class="container-fluid">
+  <div class="row product-adding">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="digital-add needs-validation">
+            <div class="row">
+              <div class="col-md-4">
+                <%= label_tag t("shop.order.index.customer") %>:
+                <%= @order.user_name %>
+              </div>
+              <div class="col-md-4">
+                <%= label_tag t("shop.order.detail.phone") %>:
+                <%= @order.user_phone %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <%= label_tag t("shop.order.index.address") %>:
+                <%= @order.address %>
+              </div>
+              <div class="col-md-4">
+                <%= label_tag t("shop.order.index.created_at") %>:
+                <%= format_date @order.created_at %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <%= label_tag t "shop.order.index.status" %>:
+                <%= select_tag :status,
+                               options_for_select(
+                                   select_status,
+                                   selected: @order.read_attribute_before_type_cast(:status),
+                                   ),
+                               {class: "form-control col-md-3", id: "order-status",
+                                data: {url: shops_order_path(@order.id)}
+                               }
+                %>
+                <%= button_tag t("shop.product.update.submit"), id: "btn-update-order", class: "btn btn-primary" %>
+              </div>
+            </div>
+            <div class="col-md-12 mt-3">
+              <h4><%= label_tag t("shop.order.detail.title") %></h4>
+            </div>
+            <table class="table table-hover table-bordered">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th><%= t "shop.product.create.avatar" %></th>
+                <th><%= t "shop.product.create.name" %></th>
+                <th><%= t "shop.product.create.price" %></th>
+                <th><%= t "shop.product.create.quantity" %></th>
+                <th><%= t "shop.order.detail.sub_total" %></th>
+              </tr>
+              </thead>
+              <tbody class="list-order">
+                <%= render partial: "shops/orders/order_item", collection: @order.order_items %>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th colspan="5"><%= t "shop.order.index.total_money" %></th>
+                  <th><%= format_currency(total_money @order.order_items) %></th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

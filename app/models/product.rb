@@ -11,6 +11,7 @@ class Product < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :brand
+  has_many :order_items
 
   accepts_nested_attributes_for :product_colors, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :all_blank
