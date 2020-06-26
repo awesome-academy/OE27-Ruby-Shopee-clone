@@ -4,7 +4,10 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header p-b-0 p-t-1">
-          <%= link_to t("shop.product.create.add"), new_shops_product_path, class: "btn btn-success float-right" %>
+          <%= link_to new_shops_product_path, class: "btn btn-success float-right",
+                      data: { toggle: "tooltip", placement: "right"}, title: t("shop.product.create.add") do %>
+            <i class="fas fa-plus"></i>
+          <% end %>
         </div>
         <div class="card-body">
           <div class="digital-add needs-validation">

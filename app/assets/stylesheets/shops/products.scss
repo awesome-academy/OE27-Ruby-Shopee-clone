@@ -37,3 +37,8 @@ select.form-control {
   margin-top: 20px;
   display: block;
 }
+
+thead tr th {
+  white-space: nowrap;
+  text-overflow: clip;
+}

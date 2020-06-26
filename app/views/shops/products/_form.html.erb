@@ -18,38 +18,38 @@
       <%= f.number_field :price, class: "form-control" %>
     </div>
   </div>
-  <div class="color col-md-6">
+  <div class="color col-md-7">
     <table class="table table-hover">
       <thead>
-      <tr>
-        <th><%= t "shop.product.create.color" %></th>
-        <th><%= t "shop.product.create.quantity" %></th>
-        <th></th>
-      </tr>
+        <tr>
+          <th><%= t "shop.product.create.color" %></th>
+          <th><%= t "shop.product.create.quantity" %></th>
+          <th></th>
+        </tr>
       </thead>
       <tbody class="product-colors">
-      <%= f.fields_for :product_colors do |color| %>
-        <%= render "product_color_fields", f: color %>
-      <% end %>
+        <%= f.fields_for :product_colors do |color| %>
+          <%= render "product_color_fields", f: color %>
+        <% end %>
       </tbody>
       <tfoot>
-      <tr>
-        <td colspan="3">
-          <%= link_to_add_association t("shop.product.create.add"), f,
-                                      :product_colors,
-                                      data: {
-                                          association_insertion_node: ".product-colors",
-                                          association_insertion_method: :append,
-                                      }
-          %>
-        </td>
-      </tr>
+        <tr>
+          <td colspan="3">
+            <%= link_to_add_association t("shop.product.create.add"), f,
+                                        :product_colors,
+                                        data: {
+                                            association_insertion_node: ".product-colors",
+                                            association_insertion_method: :append,
+                                        }
+            %>
+          </td>
+        </tr>
       </tfoot>
     </table>
   </div>
   <div class="form-group mb-0">
     <div class="description-sm">
-      <%= f.text_area :description, size: "40x10" %>
+      <%= f.cktext_area :description, id: "ckeditor", class: "ckeditor form-control" %>
     </div>
   </div>
   <div class="avatar form-group">
@@ -80,3 +80,4 @@
     </div>
   </div>
 <% end %>
+<%= javascript_include_tag Ckeditor.cdn_url %>

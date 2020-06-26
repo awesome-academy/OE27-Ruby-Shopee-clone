@@ -14,6 +14,8 @@
   </td>
   <td class="del-img">
     <%= f.check_box :_destroy %>
-    <%= link_to_remove_association t("shop.product.create.remove"), f %>
+    <%= link_to_remove_association f, class: "btn-sm btn-danger" do %>
+      <i class="fas fa-minus-circle"></i>
+    <% end %>
   </td>
 </tr>

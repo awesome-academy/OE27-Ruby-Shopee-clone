@@ -10,6 +10,8 @@
     <%= get_status order %>
   </td>
   <td>
-    <%= link_to t("shop.order.detail.detail"), shops_order_path(order), class: "btn btn-primary" %>
+    <%= link_to shops_order_path(order), class: "btn btn-info" do %>
+      <i class="far fa-eye"></i>
+    <% end %>
   </td>
 </tr>

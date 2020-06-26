@@ -6,12 +6,21 @@
   <td><%= product.category_name %></td>
   <td><%= format_date product.created_at %></td>
   <td>
-    <%= link_to t("shop.product.index.edit"), edit_shops_product_path(product.slug), class: "btn btn-warning" %>
-    <%= link_to t("shop.product.index.delete"),
-                shops_product_path(product.slug),
-                class: "btn btn-danger",
-                method: :delete,
-                data: {confirm: t("shop.product.index.confirm_delete")}
-    %>
+    <div class="btn-group">
+      <%= link_to edit_shops_product_path(product.slug), class: "btn btn-warning",
+                  data: {toggle: "tooltip", placement: "right"}, title: t("shop.product.index.edit") do %>
+        <i class="far fa-edit"></i>
+      <% end %>
+      <%= link_to shops_product_path(product.slug),
+                  class: "btn btn-danger",
+                  method: :delete,
+                  title: t("shop.product.index.delete"),
+                  data: {
+                    confirm: t("shop.product.index.confirm_delete"),
+                    toggle: "tooltip", placement: "right"
+                  } do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
+    </div>
   </td>
 </tr>
