@@ -35,6 +35,7 @@ gem "i18n-js"
 gem "jquery-datatables-rails"
 gem "ajax-datatables-rails"
 gem "kaminari"
+gem "chartkick"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

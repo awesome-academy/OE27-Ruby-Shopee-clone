@@ -4,7 +4,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header p-b-0 p-t-1">
-          <button class="btn btn-success float-right"><%= t "shop.product.create.add" %></button>
+          <%= link_to t("shop.product.create.add"), new_shops_product_path, class: "btn btn-success float-right" %>
         </div>
         <div class="card-body">
           <div class="digital-add needs-validation">

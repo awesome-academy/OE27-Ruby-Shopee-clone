@@ -1,6 +1,6 @@
 <tr class="order-img">
   <td><%= order_item_counter + 1 %></td>
-  <td><%= image_tag order_item.product_avatar.url %></td>
+  <td><%= image_tag order_item.product_avatar.url if order_item.product_avatar.present? %></td>
   <td><%= order_item.product_name %></td>
   <td><%= format_currency order_item.price_product %></td>
   <td><%= order_item.quantity %></td>

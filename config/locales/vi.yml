@@ -49,10 +49,13 @@ vi:
       order: "Đơn hàng"
     index:
       title: "Gian hàng"
-      earning: "Doanh thu"
+      earning: "Tổng doanh thu"
       product: "Sản phẩm"
       order: "Đơn hàng"
       this_month: "Tháng này"
+      month: "Tháng"
+      money: "Tiền"
+      chart_title: "Biểu đồ doanh thu trong năm"
     product:
       not_exist_product: "Sản phẩm không tồn tại"
       create:

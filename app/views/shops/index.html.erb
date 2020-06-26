@@ -1,7 +1,7 @@
 <%= provide :title, t("shop.index.title") %>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xl-3 col-md-6 xl-50">
+    <div class="col-xl-4 col-md-6 xl-50">
       <div class="card o-hidden widget-cards">
         <div class="bg-warning card-body">
           <div class="media static-top-widget row">
@@ -9,13 +9,16 @@
               <div class="align-self-center text-center"><i data-feather="navigation" class="font-warning"></i></div>
             </div>
             <div class="media-body col-8"><span class="m-0"><%= t "shop.index.earning" %></span>
-              <h3 class="mb-0">$ <span class="counter">6659</span><small> <%= t "shop.index.this_month" %></small></h3>
+              <h3 class="mb-0">
+                <span class="counter"><%= format_currency @earned %></span>
+                <small class="this-month"></small>
+              </h3>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-xl-3 col-md-6 xl-50">
+    <div class="col-xl-4 col-md-6 xl-50">
       <div class="card o-hidden  widget-cards">
         <div class="bg-secondary card-body">
           <div class="media static-top-widget row">
@@ -23,13 +26,16 @@
               <div class="align-self-center text-center"><i data-feather="box" class="font-secondary"></i></div>
             </div>
             <div class="media-body col-8"><span class="m-0"><%= t "shop.index.product" %></span>
-              <h3 class="mb-0">$ <span class="counter">9856</span><small> <%= t "shop.index.this_month" %></small></h3>
+              <h3 class="mb-0">
+                <span class="counter"><%= @total_products %></span>
+                <small class="this-month"> <%= t "shop.index.this_month" %></small>
+              </h3>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-xl-3 col-md-6 xl-50">
+    <div class="col-xl-4 col-md-6 xl-50">
       <div class="card o-hidden widget-cards">
         <div class="bg-primary card-body">
           <div class="media static-top-widget row">
@@ -37,11 +43,18 @@
               <div class="align-self-center text-center"><i data-feather="message-square" class="font-primary"></i></div>
             </div>
             <div class="media-body col-8"><span class="m-0"><%= t "shop.index.order" %></span>
-              <h3 class="mb-0">$ <span class="counter">893</span><small> <%= t "shop.index.this_month" %></small></h3>
+              <h3 class="mb-0">
+                <span class="counter"><%= @total_orders %></span>
+                <small class="this-month"> <%= t "shop.index.this_month" %></small>
+              </h3>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="col-md-12">
+      <%= revenue_chart %>
+    </div>
   </div>
 </div>
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>

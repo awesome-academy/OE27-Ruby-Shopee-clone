@@ -46,10 +46,13 @@ en:
       order: "Orders"
     index:
       title: "Shop"
-      earning: "Earning"
+      earning: "Total Earning"
       product: "Products"
       order: "Orders"
       this_month: "This month"
+      month: "Month"
+      money: "Money"
+      chart_title: "Revenue statistics chart"
     product:
       create:
         title: "Add new product"

@@ -31,6 +31,11 @@ class Product < ApplicationRecord
   scope :select_fields, -> {select :id, :name, :slug, :price, :brand_id, :category_id, :created_at, :deleted_at}
   scope :not_deleted, -> {where deleted_at: nil}
   scope :by_slug, -> (slug) {where slug: slug}
+  scope :group_by_month, -> {group("MONTH(orders.created_at)")}
+  scope :total_money, -> {sum("order_items.price_product * order_items.quantity")}
+  scope :total_product, -> {sum("order_items.quantity")}
+  scope :total_order, -> {count("orders.id")}
+  scope :this_month, -> {where "MONTH(orders.created_at) = ?", Time.now.strftime("%m")}
 
   mount_uploader :avatar, ProductImageUploader,
                  reject_if: proc { |param| param[:avatar].blank? &&
