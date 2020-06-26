@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   function validate_image(file_size, tag, e) {
     if (file_size > 1) {
       alert(I18n.t("shop.product.create.validate_image"));
