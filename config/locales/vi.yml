@@ -45,6 +45,16 @@ vi:
     filter_fail: "Không tìm thấy sản phẩm"
 
   shop:
+    import:
+      header:
+        name: "Tên"
+        brand: "Tên hãng"
+        category: "Danh mục"
+        created_at: "Ngày tạo"
+        color: "Màu sắc"
+        price: "Giá bán"
+        quantity: "Số lượng"
+        sub_money: "Tổng"
     header:
       profile: "Trang cá nhân"
       setting: "Thiết lập"
@@ -81,6 +91,12 @@ vi:
         remove: "Xóa"
         more_images: "Ảnh chi tiết"
         validate_image: "Chỉ hỗ trợ ảnh .png, .jpg và .jpeg, dung lượng phải nhỏ hơn 1MB"
+        choose_file: "Chọn file"
+        file_error: "Bạn phải chọn file .xls, .xlsx, .csv"
+        data_error: "File tải lên không có dữ liệu"
+        error_row: "Có lỗi tại dòng %{row}"
+        import_success: "Đã nhập sản phẩm thành công"
+        import_fail: "Nhập sản phẩm không thành công"
       index:
         title: "Danh sách sản phẩm"
         created_at: "Ngày tạo"

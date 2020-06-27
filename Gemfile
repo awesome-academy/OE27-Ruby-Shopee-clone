@@ -39,6 +39,9 @@ gem "kaminari"
 gem "chartkick"
 gem "ckeditor"
 gem "mini_magick"
+gem "axlsx_rails"
+gem "roo"
+gem "activerecord-import"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

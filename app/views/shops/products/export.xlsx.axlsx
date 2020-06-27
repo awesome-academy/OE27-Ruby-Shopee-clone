@@ -1,0 +1,38 @@
+wb = xlsx_package.workbook
+
+wb.styles do |s|
+  title = wb.styles.add_style(
+    bg_color: "BBBBBB",
+    fg_color: "111111",
+    sz: 14,
+    b: true,
+    border: {style: :thin, color: "111111"},
+    alignment: { horizontal: :center }
+  )
+  currency = wb.styles.add_style format_code: "#.##"
+
+  wb.add_worksheet(name: "") do |sheet|
+    sheet.add_row t(:shop)[:import][:header].values.unshift("#"), style: title
+    i = 1
+    total_money = 0
+    @products.each do |product|
+  	  product.product_colors.each do |p|
+  	    sheet.add_row [
+  	      i,
+  	      product.name,
+  	      product.brand_name,
+  	      product.category_name,
+  	      product.created_at,
+  	      p.color.color,
+  	      product.price,
+  	      p.quantity,
+  	      product.price * p.quantity,
+  	    ]
+  	    total_money += product.price * p.quantity
+        i += 1
+  	  end
+    end
+    sheet.add_row [t("shop.order.index.total_money"), "", "", "", "", "", "", "", total_money], style: title
+    sheet.merge_cells "A#{i+1}:H#{i+1}"
+  end
+end

@@ -42,6 +42,16 @@ en:
     filter_fail: "Can not find product"
 
   shop:
+    import:
+      header:
+        name: "Name"
+        brand: "Brand"
+        category: "Category"
+        created_at: "Created at"
+        color: "Color"
+        price: "Price"
+        quantity: "Quantity"
+        sub_money: "Sub money"
     header:
       profile: "Profile"
       setting: "Setting"
@@ -77,6 +87,12 @@ en:
         remove: "Remove"
         more_images: "More images"
         validate_image: "Only support file type: .png, .jpg and .jpeg. File size must be smaller than 1MB"
+        choose_file: "Choose file"
+        file_error: "You must choose file .xls, .xlsx, .csv"
+        data_error: "Data in file is empty"
+        error_row: "Error at row %{row}"
+        import_success: "Import data successfully"
+        import_fail: "Import data un-successfully"
       index:
         title: "List products"
         created_at: "Created at"

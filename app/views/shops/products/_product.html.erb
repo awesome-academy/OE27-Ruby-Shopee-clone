@@ -9,7 +9,7 @@
     <div class="btn-group">
       <%= link_to edit_shops_product_path(product.slug), class: "btn btn-warning",
                   data: {toggle: "tooltip", placement: "right"}, title: t("shop.product.index.edit") do %>
-        <i class="far fa-edit"></i>
+        <i class="fa fa-edit"></i>
       <% end %>
       <%= link_to shops_product_path(product.slug),
                   class: "btn btn-danger",
@@ -19,7 +19,7 @@
                     confirm: t("shop.product.index.confirm_delete"),
                     toggle: "tooltip", placement: "right"
                   } do %>
-        <i class="far fa-trash-alt"></i>
+        <i class="fa fa-remove"></i>
       <% end %>
     </div>
   </td>
