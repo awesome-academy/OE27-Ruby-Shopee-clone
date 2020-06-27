@@ -4,10 +4,17 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header p-b-0 p-t-1">
-          <%= link_to new_shops_product_path, class: "btn btn-success float-right",
-                      data: { toggle: "tooltip", placement: "right"}, title: t("shop.product.create.add") do %>
-            <i class="fas fa-plus"></i>
-          <% end %>
+          <div class="row pl-3">
+            <div class="col-md-10">
+              <%= render "search" %>
+            </div>
+            <div class="col-md-2">
+              <%= link_to new_shops_product_path, class: "btn btn-success float-right",
+                          data: {toggle: "tooltip", placement: "right"}, title: t("shop.product.create.add") do %>
+                <i class="fas fa-plus"></i>
+              <% end %>
+            </div>
+          </div>
         </div>
         <div class="card-body">
           <div class="digital-add needs-validation">

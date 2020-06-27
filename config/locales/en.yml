@@ -79,6 +79,7 @@ en:
         confirm_delete: "Are you sure to delete ?"
         delete_success: "Deleted successfully"
         delete_fail: "Deleted un-successfully"
+        search: "Search"
       update:
         submit: "Update"
         update_success: "Edited product successfully"

@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   $('#btn-update-order').click(function() {
     $order_status = $(this).parent().find('#order-status');
     let status = $order_status.val();

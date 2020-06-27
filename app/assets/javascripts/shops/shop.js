@@ -10,3 +10,4 @@
 //= require dataTables/jquery.dataTables
 //= require Chart.bundle
 //= require chartkick
+//= require jquery-ui

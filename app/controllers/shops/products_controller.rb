@@ -6,6 +6,8 @@ class Shops::ProductsController < ShopsController
     @products = current_user.products
                     .select_fields
                     .not_deleted
+                    .search(params[:key])
+                    .price_range(params[:price_min], params[:price_max])
                     .by_created_at
                     .eager_load :brand, :category
   end

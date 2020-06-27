@@ -1,0 +1,25 @@
+<%= form_for shops_products_path, method: :get, id: "form-search" do %>
+  <div class="row align-items-center">
+    <div class="col-md-4 pt-2">
+      <%= text_field_tag :key, nil, placeholder: t("shop.product.index.search"), class: "form-control" %>
+      <%= hidden_field_tag :price_min, load_price(params[:price_min]) %>
+      <%= hidden_field_tag :price_max, load_price(params[:price_max], Settings.shop.price_max) %>
+    </div>
+    <div class="col-md-4">
+      <div class="price-slider-container">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span id="display-price-min">
+                          <%= format_currency load_price(params[:price_min]) %>
+                        </span>
+          <span id="display-price-max">
+                          <%= format_currency load_price(params[:price_max], Settings.shop.price_max) %>
+                        </span>
+        </div>
+        <div id="the_slider"></div>
+      </div>
+    </div>
+    <div class="col-md-4 pt-2">
+      <%= button_tag t("shop.product.index.search"), type: :submit, class: "btn btn-info" %>
+    </div>
+  </div>
+<% end %>
