@@ -5,17 +5,12 @@
   </td>
   <td class="preview-images">
     <% if @product.images.any? %>
-      <% @product.images.each do |img| %>
-        <div class="image-detail">
-          <%= image_tag img.image.url %>
-        </div>
-      <% end %>
+      <div class="image-detail">
+        <%= image_tag @product.images[f.options[:child_index].to_i].image.url %>
+      </div>
     <% end %>
   </td>
   <td class="del-img">
-    <%= f.check_box :_destroy %>
-    <%= link_to_remove_association f, class: "btn-sm btn-danger" do %>
-      <i class="fas fa-minus-circle"></i>
-    <% end %>
+    <%= f.check_box :_destroy, title: t("shop.product.create.remove") %>
   </td>
 </tr>

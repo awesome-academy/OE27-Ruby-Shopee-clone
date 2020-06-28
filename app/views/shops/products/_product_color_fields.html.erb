@@ -3,12 +3,10 @@
     <%= f.collection_select :color_id, load_color, :id, :color, {}, {class: "form-control"} %>
   </td>
   <td>
-    <%= f.number_field :quantity, class: "form-control" %>
+    <%= f.number_field :quantity, class: "form-control #{is_invalid @product}" %>
+    <%= show_message_validate @product, t("shop.product.create.quantity") %>
   </td>
   <td class="del-color">
-    <%= f.check_box :_destroy %>
-    <%= link_to_remove_association f, class: "btn-sm btn-danger" do %>
-      <i class="fas fa-minus-circle"></i>
-    <% end %>
+    <%= f.check_box :_destroy, title: t("shop.product.create.remove") %>
   </td>
 </tr>

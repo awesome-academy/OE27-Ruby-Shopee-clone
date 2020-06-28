@@ -13,7 +13,7 @@ class Product < ApplicationRecord
   belongs_to :brand
   has_many :order_items
 
-  accepts_nested_attributes_for :product_colors, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :product_colors, allow_destroy: true, reject_if: :reject_product_colors && !:new_record?
   accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :all_blank
 
   delegate :name, to: :brand, prefix: true
@@ -43,6 +43,10 @@ class Product < ApplicationRecord
 
   def to_param
     slug
+  end
+
+  def reject_product_colors attributed
+    attributed["quantity"].blank?
   end
 
   private

@@ -1,8 +1,8 @@
 <%= form_for [:shops, @product] do |f| %>
-  <%= render "shops/shared/error", object: f.object %>
   <div class="form-group">
     <%= f.label :name, t("shop.product.create.name") %>
-    <%= f.text_field :name, class: "form-control" %>
+    <%= f.text_field :name, class: "form-control #{is_invalid @product}" %>
+    <%= show_message_validate @product, t("shop.product.create.name") %>
   </div>
   <div class="row">
     <div class="form-group col-md-4">
@@ -15,10 +15,11 @@
     </div>
     <div class="form-group col-md-4">
       <%= f.label :price, t("shop.product.create.price") %>
-      <%= f.number_field :price, class: "form-control" %>
+      <%= f.number_field :price, class: "form-control #{is_invalid @product}" %>
+      <%= show_message_validate @product, t("shop.product.create.price") %>
     </div>
   </div>
-  <div class="color col-md-7">
+  <div class="color col-md-7 row">
     <table class="table table-hover">
       <thead>
         <tr>
@@ -49,10 +50,12 @@
   </div>
   <div class="form-group mb-0">
     <div class="description-sm">
-      <%= f.cktext_area :description, id: "ckeditor", class: "ckeditor form-control" %>
+      <%= f.label t "shop.product.create.description" %>
+      <%= f.cktext_area :description, id: "ckeditor", class: "ckeditor form-control #{is_invalid @product}" %>
+      <%= show_message_validate @product, t("shop.product.create.description") %>
     </div>
   </div>
-  <div class="avatar form-group">
+  <div class="avatar form-group mt-3">
     <%= f.label :avatar, t("shop.product.create.avatar") %>
     <%= f.file_field :avatar, accept: Settings.shop.file_type.gsub(" ", ", ") %>
     <div class="preview-avatar col-md-3">
@@ -60,7 +63,7 @@
     </div>
   </div>
   <table>
-    <div class="images form-group col-md-6">
+    <div class="images form-group col-md-6 row">
       <%= f.label t("shop.product.create.more_images") %>
       <%= f.fields_for :images do |image| %>
         <%= render "image_fields", f: image %>
