@@ -1,0 +1,163 @@
+<!-- section start -->
+<section class="section-b-space ratio_asos">
+  <div class="collection-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 collection-filter">
+          <!-- side-bar colleps block stat -->
+          <div class="collection-filter-block">
+            <%= form_tag products_path, method: "get", remote: true do %>
+            <!-- brand filter start -->
+              <div class="collection-mobile-back"><span class="filter-back"><i class="fa fa-angle-left"
+                    aria-hidden="true"></i><%= t "home.back" %></span></div>
+              <div class="collection-collapse-block open">
+                <h3 class="collapse-block-title"><%= t "home.brand" %></h3>
+                <div class="collection-collapse-block-content">
+                  <div class="collection-brand-filter">
+                    <% load_brand.each do |brand| %>
+                      <div class="custom-control custom-checkbox collection-filter-checkbox">
+                        <%= check_box_tag "brands[]", brand.id, false, id: "brand#{brand.id}" %>
+                          <%= label_tag class: "brand-select" do %>
+                            <%= brand.name %>
+                          <% end %>
+                      </div>
+                    <% end -%>
+                  </div>
+                </div>
+              </div>
+              <!-- color filter start here -->
+              <div class="collection-collapse-block open">
+                <h3 class="collapse-block-title"><%= t "home.color" %></h3>
+                <div class="collection-collapse-block-content">
+                  <div class="collection-brand-filter">
+                    <% load_color.each do |color| %>
+                      <div class="custom-control custom-checkbox collection-filter-checkbox">
+                        <%= check_box_tag "colors[]", color.id, false, id: "color#{color.id}" %>
+                        <%= label_tag class: "color-select" do %>
+                          <%= color.color %>
+                        <% end %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <!-- price filter start here -->
+              <div class="collection-collapse-block border-0 open">
+                <h3 class="collapse-block-title"><%= t "home.price" %></h3>
+                <div class="collection-collapse-block-content">
+                  <div class="collection-brand-filter">
+                    <div class="custom-control custom-checkbox collection-filter-checkbox">
+                        <%= check_box_tag "prices[]", Settings.price_100, false, :id => "100"%>
+                          <%= label_tag class: "price-select" do %>
+                            <%= t "product.filter.price_100" %>
+                          <% end %>
+                      </div>
+                     <div class="custom-control custom-checkbox collection-filter-checkbox">
+                        <%= check_box_tag "prices[]", Settings.price_200, false, :id => "200" %>
+                          <%= label_tag class: "price-select" do %>
+                            <%= t "product.filter.price_200" %>
+                          <% end %>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <%= submit_tag %>
+            <% end %>
+          </div>
+          <!-- silde-bar colleps block end here -->
+          <!-- side-bar single product slider start -->
+          <div class="theme-card">
+            <h5 class="title-border"><%= t "home.new_product" %></h5>
+            <div class="offer-slider slide-1">
+              <div>
+              <% if load_product_newest.empty? %>
+                <h5><%= t "product.filter_fail" %></h5>
+              <% else %>
+                <% load_product_newest.each do |product| -%>
+                  <div class="media">
+                    <img class="img-fluid blur-up lazyload" src="http://themes.pixelstrap.com/multikart/assets/images/pro/1.jpg" alt="">
+                    <div class="media-body align-self-center">
+                      <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                      <%= link_to "#" do %>
+                        <h6><%= product.name %></h6>
+                      <% end %>
+                      <h4><%= product.price %></h4>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+              </div>
+            </div>
+          </div>
+          <!-- side-bar single product slider end -->
+          <!-- side-bar banner start here -->
+          <div class="collection-sidebar-banner">
+            <img src="http://themes.pixelstrap.com/multikart/assets/images/side-banner.png" class="img-fluid blur-up lazyload" alt="">
+          </div>
+          <!-- side-bar banner end here -->
+
+        </div>
+        <div class="collection-content col">
+          <div class="page-main-content">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="top-banner-wrapper">
+                  <%= link_to "#" do %>
+                    <img src="http://themes.pixelstrap.com/multikart/assets/images/mega-menu/2.jpg" class="img-fluid blur-up lazyload" alt="">
+                  <% end %>
+                  <div class="top-banner-content small-section"></div>
+                </div>
+                <div class="collection-product-wrapper">
+                  <div class="product-top-filter">
+                    <div class="row">
+                      <div class="col-xl-12"></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="product-filter-content">
+                          <div class="search-count"></div>
+                          <div class="collection-view">
+                            <ul>
+                              <li><i class="fa fa-th grid-layout-view"></i></li>
+                              <li><i class="fa fa-list-ul list-layout-view"></i></li>
+                            </ul>
+                          </div>
+                          <div class="collection-grid-view">
+                            <ul>
+                              <li><img src="http://themes.pixelstrap.com/multikart/assets/images/icon/2.png" alt="" class="product-2-layout-view"></li>
+                              <li><img src="http://themes.pixelstrap.com/multikart/assets/images/icon/3.png" alt="" class="product-3-layout-view"></li>
+                              <li><img src="http://themes.pixelstrap.com/multikart/assets/images/icon/4.png" alt="" class="product-4-layout-view"></li>
+                              <li><img src="http://themes.pixelstrap.com/multikart/assets/images/icon/6.png" alt="" class="product-6-layout-view"></li>
+                            </ul>
+                          </div>
+                          <div class="product-page-per-view"></div>
+                          <div class="product-page-filter"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-wrapper-grid">
+                    <div class="row margin-res" id="list-product">
+                      <%= render @products %>
+                    </div>
+                  </div>
+                  <div class="product-pagination">
+                    <%= paginate @products, remote: true, theme: Settings.paginate_theme %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- section End -->
+<!-- Quick-view modal popup start-->
+<div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content quick-view-modal"></div>
+  </div>
+</div>
+<!-- Quick-view modal popup end-->
