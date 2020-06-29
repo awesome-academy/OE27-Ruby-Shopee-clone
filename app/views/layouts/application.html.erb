@@ -7,7 +7,7 @@
 
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
-
+    <%= javascript_include_tag "user/user", "data-turbolinks-track": "reload" %>
   </head>
 
   <body>
@@ -17,6 +17,9 @@
       <% end %>
       <%= render "layouts/header" %>
       <%= yield %>
-      <%= render "layouts/footer" %></body>
+      <%= render "layouts/footer" %>
     </div>
+  <!-- Theme js-->
+  <%= javascript_include_tag "user/theme", "data-turbolinks-track": "reload" %>
+  </body>
 </html>
