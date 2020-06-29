@@ -11,6 +11,8 @@ shop:
   dollar: 24000
   color_b00: "#b00"
   color_666: "#666"
+  price_min: 0
+  price_max: 20000000
 reg:
   email: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 name:

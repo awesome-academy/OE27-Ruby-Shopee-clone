@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def format_currency number
-    number = locale == :en ? number / Settings.shop.dollar : number
+    number = locale == :en ? number.to_f / Settings.shop.dollar : number
     number_to_currency(number, unit: t("number.currency.format.unit"), separator: ",", delimiter: ".")
   end
 end

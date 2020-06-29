@@ -22,4 +22,8 @@ module Shops::ProductsHelper
   def is_invalid obj
     obj.errors.any? && obj.errors[:name].present? ? "is-invalid" : ""
   end
+
+  def load_price price, price_default = 0
+    price.present? ? price : price_default
+  end
 end

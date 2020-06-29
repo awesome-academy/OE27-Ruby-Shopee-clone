@@ -30,7 +30,16 @@ class Product < ApplicationRecord
   scope :by_created_at, -> {order created_at: :desc}
   scope :select_fields, -> {select :id, :name, :slug, :price, :brand_id, :category_id, :created_at, :deleted_at}
   scope :not_deleted, -> {where deleted_at: nil}
-  scope :by_slug, -> (slug) {where slug: slug}
+  scope :by_slug, -> slug {where slug: slug}
+  scope :search, -> value {
+    if value.present?
+      where("products.name LIKE '%#{value}%'")
+        .or(where "products.description LIKE '%#{value}%'")
+        .or(where "brands.name LIKE '%#{value}%'")
+        .or(where "categories.name LIKE '%#{value}%'")
+    end
+  }
+  scope :price_range, -> (price_min, price_max) {where "price BETWEEN ? AND ?", price_min, price_max if price_min.present? && price_max.present?}
   scope :group_by_month, -> {group("MONTH(orders.created_at)")}
   scope :total_money, -> {sum("order_items.price_product * order_items.quantity")}
   scope :total_product, -> {sum("order_items.quantity")}

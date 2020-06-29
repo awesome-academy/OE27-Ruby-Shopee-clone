@@ -84,6 +84,7 @@ vi:
         confirm_delete: "Bạn có chắc chắn muốn xóa ?"
         delete_success: "Bạn đã xóa thành công"
         delete_fail: "Bạn đã xóa không thành công"
+        search: "Tìm kiếm"
       update:
         submit: "Cập nhật"
         update_success: "Sửa sản phẩm thành công"
