@@ -67,6 +67,7 @@ vi:
         category: "Danh mục"
         color: "Màu sắc"
         quantity: "Số lượng"
+        description: "Nội dung sản phẩm"
         submit: "Thêm"
         create_success: "Thêm sản phẩm thành công"
         create_fail: "Thêm sản phẩm thất bại"

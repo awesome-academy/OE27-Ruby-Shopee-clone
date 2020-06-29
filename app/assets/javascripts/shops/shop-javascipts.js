@@ -19,20 +19,33 @@ $(document).on('turbolinks:load', function() {
     let tag = $(this).parent().find('.preview-avatar');
     validate_image(file_size, tag, e);
   });
-  
+
   function checkbox(param) {
-    if (param.is(':checked')) {
-      param.parent().find('input[type=hidden]').val(true);
+    $tr = param.closest('tr');
+    $input_hidden = param.parent().find('input[type=hidden]');
+    let url = window.location.href;
+    if (url.search('new') != -1) {
+      $tr.remove();
     } else {
-      param.parent().find('input[type=hidden]').val(false);
+      if ($tr.find('input.form-control').val() == '') {
+        $tr.remove();
+      } else {
+        if (param.is(':checked')) {
+          $input_hidden.val(true);
+          $tr.css('opacity', '30%');
+        } else {
+          $input_hidden.val(false);
+          $tr.css('opacity', '100%');
+        }
+      }
     }
   }
-  
-  $('.del-img input[type=checkbox]').change(function() {
+
+  $('table').on('change', '.del-img input[type=checkbox]', function() {
     checkbox($(this));
   })
-  
-  $('.del-color input[type=checkbox]').change(function() {
+
+  $('table').on('change', '.del-color input[type=checkbox]', function() {
     checkbox($(this));
   })
   
