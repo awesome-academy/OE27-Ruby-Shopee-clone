@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.1"
 
+gem "bootstrap-kaminari-views"
+gem "kaminari"
 gem "faker", "1.7.3"
 gem "bcrypt", "3.1.13"
 gem "jquery-slick-rails"
@@ -10,7 +12,7 @@ gem "popper_js", "~> 1.14.5"
 gem "jquery-ui-rails"
 gem "jquery-rails"
 gem "animate-rails"
-gem "font-awesome-sass", "~> 5.13.0"
+gem "font-awesome-sass", "~> 4.2.0"
 gem "config"
 gem "figaro"
 gem "rails-i18n"
