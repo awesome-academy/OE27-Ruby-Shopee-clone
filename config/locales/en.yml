@@ -52,10 +52,13 @@ en:
       order: "Orders"
     index:
       title: "Shop"
-      earning: "Earning"
+      earning: "Total Earning"
       product: "Products"
       order: "Orders"
       this_month: "This month"
+      month: "Month"
+      money: "Money"
+      chart_title: "Revenue statistics chart"
     product:
       create:
         title: "Add new product"
@@ -66,11 +69,12 @@ en:
         category: "Category"
         color: "Color"
         quantity: "Quantity"
+        description: "Description"
         submit: "Create"
         create_success: "Created successfully"
         create_fail: "Created un-successfully"
-        add_color: "Add color"
-        remove_color: "Remove color"
+        add: "Add"
+        remove: "Remove"
         more_images: "More images"
         validate_image: "Only support file type: .png, .jpg and .jpeg. File size must be smaller than 1MB"
       index:
@@ -81,12 +85,14 @@ en:
         confirm_delete: "Are you sure to delete ?"
         delete_success: "Deleted successfully"
         delete_fail: "Deleted un-successfully"
+        search: "Search"
       update:
         submit: "Update"
         update_success: "Edited product successfully"
         update_fail: "Edited product un-successfully"
     order:
       index:
+        title: "List orders"
         customer: "Customer"
         address: "Address"
         total_money: "Total money"
@@ -95,6 +101,18 @@ en:
         choose_select: "Choose an option"
         pending: "Pending"
         checked: "Checked"
+        shipping: "Shipping"
+        shipped: "Delivered"
+        cancel: "Cancel"
+      detail:
+        title: "Order detail"
+        detail: "Detail"
+        phone: "Phone"
+        sub_total: "Sub total"
+        total: "Total money"
+        no_order: "The order does not exist"
+        update_success: "Updated order successfully"
+        update_fail: "Updated order un-successfully"
     datatable:
       search: "Search"
       empty: "You do not have any products"

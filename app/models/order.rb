@@ -5,7 +5,13 @@ class Order < ApplicationRecord
 
   delegate :name, :phone, to: :user, prefix: true
 
-  enum status: {pending: 0, checked: 1}.freeze
+  enum status: {
+    pending: 0,
+    checked: 1,
+    shipping: 2,
+    shipped: 3,
+    cancel: 4
+  }.freeze
 
   scope :by_status, -> status {where status: status if status.present?}
   scope :search_by_id, -> id {where id: id}

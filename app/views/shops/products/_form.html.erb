@@ -1,4 +1,5 @@
 <%= form_for [:shops, @product] do |f| %>
+  <%= render "shops/shared/error", object: f.object %>
   <div class="form-group">
     <%= f.label :name, t("shop.product.create.name") %>
     <%= f.text_field :name, class: "form-control #{is_invalid @product}" %>
