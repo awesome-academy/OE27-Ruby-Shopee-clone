@@ -6,7 +6,7 @@
         <div class="col-sm-3 collection-filter">
           <!-- side-bar colleps block stat -->
           <div class="collection-filter-block">
-            <%= form_tag products_path, method: "get", remote: true do %>
+            <%= form_tag category_products_path, method: :get, remote: true do %>
             <!-- brand filter start -->
               <div class="collection-mobile-back"><span class="filter-back"><i class="fa fa-angle-left"
                     aria-hidden="true"></i><%= t "home.back" %></span></div>
