@@ -82,6 +82,7 @@ en:
       money: "Money"
       chart_title: "Revenue statistics chart"
     product:
+      not_exist_product: "The product does not exist"
       create:
         title: "Add new product"
         name: "Name"
