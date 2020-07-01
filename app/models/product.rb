@@ -25,8 +25,12 @@ class Product < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true, length: {maximum: Settings.shop.name_max_length}
   validates :brand_id, :category_id, :user_id, presence: true
-  validates :price, presence: true, numericality: true
-  validates :description, presence: true, length: {maximum: Settings.shop.description_max_length}
+  validates :price, presence: true,
+            numericality: {
+              only_float: true,
+              greater_than_or_equal_to: Settings.shop.price_min,
+              less_than_or_equal_to: Settings.shop.price_max
+            }
   validates :description, presence: true, length: {maximum: Settings.shop.description_max_length}
 
   before_save :set_slug

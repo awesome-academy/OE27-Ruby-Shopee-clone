@@ -50,6 +50,7 @@
                 <th><%= t "shop.product.create.avatar" %></th>
                 <th><%= t "shop.product.create.name" %></th>
                 <th><%= t "shop.product.create.price" %></th>
+                <th><%= t "shop.product.create.color" %></th>
                 <th><%= t "shop.product.create.quantity" %></th>
                 <th><%= t "shop.order.detail.sub_total" %></th>
               </tr>
@@ -59,7 +60,7 @@
               </tbody>
               <tfoot>
                 <tr>
-                  <th colspan="5"><%= t "shop.order.index.total_money" %></th>
+                  <th colspan="6"><%= t "shop.order.index.total_money" %></th>
                   <th><%= format_currency(total_money @order.order_items) %></th>
                 </tr>
               </tfoot>

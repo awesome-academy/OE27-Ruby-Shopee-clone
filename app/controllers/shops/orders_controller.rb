@@ -18,7 +18,9 @@ class Shops::OrdersController < ShopsController
   private
 
   def load_order
-    @order = Order.search_by_id(params[:id]).includes(:user, :order_items, :products).first
+    @order = Order.search_by_id(params[:id])
+      .includes(:user, :order_items, products: [:product_colors, :colors])
+      .first
     return if @order
 
     flash[:danger] = t "shop.order.detail.no_order"
