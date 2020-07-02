@@ -23,6 +23,7 @@ class Product < ApplicationRecord
 
   delegate :name, to: :brand, prefix: true
   delegate :name, to: :category, prefix: true
+  delegate :name, to: :user, prefix: true
 
   validates :name, presence: true, uniqueness: true, length: {maximum: Settings.shop.name_max_length}
   validates :brand_id, :category_id, :user_id, presence: true

@@ -61,7 +61,7 @@
                   </div>
                 </div>
               </div>
-              <%= submit_tag %>
+              <%= submit_tag( t "product.search", class: "btn btn-outline-primary") %>
             <% end %>
           </div>
           <!-- silde-bar colleps block end here -->
@@ -75,10 +75,12 @@
               <% else %>
                 <% load_product_newest.each do |product| -%>
                   <div class="media">
-                    <img class="img-fluid blur-up lazyload" src="http://themes.pixelstrap.com/multikart/assets/images/pro/1.jpg" alt="">
+                    <%= link_to product_path product.id do %>
+                      <img class="img-fluid blur-up lazyload" src="http://themes.pixelstrap.com/multikart/assets/images/pro/1.jpg" alt="">
+                    <% end %>
                     <div class="media-body align-self-center">
-                      <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                      <%= link_to "#" do %>
+                      <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i><i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                      <%= link_to product_path product.id do %>
                         <h6><%= product.name %></h6>
                       <% end %>
                       <h4><%= product.price %></h4>
@@ -153,11 +155,3 @@
     </div>
   </div>
 </section>
-<!-- section End -->
-<!-- Quick-view modal popup start-->
-<div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-    <div class="modal-content quick-view-modal"></div>
-  </div>
-</div>
-<!-- Quick-view modal popup end-->

@@ -13,6 +13,14 @@ class Users::ProductsController < ApplicationController
 
   def new; end
 
+  def show
+    @product = Product.find_by id: params[:id]
+    return if @product
+
+    flash[:error] = t "product.fail_find_product"
+    redirect_to root_url
+  end
+
   def load_category
     category = Category.find_by(id: params[:category_id])
     if category
