@@ -16,6 +16,7 @@ en:
       login: "Login"
       logout: "Logout"
       sign_up: "Sign up"
+      fail_find_cat: "Can not find any categories!"
 
     footer:
       know_text: "KNOW IT ALL FIRST!"

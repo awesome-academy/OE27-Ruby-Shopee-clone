@@ -6,6 +6,7 @@ class Product < ApplicationRecord
   ]
   scope :order_by_created_at, ->{order created_at: :desc}
   scope :select_product_field, ->{select :id, :name, :price, :brand_id, :category_id, :created_at}
+  scope :by_category, ->(id){where category_id: id}
   scope :by_price, ->(price){where price: price if price.present?}
   scope :by_brand, ->(brand){where brand_id: brand if brand.present?}
   scope :by_color, ->(color_id){includes(:product_colors).where product_colors: {color_id: color_id} if color_id.present?}

@@ -44,6 +44,7 @@ gem "roo"
 gem "activerecord-import"
 
 group :development, :test do
+  gem "pry-rails"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"

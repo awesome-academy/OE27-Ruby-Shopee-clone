@@ -41,7 +41,7 @@
                 <ul id="main-menu" class="sm pixelstrap sm-horizontal">
                   <% load_categories_origin.each do |category| -%>
                     <li>
-                      <%= link_to "#" do %>
+                      <%= link_to category_products_path category.id do %>
                         <%= category.name %>
                       <% end %>
                        <%= render "layouts/category", category: category%>
