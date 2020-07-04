@@ -69,7 +69,9 @@
                           class="fa fa-chevron-up"></i></button></span></div>
                 </div>
               </div>
-              <div class="product-buttons"><a href="#" class="btn btn-solid">add to cart</a> <a href="#" class="btn btn-solid">view detail</a></div>
+              <div class="product-buttons"><a href="#" class="btn btn-solid">add to cart</a><%= link_to (product_path product.id), class: "btn btn-solid" do %>
+                view detail
+              <% end %></div>
             </div>
           </div>
         </div>
