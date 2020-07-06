@@ -41,6 +41,17 @@ en:
       price_100: "100$ 200$"
       price_200: "200$ 300$"
     filter_fail: "Can not find product"
+    product_details: "Product details"
+    brand: "Brand"
+    description: "Description"
+    add_cart: "Add to cart"
+    buy: "Buy"
+    write_review: "Write review"
+    belong_to: "Shop"
+    select_color: "Select color"
+    fail_find_product: "product not exist"
+    quantity: "Quantity"
+    search: "Search"
 
   shop:
     import:

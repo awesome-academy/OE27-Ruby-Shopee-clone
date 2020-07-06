@@ -44,6 +44,17 @@ vi:
       price_100: "100$ 200$"
       price_200: "200$ 300$"
     filter_fail: "Không tìm thấy sản phẩm"
+    product_details: "Product details"
+    brand: "Thương hiệu"
+    description: "Mô tả sản phẩm"
+    add_cart: "Thêm vào giỏ"
+    buy: "Mua ngay"
+    write_review: "Viết đánh giá"
+    belong_to: "Người bán"
+    select_color: "Chọn màu"
+    fail_find_product: "Sản phẩm không tồn tại"
+    quantity: "Số lượng"
+    search: "Tìm kiếm"
 
   shop:
     import:

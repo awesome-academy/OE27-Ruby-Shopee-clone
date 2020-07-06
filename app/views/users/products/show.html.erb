@@ -1,0 +1,128 @@
+<section>
+  <div class="collection-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-1 col-sm-2 col-xs-12">
+          <div class="row">
+            <div class="col-12 p-0">
+              <div class="slider-right-nav">
+                <% @product.images.each do |image| %>
+                  <div><%= image_tag image.image.url, class: "img-fluid blur-up lazyload" if @product.avatar.present? %></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-10 col-xs-12 order-up">
+          <div class="product-right-slick">
+            <div>
+              <%= image_tag @product.avatar.url, class: "img-fluid blur-up lazyload image_zoom_cls-0" if @product.avatar.present? %>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="product-right product-description-box">
+            <h2><%= @product.name %></h2>
+            <div class="border-product">
+              <h6 class="product-title"><%= t "product.product_details" %></h6>
+              <p><%= @product.description %></p>
+            </div>
+            <div class="single-product-tables border-product detail-section">
+              <table>
+                <tbody>
+                  <tr>
+                    <td><%= t "product.brand" %></td>
+                    <td><%= @product.brand_name %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="product-right product-form-box">
+            <h3>$<%= @product.price %></h3>
+            <div class="product-description border-product">
+              <h6 class="product-title"><%= t "product.select_color" %></h6>
+              <div class="modal fade" id="sizemodal" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                </div>
+              </div>
+              <div class="size-box">
+                <ul>
+                  <% @product.colors.each do |color| %>
+                    <li><a href="#"><%= color.color %></a></li>
+                  <% end %>
+                </ul>
+              </div>
+              <h6 class="product-title"><%= t "product.quantity" %></h6>
+              <div class="qty-box">
+                <div class="input-group"><span class="input-group-prepend"><button type="button"
+                      class="btn quantity-left-minus" data-type="minus" data-field=""><i
+                        class="fa fa-chevron-down"></i></button> </span>
+                  <input type="text" name="quantity" class="form-control input-number" value="1">
+                  <span class="input-group-prepend"><button type="button"
+                      class="btn quantity-right-plus" data-type="plus" data-field=""><i
+                        class="fa fa-chevron-up"></i></button></span></div>
+              </div>
+            </div>
+            <div class="product-buttons"><a href="#" data-toggle="modal" data-target="#addtocart"
+                class="btn btn-solid"><%= t "product.add_cart" %></a> <a href="#" class="btn btn-solid"><%= t "product.buy" %></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- product-tab starts -->
+<section class="tab-product m-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-lg-12">
+        <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
+
+          <li class="nav-item"><a class="nav-link" id="profile-top-tab" data-toggle="tab"
+              href="#top-profile" role="tab" aria-selected="false"><%= t "product.product_details" %></a>
+            <div class="material-border"></div>
+          </li>
+          <li class="nav-item"><a class="nav-link" id="review-top-tab" data-toggle="tab"
+              href="#top-review" role="tab" aria-selected="false"><%= t "product.write_review" %></a>
+            <div class="material-border"></div>
+          </li>
+        </ul>
+        <div class="tab-content nav-material" id="top-tabContent">
+          <div class="tab-pane fade" id="top-profile" role="tabpanel" aria-labelledby="profile-top-tab">
+           <p><%= @product.description %></p>
+            <div class="single-product-tables">
+              <table>
+                <tbody>
+                  <tr>
+                    <td><%= t "product.brand" %></td>
+                    <td><%= @product.brand_name %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t "product.belong_to" %></td>
+                    <td><%= @product.user_name %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
+            <div class="mt-4 text-center">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/BUWzX78Ye_8"
+                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab">
+            <form class="theme-form"></form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- product-tab ends -->
