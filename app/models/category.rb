@@ -1,7 +1,7 @@
 class Category < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :sub_categories, dependent: :destroy, class_name: Category.name, foreign_key: :parent_id
-  belongs_to :parent, class_name: Category.name
+  belongs_to :parent, class_name: Category.name, optional: true
   scope :top_level, ->{includes(:sub_categories).where parent_id: Settings.parent_category}
 
   def load_ids category, ids

@@ -49,6 +49,7 @@ class User < ApplicationRecord
   end
 
   private
+
   def email_downcase
     email.downcase!
   end

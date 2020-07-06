@@ -4,12 +4,7 @@ class Product < ApplicationRecord
       product_colors_attributes: [:id, :product_id, :color_id, :quantity, :_destroy],
       images_attributes: [:id, :image, :_destroy]
   ]
-  scope :order_by_created_at, ->{order created_at: :desc}
-  scope :select_product_field, ->{select :id, :name, :price, :brand_id, :category_id, :created_at}
-  scope :by_category, ->(id){where category_id: id}
-  scope :by_price, ->(price){where price: price if price.present?}
-  scope :by_brand, ->(brand){where brand_id: brand if brand.present?}
-  scope :by_color, ->(color_id){includes(:product_colors).where product_colors: {color_id: color_id} if color_id.present?}
+
   has_many :product_colors, dependent: :destroy
   has_many :colors, through: :product_colors, dependent: :destroy
   has_many :images, dependent: :destroy
@@ -54,6 +49,11 @@ class Product < ApplicationRecord
   scope :total_product, -> {sum("order_items.quantity")}
   scope :total_order, -> {count("orders.id")}
   scope :this_month, -> {where "MONTH(orders.created_at) = ?", Time.now.strftime("%m")}
+  scope :order_by_created_at, ->{order created_at: :desc}
+  scope :select_product_field, ->{select :id, :name, :price, :brand_id, :category_id, :created_at}
+  scope :by_price, ->(price){where price: price if price.present?}
+  scope :by_brand, ->(brand){where brand_id: brand if brand.present?}
+  scope :by_color, ->(color_id){includes(:product_colors).where product_colors: {color_id: color_id} if color_id.present?}
 
   mount_uploader :avatar, ProductImageUploader,
                  reject_if: proc { |param| param[:avatar].blank? &&
