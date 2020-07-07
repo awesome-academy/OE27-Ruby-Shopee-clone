@@ -1,0 +1,11 @@
+<% if @order.errors.any? %>
+  <% @order.errors.full_messages.each do |error_message| %>
+     toastr.error('<%= error_message %>');
+  <% end %>
+<% else %>
+  toastr.success(I18n.t('order.susscess'));
+  $('.cart-pop').remove();
+  $('#form-checkout').remove();
+  $('.badge').text($('.item-sub').length);
+  $('.checkout-form').append('<%= link_to t("order.continue"), root_path, class: "btn btn-solid btn-checkout" %>')
+<% end %>

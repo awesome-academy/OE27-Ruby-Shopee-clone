@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/product_colors'
   mount Ckeditor::Engine => '/ckeditor'
   scope "(:locale)", locale: /en|vi/ do
     scope module: "users" do
@@ -11,6 +12,11 @@ Rails.application.routes.draw do
       resources :categories do
         resources :products
       end
+      resource :cart, only: [:show]
+      resources :order_items, only: [:create, :update, :destroy]
+      resources :product_colors
+      resources :carts
+      resources :orders
     end
 
     namespace :shops do

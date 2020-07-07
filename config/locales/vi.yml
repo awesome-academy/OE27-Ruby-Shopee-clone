@@ -25,6 +25,16 @@ vi:
       sign_up: "Đăng ký"
       fail_find_cat: "Lỗi không tìm thấy danh mục"
 
+    body:
+      sale: "Giảm đến 20%"
+      collection: "Bộ sưu tập nam"
+      special: "Đặc biệt"
+      top_collection: "Bộ sưu tập hàng đầu"
+      advertise: "Lorem Ipsum chỉ đơn giản là văn bản giả của ngành công nghiệp in ấn và sắp chữ. Lorem Ipsum là văn bản giả tiêu chuẩn của ngành công nghiệp kể từ những năm 1500,"
+      exclusive: "Sản phẩm độc quyền"
+      new_product: "Sản phẩm mới"
+      best_product: "Sản phẩm bán chạy"
+
     footer:
       know_text: "BIẾT TẤT CẢ ĐỀU ĐẦU TIÊN!"
       remember_text: "Không bao giờ bỏ lỡ bất cứ điều gì từ Multikart bằng cách đăng ký nhận bản tin của chúng tôi."
@@ -60,8 +70,34 @@ vi:
     belong_to: "Người bán"
     select_color: "Chọn màu"
     fail_find_product: "Sản phẩm không tồn tại"
-    quantity: "Số lượng"
+    quantity: "Số lượng có sẵn"
     search: "Tìm kiếm"
+    details: "Chi tiết sản phẩm"
+
+  order:
+    susscess: "Thêm vào giỏ thành công"
+    delete: "Xóa thành công"
+    color_empty: "Vui lòng chọn màu"
+    out_of_stock: "Sản phẩm tạm thời hết hàng"
+    checkout: "Vui lòng điền thông tin để đặt hàng"
+    total: "Tổng"
+    continue: "Tiếp tục mua hàng"
+    checkout: "Thanh toán"
+    view_cart: "Xem giỏ hàng"
+    nothing: "Không có gì trông giỏ"
+    title: "Thông tin giỏ hàng"
+    order: "Đặt hàng ngay"
+    product: "Sản phẩm"
+    fail: "Có lỗi xảy ra vui lòng thử lại sau!!"
+
+  order_item:
+    image: "Ảnh"
+    product_name: "Tên sản phẩm"
+    color: "Màu"
+    price: "Giá"
+    quantity: "Số lượng"
+    action: "Hành động"
+    total: "Tổng"
 
   shop:
     import:

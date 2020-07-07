@@ -1,0 +1,55 @@
+<% if session[:order] %>
+  <% session[:order].each do |product_color, order_item| %>
+    <tbody>
+      <tr id="<%= product_color %>">
+        <td>
+          <%= link_to "#" do %>
+             <%= image_tag (load_avatar product_color).url %>
+          <% end %>
+        </td>
+        <td><h4 class="product-name"><%= productname_product_color product_color %></h4>
+          <div class="mobile-cart-content row">
+            <div class="col-xs-3">
+              <div class="qty-box">
+                <div class="input-group">
+                  <input type="number" name="quantity"
+                    class="form-control input-number" value="1">
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-1">
+              <h2 class="td-color"><%= order_item["price"] %></h2>
+            </div>
+            <div class="col-xs-1">
+              <h2 class="td-color"><a href="#" class="icon"><i class="ti-close"></i></a>
+              </h2>
+            </div>
+          </div>
+        </td>
+        <td>
+          <h4><%= colorname_product_color product_color %></h4>
+        </td>
+        <td>
+          <h2 class="price"><%= order_item["price"] %></h2>
+        </td>
+        <td>
+          <div class="qty-box">
+            <div class="input-group">
+              <input type="number" data-url="<%= order_item_path product_color %>" name="quantity" class="form-control input-number quantity"
+                value= <%= order_item["quantity"] %> max= <%= quantity_available product_color %> min = 1>
+            </div>
+          </div>
+        </td>
+        <td>
+          <%= link_to order_item_path(product_color), method: :delete, remote: true do %>
+            <i class="fa fa-times"></i>
+          <% end %>
+        </td>
+        <td>
+          <h2 class="td-color sub-total" id="order_item<%= product_color %>"><%= total_item order_item["quantity"], order_item["price"] %></h2>
+          <input type="hidden" class="product-color" value= "<%= product_color%>">
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+<% end %>

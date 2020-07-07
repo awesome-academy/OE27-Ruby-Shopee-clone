@@ -1,0 +1,99 @@
+<div class="box-layout-body">
+  <section class="p-0">
+    <div class="slide-1 home-slider">
+      <div>
+        <div class="home text-center">
+          <img src="http://themes.pixelstrap.com/multikart/assets/images/home-banner/36.jpg" alt="" class="bg-img blur-up lazyload">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="slider-contain">
+                  <div>
+                    <h4><%= t "home.body.sale" %></h4>
+                    <h1><%= t "home.body.collection" %></h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+      </div>
+    </div>
+  </section>
+  <div class="container box-layout bg-image">
+    <section class="section-b-space ratio_asos">
+      <div class="container">
+        <div class="title1">
+          <h4><%= t "home.body.special" %></h4>
+          <h2 class="title-inner1"><%= t "home.body.top_collection" %></h2>
+        </div>
+        <div class="row">
+          <div class="col-xl-6 offset-xl-3">
+            <div class="product-para">
+              <p class="text-center"><%= t "home.body.advertise" %></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="product-4 product-m no-arrow">
+              <% @product_top.each do |product| %>
+                <%= render partial:"product", locals: {product: product} %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="p-0">
+      <div class="full-banner parallax p-left text-center">
+        <img src="http://themes.pixelstrap.com/multikart/assets/images/parallax/16.jpg" alt="" class="bg-img blur-up lazyload">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="title1 section-t-space">
+      <h4><%= t "home.body.exclusive" %></h4>
+      <h2 class="title-inner1"><%= t "home.body.special" %></h2>
+    </div>
+    <section class="section-b-space p-t-0 ratio_asos">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="theme-tab">
+              <ul class="tabs tab-title">
+                <li class="current">
+                  <%= link_to t("home.body.new_product"), "tab-4" %>
+                </li>
+                <li class="">
+                  <%= link_to t("home.body.best_product"), "tab-6" %>
+                </li>
+              </ul>
+              <div class="tab-content-cls">
+                <div id="tab-4" class="tab-content active default">
+                  <div class="product-4 product-m no-arrow">
+                    <% load_product_newest.each do |product| %>
+                      <%= render partial:"product", locals: {product: product} %>
+                    <% end %>
+                  </div>
+                </div>
+                <div id="tab-6" class="tab-content">
+                  <div class="product-4 product-m no-arrow">
+                    <% @product_best_sell.each do |product| %>
+                      <%= render partial:"product", locals: {product: product} %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

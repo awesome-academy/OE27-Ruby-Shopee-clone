@@ -30,4 +30,25 @@ module SessionsHelper
     session.delete :user_id
     @current_user = nil
   end
+
+  def redirect_to_target_or_default default
+    redirect_to(session[:forwarding_url] || default)
+    session.delete :forwarding_url
+  end
+
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
+
+  def total_order session_order
+    session_order.values.to_a.sum {|p| p["quantity"].to_i * p["price"].to_i} if session_order
+  end
+
+  def total_item quantity, price
+    quantity.to_i * price.to_i
+  end
+
+  def count_orderitem
+    session[:order].size if session[:order]
+  end
 end

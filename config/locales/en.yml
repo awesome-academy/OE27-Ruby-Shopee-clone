@@ -18,6 +18,16 @@ en:
       sign_up: "Sign up"
       fail_find_cat: "Can not find any categories!"
 
+    body:
+      sale: "20% off"
+      collection: "men collection"
+      special: "special offer"
+      top_collection: "top collection"
+      advertise: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+      exclusive: "exclusive products"
+      new_product: "New Products"
+      best_product: "Best Sellers"
+
     footer:
       know_text: "KNOW IT ALL FIRST!"
       remember_text: "Never Miss Anything From Multikart By Signing Up To Our Newsletter."
@@ -50,8 +60,34 @@ en:
     belong_to: "Shop"
     select_color: "Select color"
     fail_find_product: "product not exist"
-    quantity: "Quantity"
+    quantity: "Quantity available"
     search: "Search"
+    details: "Product Details"
+
+  order:
+    susscess: "Add to cart successfuly"
+    delete: "Delete successfuly"
+    color_empty: "Please chose a color"
+    out_of_stock: "Sorry, out of stock"
+    checkout: "Please, fill some information"
+    total: "Total"
+    continue: "Continue"
+    checkout: "Checkout"
+    view_cart: "View cart"
+    nothing: "Your cart is empty"
+    title: "Billing Details"
+    order: "Order now"
+    product: "Product"
+    fail: "Oh no, We have an error occurred!!"
+
+  order_item:
+    image: "Image"
+    product_name: "Product name"
+    color: "Color"
+    price: "Price"
+    quantity: "Quantity"
+    action: "Action"
+    total: "Total"
 
   shop:
     import:

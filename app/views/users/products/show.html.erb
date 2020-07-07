@@ -23,6 +23,7 @@
         <div class="col-lg-4">
           <div class="product-right product-description-box">
             <h2><%= @product.name %></h2>
+            <input type="text" id="product_id" hidden="true" value="<%= @product.id %>">
             <div class="border-product">
               <h6 class="product-title"><%= t "product.product_details" %></h6>
               <p><%= @product.description %></p>
@@ -52,23 +53,29 @@
               <div class="size-box">
                 <ul>
                   <% @product.colors.each do |color| %>
-                    <li><a href="#"><%= color.color %></a></li>
+                    <label class="container"><%= color.color%>
+                      <input data-url="<%= product_colors_path %>" type="radio" class="inp_color" name="radio-color" value= '<%= color.id%>'>
+                      <span class="checkmark"></span>
+                    </label>
                   <% end %>
                 </ul>
               </div>
-              <h6 class="product-title"><%= t "product.quantity" %></h6>
-              <div class="qty-box">
-                <div class="input-group"><span class="input-group-prepend"><button type="button"
-                      class="btn quantity-left-minus" data-type="minus" data-field=""><i
-                        class="fa fa-chevron-down"></i></button> </span>
-                  <input type="text" name="quantity" class="form-control input-number" value="1">
-                  <span class="input-group-prepend"><button type="button"
-                      class="btn quantity-right-plus" data-type="plus" data-field=""><i
-                        class="fa fa-chevron-up"></i></button></span></div>
-              </div>
-            </div>
-            <div class="product-buttons"><a href="#" data-toggle="modal" data-target="#addtocart"
-                class="btn btn-solid"><%= t "product.add_cart" %></a> <a href="#" class="btn btn-solid"><%= t "product.buy" %></a>
+              <%= form_for OrderItem.new, remote: true do |f| %>
+                <h6 class="product-title"><%= t "product.quantity" %>:<span id="quantity_avai"><%= @product.total_quantity%></span></h6>
+                <div class="qty-box">
+                  <div class="input-group">
+                    <%= f.number_field :quantity, value: 1, class: "form-control input-number-show", min: 1, required: true %>
+                  </div>
+                </div>
+                <div id="data_a">
+                  <input type="hidden" class="data-session" data-session="<%= session[:order].to_json %>">
+                </div>
+                <%= f.hidden_field :product_color, value: nil %>
+                <%= f.hidden_field :price, value: @product.price %>
+                <div class="product-buttons">
+                  <%= f.submit "Add to Cartss", class: "btn btn-solid submit-order" %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -118,7 +125,6 @@
             </div>
           </div>
           <div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab">
-            <form class="theme-form"></form>
           </div>
         </div>
       </div>
