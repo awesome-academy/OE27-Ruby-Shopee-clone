@@ -4208,8 +4208,6 @@ header {
     text-transform: lowercase; }
 
 .theme-modal .modal-dialog .modal-content .modal-body {
-  background-image: linear-gradient(135deg, var(--theme-deafult) 5.77%, #ffffff 5.77%, #ffffff 25%, #111111 25%, #111111 30.77%, #ffffff 30.77%, #ffffff 50%, var(--theme-deafult) 50%, var(--theme-deafult) 55.77%, #ffffff 55.77%, #ffffff 75%, #111111 75%, #111111 80.77%, #ffffff 80.77%, #ffffff 100%);
-  background-size: 36.77px 36.77px;
   background-color: white; }
   .theme-modal .modal-dialog .modal-content .modal-body .modal-bg {
     background-color: #ffffff;
@@ -13580,8 +13578,7 @@ body.dark {
 .dark .border-box.tools-grey .product-box {
   border-color: #404040; }
 
-.dark .theme-modal .modal-dialog .modal-content .modal-body {
-  background-image: linear-gradient(135deg, #ff4c3b 5.77%, #232323 5.77%, #232323 25%, #f1f3f5 25%, #f1f3f5 30.77%, #232323 30.77%, #232323 50%, #ff4c3b 50%, #ff4c3b 55.77%, #232323 55.77%, #232323 75%, #f1f3f5 75%, #f1f3f5 80.77%, #232323 80.77%, #232323 100%); }
+.dark .theme-modal .modal-dialog .modal-content .modal-body { }
   .dark .theme-modal .modal-dialog .modal-content .modal-body .modal-bg {
     background-color: #2b2b2b;
     -webkit-transition: all 0.3s ease;
@@ -18727,3 +18724,6 @@ body.dark {
     padding-right: 35px; }
     .collection-banner .contain-banner.banner-4 h2 {
       font-size: 15px; } }
+.theme-modal .modal-dialog .modal-content .modal-body {
+    background-image: none;
+}

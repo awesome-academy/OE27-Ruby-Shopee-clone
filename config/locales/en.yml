@@ -53,6 +53,10 @@ en:
     quantity: "Quantity"
     search: "Search"
 
+  order:
+    susscess: "Add to cart successfuly"
+    delete: "Delete successfuly"
+
   shop:
     import:
       header:

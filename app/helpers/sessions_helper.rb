@@ -30,4 +30,13 @@ module SessionsHelper
     session.delete :user_id
     @current_user = nil
   end
+
+  def redirect_to_target_or_default(default, *args)
+    redirect_to(session[:return_to] || default, *args)
+    session[:return_to] = nil
+  end
+
+  def store_target_location
+    session[:return_to] = url_for(only_path: false)
+  end
 end

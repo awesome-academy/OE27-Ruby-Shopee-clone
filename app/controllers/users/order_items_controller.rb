@@ -1,33 +1,35 @@
 class Users::OrderItemsController < ApplicationController
-  before_save: load_order, only: %i(create update destroy)
-  before_save: load_order_items, only: %i(update destroy)
+  before_action :load_order, only: %i(create update destroy)
+  before_action :store_target_location
+  before_action :logged_in_user
 
   def create
-    @order_item = @order.order_items.new(order_item_params)
-    @order.save
-    session[:order_id] = @order.id
+    if session[:order].key? params[:order_item][:product_id]
+      session[:order][params[:order_item][:product_id]]["quantity"] = params[:order_item][:quantity].to_i + session[:order][params[:order_item][:product_id]]["quantity"].to_i
+    else
+      session[:order][params[:order_item][:product_id]] = params[:order_item]
+    end
+    respond_to do |format|
+      format.js { flash.now[:notice] =  t "order.susscess" }
+    end
+
   end
 
   def update
-    @order_item.update_attributes(order_item_params)
-    @order_items = @order.order_items
   end
 
   def destroy
-    @order_item.destroy
-    @order_items = @order.order_items
+    session[:order].delete(params[:id])
+    @id = params[:id]
+    respond_to do |format|
+      format.js { flash.now[:notice] =  t "order.delete" }
+    end
   end
 
   private
-    def order_item_params
-      params.require(:order_item).permit(:quantity, :product_id)
-    end
+  def load_order
+    return if session[:order]
 
-    def load_order
-      @order = current_order
-    end
-
-    def load_order_items
-      @order_item = @order.order_items.find(params[:id])
-    end
+    session[:order] = Hash.new
+  end
 end

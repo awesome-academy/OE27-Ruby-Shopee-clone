@@ -56,6 +56,10 @@ vi:
     quantity: "Số lượng"
     search: "Tìm kiếm"
 
+  order:
+    susscess: "Thêm vào giỏ thành công"
+    delete: "Xóa thành công"
+
   shop:
     import:
       header:

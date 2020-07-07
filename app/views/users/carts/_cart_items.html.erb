@@ -1,0 +1,16 @@
+<% item.order_items.each do |item| %>
+  <li>
+    <div class="media">
+      <a href="#"><img class="mr-3" src="http://themes.pixelstrap.com/multikart/assets/images/fashion/product/1.jpg" alt="Generic placeholder image"></a>
+      <div class="media-body">
+        <a href="#">
+          <h4><%= item.product.name %></h4>
+        </a>
+        <h4><span><%= item.quantity %> x $ <%= item.price_product %></span></h4>
+      </div>
+    </div>
+    <div class="close-circle">
+      <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+    </div>
+  </li>
+<% end %>

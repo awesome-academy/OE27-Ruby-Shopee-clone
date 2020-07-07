@@ -20,8 +20,8 @@ class Order < ApplicationRecord
   scope :by_status, -> status {where status: status if status.present?}
   scope :search_by_id, -> id {where id: id}
 
-   def update_subtotal
-    order_items.map { |oi| oi.valid? ? (oi.quantity * oi.price_product) : 0 }.sum
+  def subtotal
+    order_items.to_a.sum { |item| item.amount }
   end
 
   private
@@ -30,6 +30,6 @@ class Order < ApplicationRecord
     end
 
     def update_subtotal
-      self.total_amount = total_amount
+    self.total_amount = subtotal
   end
 end

@@ -1,0 +1,18 @@
+<% session[:order].each do |k, order_item| %>
+  <li id=<%= k %>>
+    <div class="media">
+      <a href="#"><img class="mr-3" src="http://themes.pixelstrap.com/multikart/assets/images/fashion/product/1.jpg" alt="Generic placeholder image"></a>
+      <div class="media-body">
+        <a href="#">
+          <h4><%= (Product.select_name k).name %></h4>
+        </a>
+        <h4><span><%= order_item["quantity"] %> x $ <%= order_item["price"] %></span></h4>
+      </div>
+    </div>
+    <div class="close-circle">
+      <%= link_to order_item_path(k), method: :delete, remote: true do %>
+        <i class="fa fa-times"></i>
+      <% end %>
+    </div>
+  </li>
+<% end %>

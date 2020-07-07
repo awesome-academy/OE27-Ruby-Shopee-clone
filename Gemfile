@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.1"
 
+gem "toastr-rails"
 gem "bootstrap-kaminari-views"
 gem "kaminari"
 gem "faker", "1.7.3"
@@ -44,6 +45,7 @@ gem "roo"
 gem "activerecord-import"
 
 group :development, :test do
+  gem "nifty-generators"
   gem "pry-rails"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"

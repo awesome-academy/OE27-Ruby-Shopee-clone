@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <%= custom_bootstrap_flash %>
+    <div id="flash">
+      <% if notice.present? %>
+        <%= render partial: "order_items/notice_banner" %>
+      <% end %>
+    </div>
     <div class="banner-top container-fluid" id="home">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>

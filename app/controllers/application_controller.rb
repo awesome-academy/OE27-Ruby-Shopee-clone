@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
+  add_flash_types :success, :danger, :warning
   before_action :set_locale
-  private
 
+  private
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
