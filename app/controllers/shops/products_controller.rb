@@ -3,13 +3,12 @@ class Shops::ProductsController < ShopsController
   before_action :load_product, only: %i(edit update destroy)
 
   def index
-    @products = current_user.products
-                    .select_fields
-                    .not_deleted
-                    .search(params[:key])
-                    .price_range(params[:price_min], params[:price_max])
-                    .by_created_at
-                    .eager_load :brand, :category
+    @search = current_user.products
+      .select_fields
+      .not_deleted
+      .eager_load(:brand, :category)
+      .search(params[:q])
+    @products = @search.result.page(params[:page]).per(Settings.record_per_page)
   end
 
   def new

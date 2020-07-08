@@ -1,9 +1,9 @@
 <tr>
-  <td><%= order_counter %></td>
+  <td><%= order_counter + 1 %></td>
   <td><%= order.user_name %></td>
   <td><%= order.address %></td>
   <td>
-    <%= format_currency(total_money order.order_items) %>
+    <%= format_currency(order.total_amount) %>
   </td>
   <td><%= format_date order.created_at %></td>
   <td>

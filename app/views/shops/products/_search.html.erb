@@ -1,24 +1,31 @@
-<%= form_for shops_products_path, method: :get, id: "form-search" do %>
+<%= search_form_for @search, url: shops_products_path, method: "GET", id: "form-search" do |f| %>
   <div class="row align-items-center">
-    <div class="col-md-4 pt-2">
-      <%= text_field_tag :key, nil, placeholder: t("shop.product.index.search"), class: "form-control" %>
-      <%= hidden_field_tag :price_min, load_price(params[:price_min]) %>
-      <%= hidden_field_tag :price_max, load_price(params[:price_max], Settings.shop.price_max) %>
+    <div class="col-md-12 pt-2 form-inline form-group">
+      <%= f.search_field :name_cont, placeholder: t("shop.product.create.name"), class: "form-control ml-1" %>
+      <%= f.search_field :brand_name_cont, placeholder: t("shop.product.create.brand"), class: "form-control ml-1" %>
+      <%= f.search_field :category_name_cont, placeholder: t("shop.product.create.category"), class: "form-control ml-1" %>
+      <%= f.hidden_field :price_gteq, value: load_price(params[:price_gteq]) %>
+      <%= f.hidden_field :price_lteq, value: load_price(params[:price_lteq], Settings.shop.price_max) %>
     </div>
-    <div class="col-md-4">
-      <div class="price-slider-container">
-        <div class="d-flex justify-content-between align-items-center mb-2">
+    <div class="col-md-12 form-inline form-group">
+      <%= f.search_field :created_at_gteq, placeholder: t("shop.product.index.start_date"), class: "form-control date ml-1", autocomplete: :off %>
+      <%= f.search_field :created_at_lteq, placeholder: t("shop.product.index.end_date"), class: "form-control date ml-1", autocomplete: :off %>
+      <div class="col-md-4">
+        <div class="price-slider-container">
+          <div class="d-flex justify-content-between align-items-center mb-2">
                         <span id="display-price-min">
-                          <%= format_currency load_price(params[:price_min]) %>
+                          <%= format_currency load_price(params[:price_gteq]) %>
                         </span>
-          <span id="display-price-max">
-                          <%= format_currency load_price(params[:price_max], Settings.shop.price_max) %>
+            <span id="display-price-max">
+                          <%= format_currency load_price(params[:price_lteq], Settings.shop.price_max) %>
                         </span>
+          </div>
+          <div id="the_slider"></div>
         </div>
-        <div id="the_slider"></div>
       </div>
     </div>
-    <div class="col-md-4 pt-2">
+    <div class="col-md-4 ml-3">
+      <%= link_to t("shop.product.index.reset"), shops_products_path, class: "btn btn-danger" %>
       <%= button_tag t("shop.product.index.search"), type: :submit, class: "btn btn-info" %>
     </div>
   </div>

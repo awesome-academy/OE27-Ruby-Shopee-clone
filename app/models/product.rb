@@ -36,7 +36,7 @@ class Product < ApplicationRecord
   scope :select_fields, -> {select :id, :name, :slug, :price, :brand_id, :category_id, :created_at, :deleted_at}
   scope :not_deleted, -> {where deleted_at: nil}
   scope :by_slug, -> slug {where slug: slug}
-  scope :search, -> value {
+  scope :search_product, -> value {
     if value.present?
       where("products.name LIKE '%#{value}%'")
         .or(where "products.description LIKE '%#{value}%'")
@@ -66,6 +66,10 @@ class Product < ApplicationRecord
 
   def reject_product_colors attributed
     attributed["quantity"].blank?
+  end
+
+  ransacker :created_at , type: :date do
+    Arel.sql("products.created_at")
   end
 
   private

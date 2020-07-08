@@ -3,7 +3,12 @@ class Shops::OrdersController < ShopsController
   before_action :load_order, only: %i(show update)
 
   def index
-    @orders = Order.by_status(params[:status]).eager_load :user, :order_items
+    @search = Order.by_status(params[:status])
+      .includes(:user, :order_items)
+      .search(params[:q])
+    @orders = @search.result
+      .page(params[:page])
+      .per(Settings.record_per_page)
   end
 
   def show; end

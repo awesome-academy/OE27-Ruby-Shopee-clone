@@ -42,6 +42,8 @@ gem "mini_magick"
 gem "axlsx_rails"
 gem "roo"
 gem "activerecord-import"
+gem "ransack"
+gem "simple_form"
 
 group :development, :test do
   gem "pry-rails"

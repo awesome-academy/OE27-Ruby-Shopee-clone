@@ -115,6 +115,9 @@ en:
         delete_success: "Deleted successfully"
         delete_fail: "Deleted un-successfully"
         search: "Search"
+        reset: "Reset"
+        start_date: "Start date"
+        end_date: "End date"
       update:
         submit: "Update"
         update_success: "Edited product successfully"
@@ -133,6 +136,8 @@ en:
         shipping: "Shipping"
         shipped: "Delivered"
         cancel: "Cancel"
+        from_price: "From price"
+        to_price: "To price"
       detail:
         title: "Order detail"
         detail: "Detail"

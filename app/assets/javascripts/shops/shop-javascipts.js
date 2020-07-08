@@ -53,27 +53,8 @@ $(document).on('turbolinks:load', function() {
     $('#select-status #status option:first').val('');
     $('#select-status').submit();
   })
-});
-
-$(document).on('turbolinks:load', function() {
-  $('#data-table').DataTable({
-    'columnDefs': [
-      {'orderable': false, 'targets': 6},
-    ],
-    'language': {
-      'emptyTable': I18n.t("shop.datatable.empty"),
-      'search': I18n.t("shop.datatable.search"),
-      'paginate': {
-        'next': I18n.t("shop.datatable.paginate.next"),
-        'previous': I18n.t("shop.datatable.paginate.previous"),
-      },
-      'info': I18n.t("shop.datatable.info"),
-      'lengthMenu': I18n.t("shop.datatable.lengthMenu"),
-    },
-    'paging': true,
-    'lengthChange': true,
-    'searching': true,
-    'info': true,
-    'autoWidth': true,
+  
+  $('.date').datepicker({
+    dateFormat: 'yy-mm-dd',
   });
 });

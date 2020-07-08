@@ -1,4 +1,11 @@
 vi:
+  views:
+    pagination:
+      first: "« ĐẦU"
+      last: "CUỐI »"
+      previous: "‹ TRUỚC"
+      next: "TIẾP ›"
+      truncate: "…"
   datetime:
     formats:
       default: "%d/%m/%Y - %H:%M"
@@ -119,6 +126,9 @@ vi:
         delete_success: "Bạn đã xóa thành công"
         delete_fail: "Bạn đã xóa không thành công"
         search: "Tìm kiếm"
+        reset: "Làm tươi"
+        start_date: "Ngày đầu"
+        end_date: "Ngày cuối"
       update:
         submit: "Cập nhật"
         update_success: "Sửa sản phẩm thành công"
@@ -137,6 +147,8 @@ vi:
         shipping: "Đang giao hàng"
         shipped: "Đã giao hàng"
         cancel: "Hủy"
+        from_price: "Giá từ"
+        to_price: "Tới giá"
       detail:
         title: "Chi tiết đơn hàng"
         detail: "Chi tiết"
