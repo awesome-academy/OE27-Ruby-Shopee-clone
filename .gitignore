@@ -27,6 +27,7 @@ Dockerfile
 coverage
 /public/javascripts/
 /public/uploads/*
+/public/download/*
 /lib/tasks//.xlsx
 /lib/tasks//.xls
 /lib/tasks/**/.json
