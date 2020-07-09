@@ -44,6 +44,11 @@ gem "roo"
 gem "activerecord-import"
 gem "ransack"
 gem "simple_form"
+gem "sidekiq"
+gem "resque"
+gem "resque-scheduler"
+gem "sidekiq-status"
+gem "zip-zip"
 
 group :development, :test do
   gem "pry-rails"
