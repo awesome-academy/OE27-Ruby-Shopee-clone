@@ -22,11 +22,12 @@
               <thead>
                 <tr>
                   <th>#</th>
-                  <th><%= t "shop.product.create.name" %></th>
-                  <th><%= t "shop.product.create.price" %></th>
-                  <th><%= t "shop.product.create.brand" %></th>
-                  <th><%= t "shop.product.create.category" %></th>
-                  <th><%= t "shop.product.index.created_at" %></th>
+                  <th><%= t "shop.product.create.avatar" %></th>
+                  <th><%= sort_link @search, :name, t("shop.product.create.name") %></th>
+                  <th><%= sort_link @search, :price, t("shop.product.create.price") %></th>
+                  <th><%= sort_link @search, :brand_name, t("shop.product.create.brand") %></th>
+                  <th><%= sort_link @search, :category_name, t("shop.product.create.category") %></th>
+                  <th><%= sort_link @search, :created_at, t("shop.product.index.created_at") %></th>
                   <th><%= t "shop.product.index.function" %></th>
                 </tr>
               </thead>
@@ -34,6 +35,9 @@
                 <%= render @products %>
               </tbody>
             </table>
+            <div class="product-pagination">
+              <%= paginate @products, theme: Settings.paginate_theme %>
+            </div>
             <div class="col-md-5">
               <%= link_to shops_export_path(format: :xlsx), class: "btn btn-info", title: "Excel" do %>
                 Export <i class="fa fa-download"></i>

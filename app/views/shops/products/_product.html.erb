@@ -1,5 +1,6 @@
 <tr>
   <td><%= product_counter + 1 %></td>
+  <td class="avatar-index"><%= image_tag product.avatar.url if product.avatar.present? %></td>
   <td><%= product.name %></td>
   <td><%= format_currency product.price %></td>
   <td><%= product.brand_name %></td>
