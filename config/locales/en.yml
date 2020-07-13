@@ -50,8 +50,34 @@ en:
     belong_to: "Shop"
     select_color: "Select color"
     fail_find_product: "product not exist"
-    quantity: "Quantity"
+    quantity: "Quantity available"
     search: "Search"
+    details: "Product Details"
+
+  order:
+    susscess: "Add to cart successfuly"
+    delete: "Delete successfuly"
+    color_empty: "Please chose a color"
+    out_of_stock: "Sorry, out of stock"
+    checkout: "Please, fill some information"
+    total: "Total"
+    continue: "Continue"
+    checkout: "Checkout"
+    view_cart: "View cart"
+    nothing: "Your cart is empty"
+    title: "Billing Details"
+    order: "Order now"
+    product: "Product"
+    fail: "Oh no, We have an error occurred!!"
+
+  order_item:
+    image: "Image"
+    product_name: "Product name"
+    color: "Color"
+    price: "Price"
+    quantity: "Quantity"
+    action: "Action"
+    total: "Total"
 
   shop:
     import:

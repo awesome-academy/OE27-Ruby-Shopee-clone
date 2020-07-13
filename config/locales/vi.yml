@@ -60,8 +60,34 @@ vi:
     belong_to: "Người bán"
     select_color: "Chọn màu"
     fail_find_product: "Sản phẩm không tồn tại"
-    quantity: "Số lượng"
+    quantity: "Số lượng có sẵn"
     search: "Tìm kiếm"
+    details: "Chi tiết sản phẩm"
+
+  order:
+    susscess: "Thêm vào giỏ thành công"
+    delete: "Xóa thành công"
+    color_empty: "Vui lòng chọn màu"
+    out_of_stock: "Sản phẩm tạm thời hết hàng"
+    checkout: "Vui lòng điền thông tin để đặt hàng"
+    total: "Tổng"
+    continue: "Tiếp tục mua hàng"
+    checkout: "Thanh toán"
+    view_cart: "Xem giỏ hàng"
+    nothing: "Không có gì trông giỏ"
+    title: "Thông tin giỏ hàng"
+    order: "Đặt hàng ngay"
+    product: "Sản phẩm"
+    fail: "Có lỗi xảy ra vui lòng thử lại sau!!"
+
+  order_item:
+    image: "Ảnh"
+    product_name: "Tên sản phẩm"
+    color: "Màu"
+    price: "Giá"
+    quantity: "Số lượng"
+    action: "Hành động"
+    total: "Tổng"
 
   shop:
     import:

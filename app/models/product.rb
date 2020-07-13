@@ -11,7 +11,6 @@ class Product < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :brand
-  has_many :order_items
 
   accepts_nested_attributes_for :product_colors, allow_destroy: true, reject_if: :reject_product_colors && !:new_record?
   accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :all_blank
@@ -52,9 +51,10 @@ class Product < ApplicationRecord
   scope :this_month, -> {where "MONTH(orders.created_at) = ?", Time.now.strftime("%m")}
   scope :order_by_created_at, ->{order created_at: :desc}
   scope :select_product_field, ->{select :id, :name, :price, :brand_id, :category_id, :created_at}
-  scope :by_price, ->(price){where price: price if price.present?}
   scope :by_brand, ->(brand){where brand_id: brand if brand.present?}
   scope :by_color, ->(color_id){includes(:product_colors).where product_colors: {color_id: color_id} if color_id.present?}
+  scope :by_category, ->(id){where category_id: id}
+  scope :by_id, ->(id){where(id: id)}
 
   mount_uploader :avatar, ProductImageUploader,
                  reject_if: proc { |param| param[:avatar].blank? &&
@@ -70,6 +70,10 @@ class Product < ApplicationRecord
 
   ransacker :created_at , type: :date do
     Arel.sql("products.created_at")
+  end
+
+  def total_quantity
+    product_colors.to_a.sum {|p| p.quantity}
   end
 
   private

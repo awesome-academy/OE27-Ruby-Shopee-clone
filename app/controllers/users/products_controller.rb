@@ -4,7 +4,7 @@ class Users::ProductsController < ApplicationController
   def index
     @products = Product
       .by_category(@ids)
-      .by_price(params[:prices])
+      .price_range(price_min, price_max)
       .by_brand(params[:brands])
       .by_color(params[:colors])
       .page(params[:page])
@@ -21,6 +21,7 @@ class Users::ProductsController < ApplicationController
     redirect_to root_url
   end
 
+  private
   def load_category
     category = Category.find_by(id: params[:category_id])
     if category
@@ -29,5 +30,13 @@ class Users::ProductsController < ApplicationController
       flash[:error] = t "home.header.fail_find_cat"
       redirect_to root_url
     end
+  end
+
+  def price_max
+    params[:price].split(";")[1] if params[:price]
+  end
+
+  def price_min
+    params[:price].split(";")[0] if params[:price]
   end
 end
