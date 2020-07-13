@@ -93,6 +93,10 @@ vi:
       chart_title: "Biểu đồ doanh thu trong năm"
     product:
       not_exist_product: "Sản phẩm không tồn tại"
+      exporting: "Đang xuất"
+      export_success: "Xuất dữ liệu thành công"
+      import: "Nhập từ xlsx"
+      export: "Xuất xlsx"
       create:
         title: "Thêm mới sản phẩm"
         name: "Tên sản phẩm"

@@ -22,25 +22,10 @@
             <% end %>
           </div>
           <%= yield %>
-          <div class="download-progress">
-            <div class="col-md-3 pull-right">
-              <i class="fa fa-download"></i>
-              <span class="progress-bar"></span>
-            </div>
+          <div class="download-progress d-none">
+            <span id="percent-download" class="mx-2"></span>
+            <i class="fa fa-download mx-2"></i>
           </div>
-          <style>
-            .download-progress {
-              width: 200px;
-              height: 30px;
-              background: #0c5460;
-              position: fixed;
-              right: 70px;
-              bottom: 30px;
-              z-index: 9999;
-              opacity: 80%;
-              border-radius: 5px;
-            }
-          </style>
         </div>
         <%= render "shops/layouts/footer" %>
       </div>

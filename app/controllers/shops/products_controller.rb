@@ -8,7 +8,7 @@ class Shops::ProductsController < ShopsController
       .not_deleted
       .eager_load(:brand, :category)
       .search(params[:q])
-    @products = @search.result.page(params[:page]).per(50)
+    @products = @search.result.page(params[:page]).per Settings.shop.product_per_page
   end
 
   def new

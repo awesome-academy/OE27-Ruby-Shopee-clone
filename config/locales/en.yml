@@ -83,6 +83,10 @@ en:
       chart_title: "Revenue statistics chart"
     product:
       not_exist_product: "The product does not exist"
+      exporting: "Exporting"
+      export_success: "Exported completely"
+      import: "Import"
+      export: "Export"
       create:
         title: "Add new product"
         name: "Name"

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  require 'sidekiq/web'
-  mount Ckeditor::Engine => '/ckeditor'
-  mount Sidekiq::Web, at: '/sidekiq'
+  require "sidekiq/web"
+
+  mount Ckeditor::Engine => "/ckeditor"
+  mount Sidekiq::Web, at: "/sidekiq"
   scope "(:locale)", locale: /en|vi/ do
     scope module: "users" do
       root "home#index"
