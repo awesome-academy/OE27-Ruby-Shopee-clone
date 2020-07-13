@@ -1,0 +1,28 @@
+<% provide :title, t("home.header.forgot_password.password") %>
+<% provide :button_text, t("home.header.forgot_password.button") %>
+<section class="login-page section-b-space">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h3><%= t "home.header.forgot_password.password" %></h3>
+        <div class="theme-card">
+          <div class="theme-form">
+            <%= form_for :user, url: user_password_path, html: {method: :put} do |f| %>
+              <%= f.hidden_field :reset_password_token, as: :hidden %>
+              <%= render "users/shared/error_messages" %>
+              <%= f.label t "home.header.forgot_password.password" %>
+              <%= f.password_field :password,
+                                   required: true,
+                                   autofocus: true,
+                                   class: "form-control" %>
+              <%= f.label t "home.header.forgot_password.password_confirmation" %>
+              <%= f.password_field :password_confirmation,
+                                   required: true, class: "form-control" %>
+              <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

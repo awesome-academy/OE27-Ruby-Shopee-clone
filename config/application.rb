@@ -15,9 +15,8 @@ module Shoppe
     config.i18n.default_locale = :en
     config.middleware.use I18n::JS::Middleware
     config.autoload_paths += %w(#{config.root}/app/models/ckeditor)
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    config.time_zone = ENV["timezone"]
+    config.active_record.default_timezone = :local
+    config.active_job.queue_adapter = :sidekiq
   end
 end

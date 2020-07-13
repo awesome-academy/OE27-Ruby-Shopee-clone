@@ -1,5 +1,4 @@
 class Shops::ProductsController < ShopsController
-  before_action :check_login
   before_action :load_product, only: %i(edit update destroy)
 
   def index

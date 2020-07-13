@@ -50,6 +50,8 @@ gem "sidekiq"
 gem "resque"
 gem "resque-scheduler"
 gem "sidekiq-status"
+gem "devise"
+gem "devise-async"
 
 group :development, :test do
   gem "pry-rails"

@@ -1,5 +1,4 @@
 class Shops::OrdersController < ShopsController
-  before_action :check_login
   before_action :load_order, only: %i(show update)
 
   def index
