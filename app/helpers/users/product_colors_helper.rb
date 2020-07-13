@@ -5,10 +5,10 @@ module Users::ProductColorsHelper
   end
 
   def productname_product_color product_color_id
-    ProductColor.by_id (product_color_id).first.product_name
+    ProductColor.by_id(product_color_id).first.product_name
   end
 
   def colorname_product_color product_color_id
-    ProductColor.by_id (product_color_id).first.color_color
+    ProductColor.by_id(product_color_id).first.color_color
   end
 end

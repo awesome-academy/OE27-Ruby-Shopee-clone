@@ -1,9 +1,9 @@
 class Shops::OrdersController < ShopsController
-  before_action :check_login
   before_action :load_order, only: %i(show update)
 
   def index
     @search = Order.by_status(params[:status])
+      .order_status
       .includes(:user, :order_items)
       .search(params[:q])
     @orders = @search.result

@@ -23,8 +23,12 @@ vi:
       login: "Đăng nhập"
       logout: "Đăng xuất"
       sign_up: "Đăng ký"
+      forgot_password:
+        title: "Bạn quên mật khẩu ?"
+        button: "Gửi yêu cầu"
+        password: "Mật khẩu mới"
+        password_confirmation: "Xác nhận mật khẩu mới"
       fail_find_cat: "Lỗi không tìm thấy danh mục"
-
     footer:
       know_text: "BIẾT TẤT CẢ ĐỀU ĐẦU TIÊN!"
       remember_text: "Không bao giờ bỏ lỡ bất cứ điều gì từ Multikart bằng cách đăng ký nhận bản tin của chúng tôi."
@@ -41,11 +45,9 @@ vi:
       success: "Đăng nhập thành công"
       fail: "Đăng nhập thất bại"
       require: "Bạn chưa đăng nhâp"
-
     sign_up:
       success: "Tạo tài khoản thành công"
       fail: "Tạo tài khoản thất bại"
-
   product:
     filter:
       price_100: "100$ 200$"
@@ -60,8 +62,35 @@ vi:
     belong_to: "Người bán"
     select_color: "Chọn màu"
     fail_find_product: "Sản phẩm không tồn tại"
-    quantity: "Số lượng"
+    quantity: "Số lượng có sẵn"
     search: "Tìm kiếm"
+    details: "Chi tiết sản phẩm"
+    quick_view: "Xem nhanh"
+
+  order:
+    susscess: "Thêm vào giỏ thành công"
+    delete: "Xóa thành công"
+    color_empty: "Vui lòng chọn màu"
+    out_of_stock: "Sản phẩm tạm thời hết hàng"
+    checkout: "Vui lòng điền thông tin để đặt hàng"
+    total: "Tổng"
+    continue: "Tiếp tục mua hàng"
+    checkout: "Thanh toán"
+    view_cart: "Xem giỏ hàng"
+    nothing: "Không có gì trông giỏ"
+    title: "Thông tin giỏ hàng"
+    order: "Đặt hàng ngay"
+    product: "Sản phẩm"
+    fail: "Có lỗi xảy ra vui lòng thử lại sau!!"
+
+  order_item:
+    image: "Ảnh"
+    product_name: "Tên sản phẩm"
+    color: "Màu"
+    price: "Giá"
+    quantity: "Số lượng"
+    action: "Hành động"
+    total: "Tổng"
 
   shop:
     import:
@@ -93,10 +122,6 @@ vi:
       chart_title: "Biểu đồ doanh thu trong năm"
     product:
       not_exist_product: "Sản phẩm không tồn tại"
-      exporting: "Đang xuất"
-      export_success: "Xuất dữ liệu thành công"
-      import: "Nhập từ xlsx"
-      export: "Xuất xlsx"
       create:
         title: "Thêm mới sản phẩm"
         name: "Tên sản phẩm"
@@ -117,11 +142,7 @@ vi:
         choose_file: "Chọn file"
         file_error: "Bạn phải chọn file .xls, .xlsx, .csv"
         data_error: "File tải lên không có dữ liệu"
-        error_row: "Có lỗi tại dòng %{i}"
-        name_exist: "Lỗi tại dòng %{i}: Tên sản phẩm đã tồn tại"
-        brand_not_exist: "Lỗi tại dòng %{i}: Hãng sản xuất không tồn tại"
-        category_no_exist: "Lỗi tại dòng %{i}: Danh mục không tồn tại"
-        price_numeric: "Lỗi tại dòng %{i}: Giá sản phẩm phải là số"
+        error_row: "Có lỗi tại dòng %{row}"
         import_success: "Đã nhập sản phẩm thành công"
         import_fail: "Nhập sản phẩm không thành công"
       index:
@@ -133,6 +154,9 @@ vi:
         confirm_delete: "Bạn có chắc chắn muốn xóa ?"
         delete_success: "Bạn đã xóa thành công"
         delete_fail: "Bạn đã xóa không thành công"
+        confirm_restore: "Bạn có chắc chắn muốn khôi phục ?"
+        restore_success: "Bạn đã khôi phục thành công"
+        restore_fail: "Bạn khôi phục không thành công"
         search: "Tìm kiếm"
         reset: "Làm tươi"
         start_date: "Ngày đầu"
@@ -174,3 +198,22 @@ vi:
         previous: "Trước"
       info: "Hiển thị từ _START_ tới _END_ trên tổng _TOTAL_ bản ghi"
       lengthMenu: "Hiển thị _MENU_ bản ghi"
+  devise:
+    sessions:
+      user:
+        signed_in: "Bạn đã đăng nhập thành công"
+        signed_up: "Bạn đã đăng ký thành công"
+        signed_out: "Bạn đã đăng xuất thành công"
+    passwords:
+      user:
+        send_instructions: "Hãy kiểm tra email để đặt lại mật khẩu"
+      email:
+        greeting: "Xin chào"
+        content: "Chúng tôi nhận được yêu cầu đặt lại mật khẩu trên tài khoản
+        của bạn. Hãy nhấp vào đường dẫn bên dưới để đặt lại mật khẩu"
+        no_request: "Nếu bạn không thực hiện yêu cầu này, bạn có thể bỏ qua thư này"
+        link: "Đổi mật khẩu"
+    failure:
+      user:
+        already_authenticated: "Bạn đã đang đăng nhập"
+        invalid: "Tên tài khoản hoặc mật khẩu không chính xác"

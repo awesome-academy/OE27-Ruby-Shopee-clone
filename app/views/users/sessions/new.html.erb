@@ -3,30 +3,23 @@
 <section class="login-page section-b-space">
   <div class="container">
     <div class="row">
-      <div class="col-lg-6">
-        <h3><%= t "new.title" %></h3>
+      <div class="col-md-6 offset-md-3">
+        <h3><%= t "home.header.login" %></h3>
         <div class="theme-card">
           <div class="theme-form">
-            <%= form_for(:session, url: login_path) do |f| %>
+            <%= form_for(:user, url: user_session_path) do |f| %>
               <%= f.label :email %>
               <%= f.email_field :email, class: "form-control" %>
               <%= f.label :password %>
               <%= f.password_field :password, class: "form-control" %>
-              <%= f.label :remember_me, class: "checkbox inline" do %>
-              <%= f.check_box :remember_me %>
-                <span><%= t "new_session.remember" %></span>
-              <% end %>
+              <div class="form-check">
+                <%= f.check_box :remember_me, class: "form-checkbox" %>
+                <%= f.label :remember_me %>
+              </div>
               <%= f.submit yield(:button_text), class: "btn btn-primary" %>
             <% end %>
+            <%= link_to t("home.header.forgot_password.title"), new_user_password_path %>
           </div>
-        </div>
-      </div>
-      <div class="col-lg-6 right-login">
-        <h3><%= t "login.new_customer" %></h3>
-        <div class="theme-card authentication-right">
-          <h6 class="title-font"><%= t "login.create_account" %></h6>
-          <p><%= t "login.description" %></p>
-          <%= link_to t("home.header.sign_up"), "#", class: "btn btn-solid" %>
         </div>
       </div>
     </div>

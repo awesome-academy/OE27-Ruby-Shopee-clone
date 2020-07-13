@@ -16,8 +16,12 @@ en:
       login: "Login"
       logout: "Logout"
       sign_up: "Sign up"
+      forgot_password:
+        title: "Forgot password ?"
+        button: "Send request"
+        password: "New password"
+        password_confirmation: "Password confirmation"
       fail_find_cat: "Can not find any categories!"
-
     footer:
       know_text: "KNOW IT ALL FIRST!"
       remember_text: "Never Miss Anything From Multikart By Signing Up To Our Newsletter."
@@ -31,11 +35,9 @@ en:
       success: "Login successfuly"
       fail: "Login fail"
       require: "You have to login"
-
     sign_up:
       success: "sign_up successfuly"
       fail: "sign_up fail"
-
   product:
     filter:
       price_100: "100$ 200$"
@@ -50,8 +52,35 @@ en:
     belong_to: "Shop"
     select_color: "Select color"
     fail_find_product: "product not exist"
-    quantity: "Quantity"
+    quantity: "Quantity available"
     search: "Search"
+    details: "Product Details"
+    quick_view: "Quick view"
+
+  order:
+    susscess: "Add to cart successfuly"
+    delete: "Delete successfuly"
+    color_empty: "Please chose a color"
+    out_of_stock: "Sorry, out of stock"
+    checkout: "Please, fill some information"
+    total: "Total"
+    continue: "Continue"
+    checkout: "Checkout"
+    view_cart: "View cart"
+    nothing: "Your cart is empty"
+    title: "Billing Details"
+    order: "Order now"
+    product: "Product"
+    fail: "Oh no, We have an error occurred!!"
+
+  order_item:
+    image: "Image"
+    product_name: "Product name"
+    color: "Color"
+    price: "Price"
+    quantity: "Quantity"
+    action: "Action"
+    total: "Total"
 
   shop:
     import:
@@ -83,10 +112,6 @@ en:
       chart_title: "Revenue statistics chart"
     product:
       not_exist_product: "The product does not exist"
-      exporting: "Exporting"
-      export_success: "Exported completely"
-      import: "Import"
-      export: "Export"
       create:
         title: "Add new product"
         name: "Name"
@@ -107,11 +132,7 @@ en:
         choose_file: "Choose file"
         file_error: "You must choose file .xls, .xlsx, .csv"
         data_error: "Data in file is empty"
-        error_row: "Error at row %{i}"
-        name_exist: "Error at row %{i}: Product name was existed"
-        brand_not_exist: "Error at row %{i}: Brand id was not existed"
-        category_no_exist: "Error at row %{i}: Category id was not existed"
-        price_numeric: "Error at row %{i}: Price must be numeric"
+        error_row: "Error at row %{row}"
         import_success: "Import data successfully"
         import_fail: "Import data un-successfully"
       index:
@@ -122,6 +143,9 @@ en:
         confirm_delete: "Are you sure to delete ?"
         delete_success: "Deleted successfully"
         delete_fail: "Deleted un-successfully"
+        confirm_restore: "Are you sure to restore ?"
+        restore_success: "Restored successfully"
+        restore_fail: "Restored un-successfully"
         search: "Search"
         reset: "Reset"
         start_date: "Start date"
@@ -163,3 +187,11 @@ en:
         previous: "Previous"
       info: "Show from _START_ to _END_ of _TOTAL_ entries"
       lengthMenu: "Show _MENU_ entries"
+  devise:
+    passwords:
+      email:
+        greeting: "Hello"
+        content: "We received your request for forgetting password. Click
+         link below to change your password"
+        no_request: "If you don't send this request, ignore this mail"
+        link: "Change password"

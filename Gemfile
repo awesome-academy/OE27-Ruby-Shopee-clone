@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.1"
+ruby "2.6.6"
 
 gem "jquery-validation-rails"
 gem "toastr-rails"
@@ -50,6 +50,9 @@ gem "sidekiq"
 gem "resque"
 gem "resque-scheduler"
 gem "sidekiq-status"
+gem "devise"
+gem "devise-async"
+gem "paranoia"
 
 group :development, :test do
   gem "pry-rails"

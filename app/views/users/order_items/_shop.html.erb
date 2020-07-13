@@ -1,0 +1,31 @@
+<div class="cart-pop">
+  <% session[:order].each do |product_color, order_item| %>
+  <li class="item-sub" id=<%= product_color %>>
+    <div class="media">
+      <%= link_to "#" do %>
+        <%= image_tag load_avatar(product_color).url%>
+      <% end %>
+      <div class="media-body">
+          <h4><%= productname_product_color product_color %>(<%= colorname_product_color product_color %>)</h4>
+        <h4><span><%= order_item["quantity"] %> x $ <%= order_item["price"] %></span></h4>
+      </div>
+    </div>
+    <div class="close-circle">
+      <%= link_to order_item_path(product_color), method: :delete, remote: true do %>
+        <i class="fa fa-times"></i>
+      <% end %>
+    </div>
+  </li>
+  <% end %>
+  <li>
+    <div class="total">
+      <h5><%= t "order.total" %><span>$<%= total_order session[:order] %></span></h5>
+    </div>
+  </li>
+  <li>
+    <div class="buttons">
+      <%= link_to t("order.view_cart"), carts_path, class: "view-cart" %>
+      <%= link_to t("order.checkout"), new_order_path, class: "checkout" %>
+  </div>
+  </li>
+</div>

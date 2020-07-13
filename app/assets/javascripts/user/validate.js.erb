@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function() {
   });
 
   $(document).on('click', '.submit-order', function() {
-    if ($('input[name="radio-color"]:checked').length == 0) {
+    if ($('.inp_color').length == 0) {
      toastr.error(I18n.t("order.color_empty"));
      return false;
     }
@@ -50,7 +50,7 @@ $(document).on('turbolinks:load', function() {
       $(this).val(1);
       qty = 1;
     }
-    if (qty > $max || isNaN(qty)) {
+    if (isNaN(qty) || qty > $max) {
       toastr.error(I18n.t('order.out_of_stock'));
       $(this).val($max);
        qty = $max;
