@@ -14,6 +14,7 @@ shop:
   price_min: 0
   price_max: 20000000
   quantity_max: 1000
+  product_per_page: 50
 reg:
   email: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 name:

@@ -83,6 +83,10 @@ en:
       chart_title: "Revenue statistics chart"
     product:
       not_exist_product: "The product does not exist"
+      exporting: "Exporting"
+      export_success: "Exported completely"
+      import: "Import"
+      export: "Export"
       create:
         title: "Add new product"
         name: "Name"
@@ -103,7 +107,11 @@ en:
         choose_file: "Choose file"
         file_error: "You must choose file .xls, .xlsx, .csv"
         data_error: "Data in file is empty"
-        error_row: "Error at row %{row}"
+        error_row: "Error at row %{i}"
+        name_exist: "Error at row %{i}: Product name was existed"
+        brand_not_exist: "Error at row %{i}: Brand id was not existed"
+        category_no_exist: "Error at row %{i}: Category id was not existed"
+        price_numeric: "Error at row %{i}: Price must be numeric"
         import_success: "Import data successfully"
         import_fail: "Import data un-successfully"
       index:

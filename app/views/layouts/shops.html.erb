@@ -22,6 +22,10 @@
             <% end %>
           </div>
           <%= yield %>
+          <div class="download-progress d-none">
+            <span id="percent-download" class="mx-2"></span>
+            <i class="fa fa-download mx-2"></i>
+          </div>
         </div>
         <%= render "shops/layouts/footer" %>
       </div>

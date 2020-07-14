@@ -5,14 +5,23 @@
       <div class="card">
         <div class="card-header p-b-0 p-t-1">
           <div class="row pl-3">
-            <div class="col-md-11">
+            <div class="form-inline border border-dark p-3 b-r-5">
               <%= render "search" %>
-            </div>
-            <div class="col-md-1">
-              <%= link_to new_shops_product_path, class: "btn btn-success float-right",
-                          data: {toggle: "tooltip", placement: "right"}, title: t("shop.product.create.add") do %>
-                <i class="fa fa-plus"></i>
-              <% end %>
+              <hr>
+              <div class="form-group">
+                <%= form_tag shops_import_path, multipart: true do %>
+                  <%= file_field_tag :file, class: "form-control" %>
+                  <%= button_tag :submit, class: "btn btn-outline-warning", title: t("shop.product.import") do %>
+                    <%= t "shop.product.import" %><i class="fa fa-upload "></i>
+                  <% end %>
+                <% end %>
+                <%= button_tag class: "btn btn-outline-primary ml-2", id: "btn-export", title: t("shop.product.export") do %>
+                  <%= t "shop.product.export" %><i class="fa fa-download"></i>
+                <% end %>
+                <%= link_to new_shops_product_path, class: "btn btn-outline-success ml-2" do %>
+                  <%= t "shop.product.create.add" %> <i class="fa fa-plus-square"></i>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -37,18 +46,6 @@
             </table>
             <div class="product-pagination">
               <%= paginate @products, theme: Settings.paginate_theme %>
-            </div>
-            <div class="col-md-5">
-              <%= link_to shops_export_path(format: :xlsx), class: "btn btn-info", title: "Excel" do %>
-                Export <i class="fa fa-download"></i>
-              <% end %>
-              <%= form_tag shops_import_path, multipart: true do %>
-                <%= file_field_tag :file, class: "d-none" %>
-                <label for="file" class="btn btn-air-danger mt-1">Choose file</label>
-                <%= button_tag :submit, class: "btn btn-danger" do %>
-                  Import <i class="fa fa-upload "></i>
-                <% end %>
-              <% end %>
             </div>
           </div>
         </div>

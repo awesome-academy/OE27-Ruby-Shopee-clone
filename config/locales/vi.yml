@@ -93,6 +93,10 @@ vi:
       chart_title: "Biểu đồ doanh thu trong năm"
     product:
       not_exist_product: "Sản phẩm không tồn tại"
+      exporting: "Đang xuất"
+      export_success: "Xuất dữ liệu thành công"
+      import: "Nhập từ xlsx"
+      export: "Xuất xlsx"
       create:
         title: "Thêm mới sản phẩm"
         name: "Tên sản phẩm"
@@ -113,7 +117,11 @@ vi:
         choose_file: "Chọn file"
         file_error: "Bạn phải chọn file .xls, .xlsx, .csv"
         data_error: "File tải lên không có dữ liệu"
-        error_row: "Có lỗi tại dòng %{row}"
+        error_row: "Có lỗi tại dòng %{i}"
+        name_exist: "Lỗi tại dòng %{i}: Tên sản phẩm đã tồn tại"
+        brand_not_exist: "Lỗi tại dòng %{i}: Hãng sản xuất không tồn tại"
+        category_no_exist: "Lỗi tại dòng %{i}: Danh mục không tồn tại"
+        price_numeric: "Lỗi tại dòng %{i}: Giá sản phẩm phải là số"
         import_success: "Đã nhập sản phẩm thành công"
         import_fail: "Nhập sản phẩm không thành công"
       index:

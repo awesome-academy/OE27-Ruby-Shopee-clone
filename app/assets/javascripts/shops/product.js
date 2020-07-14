@@ -14,4 +14,51 @@ $(document).on('turbolinks:load', function() {
       $('#display-price-max').text(ui.values[1].toLocaleString('vi', '.', ''));
     },
   });
+  
+  $statusElm = $('.download-progress #percent-download');
+  $('#btn-export').on('click', function(e) {
+    $('.download-progress').removeClass('d-none');
+    $.ajax({
+      method: 'GET',
+      url: '/shops/export/products',
+      dataType: 'json',
+      data: {},
+    }).done(function(response, status, ajaxOpts) {
+      if (status === 'success' && response && response.jid) {
+        var jobId = response.jid;
+        var intervalName = `job_${jobId}`;
+        $statusElm.text(I18n.t("shop.product.exporting") + " 0%");
+        window[intervalName] = setInterval(function() {
+          getExportJobStatus(jobId, intervalName);
+        }, 2000);
+      }
+    })
+  });
+  
+  function getExportJobStatus(jobId, intervalName) {
+    $.ajax({
+      url: '/shops/export_status',
+      dataType: 'json',
+      data: {
+        job_id: jobId,
+      },
+    }).done(function(response, status) {
+      if (status === 'success') {
+        var percentage = response.percentage;
+        $statusElm.text(I18n.t("shop.product.exporting") + ' ' + percentage + '%');
+        if (response.status === 'complete') {
+          $statusElm.text(I18n.t("shop.product.export_success"));
+          download();
+        }
+      }
+    })
+  }
+  
+  function download() {
+    setTimeout(function() {
+      clearInterval(window[intervalName]);
+      delete window[intervalName];
+      $(location).attr('href', '/shops/export_download.xlsx?id=' + jobId);
+    }, 2000);
+  }
 });
