@@ -1,0 +1,18 @@
+var quantityy = parseFloat($('.input-number-show').val());
+var max_quantity = parseFloat($('.input-number-show').attr('max'));
+var session_data = $('.data-session').data('session');
+
+$('.shopping-cart').html("<%= j render 'shop' %>")
+$('.input-number-show').prop('max', max_quantity - quantityy);
+$('.badge').text($('.item-sub').length);
+
+if((max_quantity - quantityy) == 0){
+  $(':input[type="submit"]').prop('disabled', true);
+  $('#quantity_avai').text(I18n.t('order.out_of_stock'));
+}else{
+  $(':input[type="submit"]').prop('disabled', false);
+  $('#quantity_avai').text(max_quantity - quantityy);
+}
+
+$("#data_a").load($('#url-session').data('url') +' #data_a');
+toastr.success(I18n.t('order.susscess'));
