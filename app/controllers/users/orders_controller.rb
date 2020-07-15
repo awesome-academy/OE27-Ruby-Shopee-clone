@@ -19,7 +19,7 @@ class Users::OrdersController < ApplicationController
    order_params[:order][:phone] = params[:phone]
    item = []
    session[:order].values.to_a.each do |order|
-    item << {quantity: order["quantity"], product_color_id: order["product_color"], price_product: order["price"], amount: (order["quantity"].to_i * order["price"].to_i)}
+    item << {quantity: order["quantity"], product_color_id: order["product_color"], product_id: order["product_color"], price_product: order["price"], amount: (order["quantity"].to_i * order["price"].to_i)}
    end
    order_params[:order][:order_items_attributes] = item
    order_params

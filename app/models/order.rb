@@ -15,7 +15,6 @@ class Order < ApplicationRecord
     cancel: 4
   }.freeze
 
-  before_create :set_order_status
   before_save :update_subtotal
 
   scope :by_status, -> status {where status: status if status.present?}
@@ -26,9 +25,6 @@ class Order < ApplicationRecord
   end
 
   private
-  def set_order_status
-    self.status = status[:pending]
-  end
 
   def update_subtotal
     self.total_amount = subtotal

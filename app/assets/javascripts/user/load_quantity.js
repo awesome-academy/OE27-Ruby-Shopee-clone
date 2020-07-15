@@ -14,7 +14,8 @@ $(document).on('turbolinks:load', function() {
       },
       success: function(result) {
         $("#data_a").load(url_session +' #data_a');
-        let session_data = $('.data-session').data('session');
+        var session_data = $('.data-session').data('session');
+
         $('#order_item_product_color').val(result['product_color']);
         if (session_data == null || session_data[result['product_color']] == undefined){
           $('#order_item_quantity').prop('max', result['quantity']);

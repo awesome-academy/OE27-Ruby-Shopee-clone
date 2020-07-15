@@ -13,6 +13,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 #Rails.application.config.assets.precompile += %w()
 Rails.application.config.assets.precompile += %w(shops/shop.scss)
-Rails.application.config.assets.precompile += %w(shops/shop.js user/user.js user/theme.js)
+Rails.application.config.assets.precompile += %w(shops/shop.js user/user.js user/theme.js user/price_range)
 Rails.application.config.assets.precompile << %r{font-awesome/fonts/[\w-]+\.(?:eot|svg|ttf|woff2?)$}
 

@@ -1,0 +1,51 @@
+<section class="section-b-space">
+  <div class="container">
+    <div class="checkout-page">
+      <div class="checkout-form">
+        <%= form_tag orders_path, method: :post, id: "form-checkout", remote: true do %>
+          <div class="row">
+            <div class="col-lg-6 col-sm-12 col-xs-12">
+              <div class="checkout-title">
+                <h3><%= t "order.title" %></h3>
+              </div>
+              <div class="row check-out">
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                  <%= label_tag :address %>
+                  <%= text_field_tag :address, "", class: "form-control", required: "true" %>
+                </div>
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                   <%= label_tag :phone %>
+                  <%= text_field_tag :phone, "", class: "form-control", required: "true" %>
+                </div>
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                  <%= submit_tag t("order.order"), class: "btn-solid btn" %>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-12 col-xs-12">
+              <div class="checkout-details">
+                <% if session[:order] %>
+                  <div class="order-box">
+                    <div class="title-box">
+                      <div><%= t "order.product" %><span><%= t "order.total" %></span></div>
+                    </div>
+                    <ul class="qty">
+                      <% session[:order].each do |product_color, order_item| %>
+                        <li><h4><%= productname_product_color product_color %>(<%= colorname_product_color product_color %>) x <%= order_item["quantity"] %><span>$<%= order_item["price"] %></span></h4></li>
+                      <% end %>
+                    </ul>
+                    <ul class="total">
+                      <li><%= t "order.total" %><span class="count">$<%= total_order session[:order] %></span></li>
+                    </ul>
+                  </div>
+                <% else %>
+                  <h3><%= t "order.nothing" %></h3>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

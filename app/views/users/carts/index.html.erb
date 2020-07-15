@@ -37,7 +37,7 @@
       </div>
     </div>
     <div id="data_a">
-      <%= hidden_field :sessions, "", data: {session: session[:order].to_json }, class: "data-session" %>
+      <%= hidden_field :sessions, nil, data: {session: session[:order].to_json }, class: "data-session" %>
     </div>
   </div>
 </section>

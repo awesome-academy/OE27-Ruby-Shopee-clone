@@ -60,8 +60,35 @@ vi:
     belong_to: "Người bán"
     select_color: "Chọn màu"
     fail_find_product: "Sản phẩm không tồn tại"
-    quantity: "Số lượng"
+    quantity: "Số lượng có sẵn"
     search: "Tìm kiếm"
+    details: "Chi tiết sản phẩm"
+    quick_view: "Xem nhanh"
+
+  order:
+    susscess: "Thêm vào giỏ thành công"
+    delete: "Xóa thành công"
+    color_empty: "Vui lòng chọn màu"
+    out_of_stock: "Sản phẩm tạm thời hết hàng"
+    checkout: "Vui lòng điền thông tin để đặt hàng"
+    total: "Tổng"
+    continue: "Tiếp tục mua hàng"
+    checkout: "Thanh toán"
+    view_cart: "Xem giỏ hàng"
+    nothing: "Không có gì trông giỏ"
+    title: "Thông tin giỏ hàng"
+    order: "Đặt hàng ngay"
+    product: "Sản phẩm"
+    fail: "Có lỗi xảy ra vui lòng thử lại sau!!"
+
+  order_item:
+    image: "Ảnh"
+    product_name: "Tên sản phẩm"
+    color: "Màu"
+    price: "Giá"
+    quantity: "Số lượng"
+    action: "Hành động"
+    total: "Tổng"
 
   shop:
     import:
@@ -93,10 +120,6 @@ vi:
       chart_title: "Biểu đồ doanh thu trong năm"
     product:
       not_exist_product: "Sản phẩm không tồn tại"
-      exporting: "Đang xuất"
-      export_success: "Xuất dữ liệu thành công"
-      import: "Nhập từ xlsx"
-      export: "Xuất xlsx"
       create:
         title: "Thêm mới sản phẩm"
         name: "Tên sản phẩm"
@@ -117,11 +140,7 @@ vi:
         choose_file: "Chọn file"
         file_error: "Bạn phải chọn file .xls, .xlsx, .csv"
         data_error: "File tải lên không có dữ liệu"
-        error_row: "Có lỗi tại dòng %{i}"
-        name_exist: "Lỗi tại dòng %{i}: Tên sản phẩm đã tồn tại"
-        brand_not_exist: "Lỗi tại dòng %{i}: Hãng sản xuất không tồn tại"
-        category_no_exist: "Lỗi tại dòng %{i}: Danh mục không tồn tại"
-        price_numeric: "Lỗi tại dòng %{i}: Giá sản phẩm phải là số"
+        error_row: "Có lỗi tại dòng %{row}"
         import_success: "Đã nhập sản phẩm thành công"
         import_fail: "Nhập sản phẩm không thành công"
       index:
