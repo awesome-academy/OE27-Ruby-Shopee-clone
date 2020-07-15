@@ -7,7 +7,7 @@ class Users::SessionsController < ApplicationController
       log_in user
       params[:session][:remember_me] == Settings.home.remember ? remember(user) : forget(user)
       flash[:success] = t "home.login.success"
-      redirect_to root_url
+      redirect_to_target_or_default root_url
     else
       flash[:danger] = t "home.login.fail"
       render :new

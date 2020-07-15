@@ -1,0 +1,79 @@
+$(document).on('turbolinks:load', function() {
+  $('#form-checkout').validate({
+    onfocusout: false,
+    onkeyup: false,
+    onclick: false,
+    rules: {
+      'address': {
+        required: true,
+        maxlength: 100
+      },
+      'phone': {
+        required: true,
+        minlength: 8,
+        digits: true
+      }
+    }
+  });
+
+  $(document).on('click', '.submit-order', function() {
+    if ($('input[name="radio-color"]:checked').length == 0) {
+     toastr.error(I18n.t("order.color_empty"));
+     return false;
+    }
+    if ($('#quantity_avai').text() == 0){
+      toastr.error(I18n.t('order.out_of_stock'));
+    }
+  });
+
+  $('.input-number-show').on('change', function(e){
+    let qty = parseFloat($(this).val());
+    $max = parseFloat($(this).attr('max'));
+    if (qty < 1 || isNaN(qty)) {
+      $(this).val(1);
+      qty = 1;
+    }
+    if (qty > $max) {
+      toastr.error(I18n.t('order.out_of_stock'));
+      $(this).val($max);
+       qty = $max;
+    }
+  });
+
+  $('.input-number').on('change',function(e){
+    let url = $(this).data('url');
+    let product_color = parseFloat($(this).closest('tr').find('.product-color').val());
+    let qty = parseFloat($(this).val());
+    let price = parseFloat($(this).closest('tr').find('.price').text());
+    $max = parseFloat($(this).attr('max'));
+    if (qty < 1) {
+      $(this).val(1);
+      qty = 1;
+    }
+    if (qty > $max || isNaN(qty)) {
+      toastr.error(I18n.t('order.out_of_stock'));
+      $(this).val($max);
+       qty = $max;
+    }
+    $(this).closest('tr').find('.sub-total').text(price * qty);
+    calc_total();
+    $.ajax({
+      method: 'PATCH',
+      dataType: 'json',
+      url: url,
+      data: {
+        authenticity_token: $('meta[name="csrf-token"]').attr('content'),
+        product_color: product_color,
+        quantity: qty
+      }
+    });
+  });
+
+  function calc_total(){
+    var sum = 0;
+    $(".sub-total").each(function(){
+      sum += parseFloat($(this).text());
+    });
+    $('.total').text(sum);
+  }
+})
