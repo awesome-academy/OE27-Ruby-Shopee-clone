@@ -1,0 +1,21 @@
+<% provide :title, t("home.header.forgot_password.title") %>
+<% provide :button_text, t("home.header.forgot_password.button") %>
+<section class="login-page section-b-space">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h3><%= t "new.title" %></h3>
+        <div class="theme-card">
+          <div class="theme-form">
+            <%= form_for :user, url: user_password_path, method: :post do |f| %>
+              <%= f.label :email %>
+              <%= f.email_field :email, class: "form-control" %>
+              <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+            <% end %>
+            <%= link_to t("home.header.login"), new_user_session_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
