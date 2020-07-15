@@ -109,3 +109,7 @@ thead tr th {
   padding: 0 10px;
   color: white;
 }
+
+.field_with_errors > label {
+  color: $text_danger;
+}

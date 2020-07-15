@@ -25,7 +25,11 @@ Rails.application.routes.draw do
 
     namespace :shops do
       root to: "homes#index"
-      resources :products, param: :slug
+      resources :products, param: :slug do
+        member do
+          put "restore", to: "products#restore"
+        end
+      end
       resources :orders, only: %i(index show update)
       get "export/products", to: "export_products#export_products", as: "export"
       post "import/products", to: "import_products#import_products", as: "import"

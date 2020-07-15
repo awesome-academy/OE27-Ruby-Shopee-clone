@@ -1,14 +1,15 @@
 class Product < ApplicationRecord
+  acts_as_paranoid
   PRODUCT_PARAMS = [
       :name, :brand_id, :category_id, :price, :description, :avatar,
       product_colors_attributes: [:id, :product_id, :color_id, :quantity, :_destroy],
       images_attributes: [:id, :image, :_destroy]
   ]
 
-  has_many :product_colors, dependent: :destroy
+  has_many :product_colors
+  has_many :colors, through: :product_colors
+  has_many :images
   has_many :order_items, dependent: :destroy
-  has_many :colors, through: :product_colors, dependent: :destroy
-  has_many :images, dependent: :destroy
   belongs_to :user
   belongs_to :category
   belongs_to :brand
@@ -32,9 +33,8 @@ class Product < ApplicationRecord
 
   before_save :set_slug
 
-  scope :by_created_at, -> {order created_at: :desc}
+  scope :by_created_at_and_deleted_at, -> {order deleted_at: :asc, created_at: :desc}
   scope :select_fields, -> {select :id, :name, :slug, :price, :brand_id, :category_id, :created_at, :deleted_at}
-  scope :not_deleted, -> {where deleted_at: nil}
   scope :by_slug, -> slug {where slug: slug}
   scope :search_product, -> value {
     if value.present?

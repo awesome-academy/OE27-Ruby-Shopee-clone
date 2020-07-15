@@ -1,9 +1,8 @@
 <%= form_for [:shops, @product] do |f| %>
-  <%= render "shops/shared/error", object: f.object %>
   <div class="form-group">
     <%= f.label :name, t("shop.product.create.name") %>
     <%= f.text_field :name, class: "form-control #{is_invalid @product}" %>
-    <%= show_message_validate @product, t("shop.product.create.name") %>
+    <%= errors_for f, :name %>
   </div>
   <div class="row">
     <div class="form-group col-md-4">
@@ -17,7 +16,7 @@
     <div class="form-group col-md-4">
       <%= f.label :price, t("shop.product.create.price") %>
       <%= f.number_field :price, class: "form-control #{is_invalid @product}" %>
-      <%= show_message_validate @product, t("shop.product.create.price") %>
+      <%= errors_for f, :price %>
     </div>
   </div>
   <div class="color col-md-7 row">
@@ -53,7 +52,7 @@
     <div class="description-sm">
       <%= f.label t "shop.product.create.description" %>
       <%= f.cktext_area :description, id: "ckeditor", class: "ckeditor form-control #{is_invalid @product}" %>
-      <%= show_message_validate @product, t("shop.product.create.description") %>
+      <%= errors_for f, :description %>
     </div>
   </div>
   <div class="avatar form-group mt-3">

@@ -1,5 +1,5 @@
 <tr>
-  <td><%= product_counter + 1 %></td>
+  <td><%= page_index params[:page], product_counter %></td>
   <td class="avatar-index"><%= image_tag product.avatar.url if product.avatar.present? %></td>
   <td><%= product.name %></td>
   <td><%= format_currency product.price %></td>
@@ -12,15 +12,28 @@
                   data: {toggle: "tooltip", placement: "right"}, title: t("shop.product.index.edit") do %>
         <i class="fa fa-edit"></i>
       <% end %>
-      <%= link_to shops_product_path(product.slug),
-                  class: "btn btn-danger",
-                  method: :delete,
-                  title: t("shop.product.index.delete"),
-                  data: {
-                    confirm: t("shop.product.index.confirm_delete"),
-                    toggle: "tooltip", placement: "right"
-                  } do %>
-        <i class="fa fa-remove"></i>
+      <% if product.deleted? %>
+        <%= link_to restore_shops_product_path(product.slug),
+                    class: "btn btn-success",
+                    method: :put,
+                    title: t("shop.product.index.confirm_restore"),
+                    data: {
+                        confirm: t("shop.product.index.confirm_restore"),
+                        toggle: "tooltip", placement: "right"
+                    } do %>
+          <i class="fa fa-recycle"></i>
+        <% end %>
+      <% else %>
+        <%= link_to shops_product_path(product.slug),
+                    class: "btn btn-danger",
+                    method: :delete,
+                    title: t("shop.product.index.delete"),
+                    data: {
+                        confirm: t("shop.product.index.confirm_delete"),
+                        toggle: "tooltip", placement: "right"
+                    } do %>
+          <i class="fa fa-remove"></i>
+        <% end %>
       <% end %>
     </div>
   </td>

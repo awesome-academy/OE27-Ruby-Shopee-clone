@@ -4,7 +4,7 @@
   </td>
   <td>
     <%= f.number_field :quantity, class: "form-control #{is_invalid @product}" %>
-    <%= show_message_validate @product, t("shop.product.create.quantity") %>
+    <%= errors_for f, :quantity %>
   </td>
   <td class="del-color">
     <%= f.check_box :_destroy, title: t("shop.product.create.remove") %>
