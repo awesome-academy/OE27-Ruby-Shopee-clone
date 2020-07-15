@@ -36,10 +36,11 @@
         <td>
           <div class="qty-box">
             <div class="input-group">
-               <%= text_field :quantity, order_item["quantity"],
+              <%= number_field_tag :quantity, order_item["quantity"],
+                data: {url: order_item_path(product_color)},
+                min: Settings.min_quantity,
                 max: @product_colors[@index].quantity,
-                min: Settings.min_quantity, data: {url: order_item_path product_color},
-                 class: "form-control input-number quantity" %>
+                required: true, class: "form-control input-number quantity" %>
             </div>
           </div>
         </td>
@@ -50,7 +51,7 @@
         </td>
         <td>
           <h2 class="td-color sub-total" id="order_item<%= product_color %>"><%= total_item order_item["quantity"], order_item["price"] %></h2>
-          <%= hidden_field :product_color, product_color, class: "product-color" %>
+          <%= hidden_field_tag :product_color, product_color, class: "product-color" %>
         </td>
       </tr>
       <% @index += @index %>

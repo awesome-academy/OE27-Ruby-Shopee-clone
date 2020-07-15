@@ -1,0 +1,12 @@
+var session_data = $('.data-session').data('session');
+var quantityy = parseFloat(session_data[<%= @id %>]['quantity']);
+var max_quantity = parseFloat($('.input-number-show').attr('max'));
+$('li#<%= @id %>').remove();
+$('#total-order').text(parseFloat($('#total-order').text()) - parseFloat($('#order_item<%= @id %>').text()));
+$('tr#<%= @id %>').remove();
+$('.input-number-show').prop('max', max_quantity + quantityy);
+$(':input[type="submit"]').prop('disabled', false);
+$('#quantity_avai').text(max_quantity + quantityy);
+$("#data_a").load($('#url-session').data('url') +' #data_a');
+$('.badge').text($('.item-sub').length);
+toastr.success(I18n.t('order.delete'));
