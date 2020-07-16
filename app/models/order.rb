@@ -18,6 +18,7 @@ class Order < ApplicationRecord
   before_save :update_subtotal
 
   scope :by_status, -> status {where status: status if status.present?}
+  scope :order_status, -> {order status: :asc}
   scope :search_by_id, -> id {where id: id}
 
   def subtotal

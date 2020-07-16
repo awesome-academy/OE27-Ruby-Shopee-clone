@@ -26,4 +26,9 @@ module Shops::ProductsHelper
   def load_price price, price_default = 0
     price.present? ? price : price_default
   end
+
+  def page_index page, index
+    page ||= 1
+    (page.to_i - 1) * Settings.shop.product_per_page + index.to_i + 1
+  end
 end

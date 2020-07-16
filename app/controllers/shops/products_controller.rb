@@ -1,10 +1,11 @@
 class Shops::ProductsController < ShopsController
-  before_action :load_product, only: %i(edit update destroy)
+  before_action :load_product, except: %i(index new create)
 
   def index
     @search = current_user.products
       .select_fields
-      .not_deleted
+      .with_deleted
+      .by_created_at_and_deleted_at
       .eager_load(:brand, :category)
       .search(params[:q])
     @products = @search.result.page(params[:page]).per Settings.shop.product_per_page
@@ -39,7 +40,7 @@ class Shops::ProductsController < ShopsController
   end
 
   def destroy
-    if @product.update_attribute :deleted_at, Time.now.zone
+    if @product.destroy
       flash[:success] = t "shop.product.index.delete_success"
     else
       flash[:danger] = t "shop.product.index.delete_fail"
@@ -47,10 +48,19 @@ class Shops::ProductsController < ShopsController
     redirect_to shops_products_path
   end
 
+  def restore
+    if @product.restore
+      flash[:success] = t "shop.product.index.restore_success"
+    else
+      flash[:danger] = t "shop.product.index.restore_fail"
+    end
+    redirect_to shops_products_path
+  end
+
   private
 
   def load_product
-    @product = Product.by_slug(params[:slug]).not_deleted.first
+    @product = Product.with_deleted.find_by slug: params[:slug]
     return if @product
 
     flash[:warning] = t "shop.product.not_exist_product"

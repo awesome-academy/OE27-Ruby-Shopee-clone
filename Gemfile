@@ -52,6 +52,7 @@ gem "resque-scheduler"
 gem "sidekiq-status"
 gem "devise"
 gem "devise-async"
+gem "paranoia"
 
 group :development, :test do
   gem "pry-rails"
