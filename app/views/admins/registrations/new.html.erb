@@ -1,0 +1,25 @@
+<% provide :title, t("admin.sign_up") %>
+<% provide :button_text, t("admin.sign_up") %>
+<section class="login-page section-b-space">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h3><%= t "admin.sign_up" %></h3>
+        <div class="theme-card">
+          <div class="theme-form">
+            <%= form_for :admin, url: registration_path(:admin), method: :post do |f| %>
+              <%= render "users/shared/error_messages" %>
+              <%= f.label :email %>
+              <%= f.email_field :email, class: "form-control" %>
+              <%= f.label :password %>
+              <%= f.password_field :password, class: "form-control" %>
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, class: "form-control" %>
+              <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

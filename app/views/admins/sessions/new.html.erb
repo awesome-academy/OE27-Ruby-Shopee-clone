@@ -1,0 +1,27 @@
+<% provide :title, t("admin.sign_in") %>
+<% provide :button_text, t("home.header.login") %>
+<section class="login-page section-b-space">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h3><%= t "admin.sign_in" %></h3>
+        <div class="theme-card">
+          <div class="theme-form">
+            <%= form_for(:admin, url: admin_session_path) do |f| %>
+              <%= f.label :email %>
+              <%= f.email_field :email, class: "form-control" %>
+              <%= f.label :password %>
+              <%= f.password_field :password, class: "form-control" %>
+              <div class="form-check">
+                <%= f.check_box :remember_me, class: "form-checkbox" %>
+                <%= f.label :remember_me %>
+              </div>
+              <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+            <% end %>
+            <%= link_to t("home.header.forgot_password.title"), new_admin_password_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

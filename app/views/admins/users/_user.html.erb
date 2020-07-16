@@ -1,0 +1,31 @@
+<tr>
+  <td><%= page_index params[:page], user_counter, Settings.admin.per_page %></td>
+  <td><%= user.email %></td>
+  <td><%= format_date user.created_at %></td>
+  <td>
+    <div class="btn-group">
+      <% if can? :manage, user %>
+        <% if user.deleted? %>
+          <%= link_to admins_restore_user_path(user.id),
+                      class: "btn btn-success",
+                      method: :put,
+                      title: t("shop.product.index.confirm_restore"),
+                      data: {confirm: t("admin.confirm_restore")} do %>
+            <i class="fa fa-recycle"></i>
+          <% end %>
+        <% else %>
+          <%= link_to admins_delete_user_path(user.id),
+                      class: "btn btn-danger",
+                      method: :delete,
+                      title: t("shop.product.index.delete"),
+                      data: {confirm: t("admin.confirm_delete")} do %>
+            <i class="fa fa-remove"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+      <%= link_to admins_show_user_path(user), class: "btn btn-info" do %>
+        <i class="fa fa-info"></i>
+      <% end %>
+    </div>
+  </td>
+</tr>

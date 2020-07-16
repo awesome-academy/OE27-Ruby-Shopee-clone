@@ -36,3 +36,5 @@ price_100: 100
 price_200: 200
 parent_category: 0
 quantity_min: 0
+admin:
+  per_page: 2

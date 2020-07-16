@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row product-adding">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header p-b-0 p-t-1">
+          <h3><%= t "admin.info" %></h3>
+        </div>
+        <div class="card-body">
+          <%= label_tag t "admin.email" %>: <%= @user.email %>
+          <br>
+          <%= label_tag t "admin.created_at" %>: <%= format_date @user.created_at %>
+          <br>
+          <%= label_tag t "shop.order.index.status" %>:
+          <%= @user.deleted? ? t("admin.in_active") : t("admin.active") %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

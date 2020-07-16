@@ -1,0 +1,28 @@
+<div class="page-main-header">
+  <div class="main-header-right row">
+    <div class="main-header-left d-lg-none">
+      <div class="logo-wrapper">
+        <%= link_to "#" do %>
+          <%= image_tag "multikart-logo.png", class: "blur-up lazyloaded" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="nav-right col">
+      <ul class="nav-menus">
+        <li><%= link_to "", "#" %></li>
+        <li class="onhover-dropdown">
+          <div class="media align-items-center">
+            <%= image_tag "avatar-default.png", class: "align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" %>
+            <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
+          </div>
+          <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
+            <li><%= link_to t("shop.header.profile"), "#" %></li>
+            <li><%= link_to t("shop.header.setting"), "#" %></li>
+            <li><%= link_to t("shop.header.logout"), destroy_admin_session_path, method: :delete %></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="d-lg-none mobile-toggle pull-right"><i data-feather="more-horizontal"></i></div>
+    </div>
+  </div>
+</div>

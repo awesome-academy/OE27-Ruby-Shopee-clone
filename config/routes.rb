@@ -4,6 +4,17 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => "/ckeditor"
   mount Sidekiq::Web, at: "/sidekiq"
   scope "(:locale)", locale: /en|vi/ do
+    devise_for :admins, controllers: {
+      sessions: "admins/sessions",
+      registrations: "admins/registrations"
+    }
+    namespace :admins do
+      root to: "users#index"
+      get "users/:id", to: "users#show", as: "show_user"
+      delete "users/:id/delete", to: "users#destroy", as: "delete_user"
+      put "users/:id/restore", to: "users#restore", as: "restore_user"
+    end
+
     scope module: "users" do
       root "home#index"
       devise_for :users, controllers: {
