@@ -15,6 +15,7 @@ class Users::ProductsController < ApplicationController
 
   def show
     @product = Product.find_by id: params[:id]
+    @reviews = @product.reviews
     return if @product
 
     flash[:error] = t "product.fail_find_product"

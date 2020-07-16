@@ -3,12 +3,12 @@
     <div class="img-wrapper">
       <div class="front">
         <%= link_to product_path product.id do %>
-          <%= image_tag product.avatar.url, class: "img-fluid blur-up lazyload bg-img" if product.avatar.present? %>
+          <%= image_tag product.avatar.url, onerror: 'this.src="public/uploads/products/hi.jpg"', class: "img-fluid blur-up lazyload bg-img" %>
         <% end %>
       </div>
       <div class="back">
         <%= link_to product_path product.id do %>
-          <%= image_tag product.avatar.url, class: "img-fluid blur-up lazyload bg-img" if product.avatar.present? %>
+          <%= image_tag product.avatar.url, onerror: 'this.src="public/uploads/products/hi.jpg"', class: "img-fluid blur-up lazyload bg-img" %>
         <% end %>
       </div>
       <div class="cart-info cart-wrap">
@@ -17,8 +17,18 @@
     </div>
     <div class="product-detail">
       <div>
-        <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-         <i class="fa fa-star"></i></div>
+        <div class="rating">
+          <% if star_int? product %>
+            <% product.avg_star.to_i.times do %>
+              <i class="fa fa-star"></i>
+            <% end %>
+          <% else %>
+            <% product.avg_star.to_i.times do %>
+              <i class="fa fa-star"></i>
+            <% end %>
+            <i class="fa fa-star-half"></i>
+          <% end %>
+        </div>
           <%= link_to product_path product.id do %>
             <h6><%= product.name %></h6>
           <% end %>
@@ -35,7 +45,7 @@
           <div class="row">
             <div class="col-lg-6 col-xs-12">
               <div class="quick-view-img">
-                <%= image_tag product.avatar.url, class: "img-fluid blur-up lazyload" if product.avatar.present? %>
+                <%= image_tag product.avatar.url, onerror: 'this.src="public/uploads/products/hi.jpg"', class: "img-fluid blur-up lazyload" %>
               </div>
             </div>
             <div class="col-lg-6 rtl-text">

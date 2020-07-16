@@ -394,9 +394,6 @@ GEM
     sidekiq-status (1.1.4)
       chronic_duration
       sidekiq (>= 3.0)
-    simple_form (5.0.2)
-      actionpack (>= 5.0)
-      activemodel (>= 5.0)
     sinatra (2.0.8.1)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -504,7 +501,6 @@ DEPENDENCIES
   shoulda-matchers (~> 3.0)
   sidekiq
   sidekiq-status
-  simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

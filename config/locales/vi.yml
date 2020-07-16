@@ -29,6 +29,17 @@ vi:
         password: "Mật khẩu mới"
         password_confirmation: "Xác nhận mật khẩu mới"
       fail_find_cat: "Lỗi không tìm thấy danh mục"
+
+    body:
+      sale: "Giảm đến 20%"
+      collection: "Bộ sưu tập nam"
+      special: "Đặc biệt"
+      top_collection: "Bộ sưu tập hàng đầu"
+      advertise: "Lorem Ipsum chỉ đơn giản là văn bản giả của ngành công nghiệp in ấn và sắp chữ. Lorem Ipsum là văn bản giả tiêu chuẩn của ngành công nghiệp kể từ những năm 1500,"
+      exclusive: "Sản phẩm độc quyền"
+      new_product: "Sản phẩm mới"
+      best_product: "Sản phẩm bán chạy"
+
     footer:
       know_text: "BIẾT TẤT CẢ ĐỀU ĐẦU TIÊN!"
       remember_text: "Không bao giờ bỏ lỡ bất cứ điều gì từ Multikart bằng cách đăng ký nhận bản tin của chúng tôi."
@@ -48,6 +59,7 @@ vi:
     sign_up:
       success: "Tạo tài khoản thành công"
       fail: "Tạo tài khoản thất bại"
+
   product:
     filter:
       price_100: "100$ 200$"
@@ -66,6 +78,7 @@ vi:
     search: "Tìm kiếm"
     details: "Chi tiết sản phẩm"
     quick_view: "Xem nhanh"
+    comment: "Bình luận"
 
   order:
     susscess: "Thêm vào giỏ thành công"

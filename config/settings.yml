@@ -21,7 +21,7 @@ name:
   maximum: 50
 email:
   maximum: 255
-record_per_page: 4
+record_per_page: 12
 password:
   minimum: 6
 length_input: 80
@@ -38,3 +38,4 @@ parent_category: 0
 quantity_min: 0
 admin:
   per_page: 2
+format_date: "%H:%M %Y/%m/%d"

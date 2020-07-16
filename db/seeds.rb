@@ -1,7 +1,7 @@
-User.create!(name: "Bui Van Sao",
-             phone: "0363071298",
-             email: "bui.van.sao@sun-asterisk.com",
-             password: "123qwe",
-             password_confirmation: "123qwe",
-             activated: true,
-             activated_at: Time.zone.now)
+20.times do |n|
+  ProductColor.create!(
+    quantity: 100,
+    product_id: Product.pluck(:id).sample,
+    color_id: Color.pluck(:id).sample
+    )
+end
