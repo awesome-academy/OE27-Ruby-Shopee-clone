@@ -53,6 +53,7 @@ gem "sidekiq-status"
 gem "devise"
 gem "devise-async"
 gem "paranoia"
+gem "select2-rails"
 gem "cancancan"
 
 group :development, :test do

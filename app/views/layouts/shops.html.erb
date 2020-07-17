@@ -5,10 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "shops/shop", media: "all", "data-turbolinks-track": true %>
-    <%= javascript_include_tag "shops/shop", "data-turbolinks-track": true %>
+    <%= stylesheet_link_tag "shops/shop", media: "all", "data-turbolinks-track": false %>
+    <%= javascript_include_tag "shops/shop", "data-turbolinks-track": false %>
     <%= javascript_include_tag "translations", skip_pipeline: true %>
-    <%= javascript_include_tag "config" %>
   </head>
 
   <body>
@@ -19,7 +18,7 @@
         <div class="page-body">
           <div class="container-fluid">
             <% flash.each do |msg_type, msg| %>
-              <div class="alert alert-<%= msg_type %>"><%= msg %></div>
+              <div class="alert alert-<%= msg_type %>"><%= msg.html_safe %></div>
             <% end %>
           </div>
           <%= yield %>
@@ -29,6 +28,7 @@
           </div>
         </div>
         <%= render "shops/layouts/footer" %>
+        <%= render "layouts/config" %>
       </div>
     </div>
   </body>

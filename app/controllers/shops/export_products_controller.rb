@@ -1,6 +1,9 @@
 class Shops::ExportProductsController < ShopsController
+  include Shops::ProductsConcern
+
   def export_products
-    job_id = ExportProductsWorker.perform_async current_user.id
+    product_ids = load_products(params, current_user).result.ids
+    job_id = ExportProductsWorker.perform_async product_ids
     respond_to do |format|
       format.json do
         render json: {jid: job_id}

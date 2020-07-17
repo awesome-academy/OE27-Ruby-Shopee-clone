@@ -69,9 +69,11 @@ class Product < ApplicationRecord
     attributed["quantity"].blank?
   end
 
-  ransacker :created_at , type: :date do
+  ransacker :created_at, type: :date do
     Arel.sql("products.created_at")
   end
+
+  ransacker :per_page
 
   def total_quantity
     product_colors.to_a.sum {|p| p.quantity}

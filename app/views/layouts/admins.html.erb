@@ -8,7 +8,6 @@
     <%= stylesheet_link_tag "shops/shop", media: "all", "data-turbolinks-track": true %>
     <%= javascript_include_tag "shops/shop", "data-turbolinks-track": true %>
     <%= javascript_include_tag "translations", skip_pipeline: true %>
-    <%= javascript_include_tag "config" %>
   </head>
 
   <body>
@@ -31,9 +30,6 @@
         <%= render "admins/layouts/footer" %>
       </div>
     </div>
-    <script type="text/javascript">
-	    I18n.defaultLocale = "<%= I18n.default_locale %>";
-	    I18n.locale = "<%= I18n.locale %>";
-    </script>
+    <%= render "layouts/config" %>
   </body>
 </html>

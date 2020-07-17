@@ -5,7 +5,7 @@ class Shops::ImportProductsController < ShopsController
       if import_service.import_data
         flash[:success] = t "shop.product.create.import_success"
       else
-        flash[:danger] = import_service.error
+        flash[:danger] = import_service.error.join(",<br>")
       end
     else
       flash[:danger] = t "shop.product.create.import_fail"

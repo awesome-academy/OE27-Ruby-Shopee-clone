@@ -1,14 +1,14 @@
 class Shops::ProductsController < ShopsController
+  include Shops::ProductsConcern
+
   before_action :load_product, except: %i(index new create)
 
   def index
-    @search = current_user.products
-      .select_fields
-      .with_deleted
-      .by_created_at_and_deleted_at
-      .eager_load(:brand, :category)
-      .search(params[:q])
-    @products = @search.result.page(params[:page]).per Settings.shop.product_per_page
+    @search = load_products params, current_user
+    @limit = params[:q].present? ? params[:q][:per_page] : Settings.shop.default_per_page
+    @products = @search.result.page(params[:page]).per @limit
+    @brands = Brand.pluck :name
+    @categories = Category.pluck :name
   end
 
   def new

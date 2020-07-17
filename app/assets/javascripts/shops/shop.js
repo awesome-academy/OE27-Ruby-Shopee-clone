@@ -11,3 +11,4 @@
 //= require Chart.bundle
 //= require chartkick
 //= require jquery-ui
+//= require select2
