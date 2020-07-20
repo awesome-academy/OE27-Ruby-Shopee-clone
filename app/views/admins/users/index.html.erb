@@ -1,0 +1,31 @@
+<%= provide :title, t("admin.list_user") %>
+<div class="container-fluid">
+  <div class="row product-adding">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header p-b-0 p-t-1">
+        </div>
+        <div class="card-body">
+          <div class="digital-add needs-validation">
+            <table id="data-table" class="table table-hover table-bordered">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th><%= t "admin.email" %></th>
+                  <th><%= t "admin.created_at" %></th>
+                  <th><%= t "shop.product.index.function" %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render @users %>
+              </tbody>
+            </table>
+            <div class="product-pagination">
+              <%= paginate @users, theme: Settings.paginate_theme %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

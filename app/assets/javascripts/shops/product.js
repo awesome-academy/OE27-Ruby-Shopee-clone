@@ -16,6 +16,7 @@ $(document).on('turbolinks:load', function() {
   });
   
   $statusElm = $('.download-progress #percent-download');
+  $('.download-progress').addClass('d-none');
   $('#btn-export').on('click', function(e) {
     $('.download-progress').removeClass('d-none');
     $.ajax({
@@ -24,6 +25,7 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json',
       data: {},
     }).done(function(response, status, ajaxOpts) {
+      $('.download-progress').removeClass('d-none');
       if (status === 'success' && response && response.jid) {
         var jobId = response.jid;
         var intervalName = `job_${jobId}`;
@@ -43,6 +45,7 @@ $(document).on('turbolinks:load', function() {
         job_id: jobId,
       },
     }).done(function(response, status) {
+      $('.download-progress').removeClass('d-none');
       if (status === 'success') {
         var percentage = response.percentage;
         $statusElm.text(I18n.t("shop.product.exporting") + ' ' + percentage + '%');

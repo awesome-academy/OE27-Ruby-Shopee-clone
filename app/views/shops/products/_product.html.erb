@@ -1,6 +1,6 @@
 <tr>
-  <td><%= page_index params[:page], product_counter %></td>
-  <td class="avatar-index"><%= image_tag product.avatar.url if product.avatar.present? %></td>
+  <td><%= page_index params[:page], product_counter, Settings.shop.product_per_page %></td>
+  <td class="avatar-index"><%= show_avatar product %></td>
   <td><%= product.name %></td>
   <td><%= format_currency product.price %></td>
   <td><%= product.brand_name %></td>

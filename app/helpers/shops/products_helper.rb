@@ -27,8 +27,13 @@ module Shops::ProductsHelper
     price.present? ? price : price_default
   end
 
-  def page_index page, index
+  def page_index page, index, per_page
     page ||= 1
-    (page.to_i - 1) * Settings.shop.product_per_page + index.to_i + 1
+    (page.to_i - 1) * per_page.to_i + index.to_i + 1
+  end
+
+  def show_avatar product
+    img_url = product.avatar.present? ? product.avatar.url : "avatar-default.png"
+    image_tag img_url
   end
 end
