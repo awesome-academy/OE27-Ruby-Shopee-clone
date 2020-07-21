@@ -104,6 +104,13 @@ vi:
     action: "Hành động"
     total: "Tổng"
 
+  cart:
+    your_cart: "Giỏ hàng"
+    pending: "Đang chờ xác nhận"
+    checked: "Đã xác nhận"
+    shiped: "Đã nhận hàng"
+    empty: "Giỏ hàng của bạn trống"
+
   shop:
     import:
       header:

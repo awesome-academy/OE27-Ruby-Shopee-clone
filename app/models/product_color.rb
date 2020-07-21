@@ -16,6 +16,6 @@ class ProductColor < ApplicationRecord
             }
   scope :by_product_and_color, -> (product_id, color_id) {where("product_id = ? AND color_id =  ?", product_id, color_id) if product_id.present? && color_id.present?}
   scope :select_color, ->(id){where(id: id) if id.present?}
-  scope :by_id, ->(id){where(id: id) if id.present?}
+  scope :by_ids, ->(id){where(id: id) if id.present?}
   scope :best_sell, -> {find_by_sql("select p.product_id, sum(od.quantity)as quantity from product_colors as p inner join order_items as od on p.id = od.product_color_id group by  p.product_id order by sum(od.quantity) desc")}
 end

@@ -4,10 +4,10 @@
       <tr id="<%= product_color %>">
         <td>
           <%= link_to "#" do %>
-             <%= image_tag @product_colors[@index].product_avatar.url, onerror: 'this.src="public/uploads/products/hi.jpg"' %>
+             <%= image_tag @product_colors[product_color].product_avatar.url, onerror: "this.src= #{Settings.image_default}" %>
           <% end %>
         </td>
-        <td><h4 class="product-name"><%= @product_colors[@index].product_name %></h4>
+        <td><h4 class="product-name"><%= @product_colors[product_color].product_name %></h4>
           <div class="mobile-cart-content row">
             <div class="col-xs-3">
               <div class="qty-box">
@@ -28,7 +28,7 @@
           </div>
         </td>
         <td>
-          <h4><%= @product_colors[@index].color_color %></h4>
+          <h4><%= @product_colors[product_color].color_color %></h4>
         </td>
         <td>
           <h2 class="price"><%= order_item["price"] %></h2>
@@ -39,7 +39,7 @@
               <%= number_field_tag :quantity, order_item["quantity"],
                 data: {url: order_item_path(product_color)},
                 min: Settings.min_quantity,
-                max: @product_colors[@index].quantity,
+                max: @product_colors[product_color].quantity,
                 required: true, class: "form-control input-number quantity" %>
             </div>
           </div>
@@ -54,7 +54,6 @@
           <%= hidden_field_tag :product_color, product_color, class: "product-color" %>
         </td>
       </tr>
-      <% @index += @index %>
     </tbody>
   <% end %>
 <% end %>

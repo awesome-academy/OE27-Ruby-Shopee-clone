@@ -1,0 +1,39 @@
+<% order.order_items.each do |order_item| %>
+  <tr >
+    <td>
+      <%= link_to "#" do %>
+         <%= image_tag order_item.product_avatar.url, onerror: "this.src= #{Settings.image_default}" %>
+      <% end %>
+    </td>
+    <td><h4 class="product-name"><%= order_item.product_name %></h4>
+      <div class="mobile-cart-content row">
+        <div class="col-xs-3">
+          <div class="qty-box">
+            <div class="input-group">
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-1">
+          <h2 class="td-color"><%= order_item.price_product %></h2>
+        </div>
+      </div>
+    </td>
+    <td>
+      <h4><%= order_item.color_color %></h4>
+    </td>
+    <td>
+      <h2 class="price"><%= order_item.price_product %></h2>
+    </td>
+    <td>
+      <div class="qty-box">
+        <div class="input-group">
+          <span><%= order_item.quantity %></span>
+        </div>
+      </div>
+    </td>
+    <td>
+      <h2 class="td-color">
+        <%= order_item.amount %>
+    </td>
+  </tr>
+<% end %>

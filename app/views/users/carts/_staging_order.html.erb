@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table cart-table table-responsive-xs">
+      <thead>
+        <tr class="table-head">
+          <th scope="col"><%= t "order_item.image" %></th>
+          <th scope="col"><%= t "order_item.product_name" %></th>
+          <th scope="col"><%= t "order_item.color" %></th>
+          <th scope="col"><%= t "order_item.price" %></th>
+          <th scope="col"><%= t "order_item.quantity" %></th>
+          <th scope="col"><%= t "order_item.total" %></th>
+        </tr>
+      </thead>
+      <% orders.each do |order| %>
+        <tbody>
+          <%= render "cart_order", order: order %>
+          <tr>
+            <td colspan="5" ><h3 class="total-all"><%= t "order.total" %>:</h3></td>
+            <td colspan="1" ><h2><%= order.total_amount %></h2></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
