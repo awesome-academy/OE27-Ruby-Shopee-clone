@@ -22,6 +22,17 @@ en:
         password: "New password"
         password_confirmation: "Password confirmation"
       fail_find_cat: "Can not find any categories!"
+
+    body:
+      sale: "20% off"
+      collection: "men collection"
+      special: "special offer"
+      top_collection: "top collection"
+      advertise: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+      exclusive: "exclusive products"
+      new_product: "New Products"
+      best_product: "Best Sellers"
+
     footer:
       know_text: "KNOW IT ALL FIRST!"
       remember_text: "Never Miss Anything From Multikart By Signing Up To Our Newsletter."
@@ -56,6 +67,7 @@ en:
     search: "Search"
     details: "Product Details"
     quick_view: "Quick view"
+    comment: "Comment"
 
   order:
     susscess: "Add to cart successfuly"

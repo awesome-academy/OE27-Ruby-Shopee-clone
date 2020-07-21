@@ -33,6 +33,6 @@ module Shops::OrdersHelper
   end
 
   def detail order_item, i
-    order_item.product.product_colors[i]
+    order_item.product_color
   end
 end

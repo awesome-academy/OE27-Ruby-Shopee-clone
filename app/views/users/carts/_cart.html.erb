@@ -4,7 +4,7 @@
       <tr id="<%= product_color %>">
         <td>
           <%= link_to "#" do %>
-             <%= image_tag @product_colors[@index].product_avatar.url %>
+             <%= image_tag @product_colors[@index].product_avatar.url, onerror: 'this.src="public/uploads/products/hi.jpg"' %>
           <% end %>
         </td>
         <td><h4 class="product-name"><%= @product_colors[@index].product_name %></h4>

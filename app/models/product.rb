@@ -10,6 +10,7 @@ class Product < ApplicationRecord
   has_many :colors, through: :product_colors
   has_many :images
   has_many :order_items, dependent: :destroy
+  has_many :reviews
   belongs_to :user
   belongs_to :category
   belongs_to :brand
@@ -56,6 +57,7 @@ class Product < ApplicationRecord
   scope :by_color, ->(color_id){includes(:product_colors).where product_colors: {color_id: color_id} if color_id.present?}
   scope :by_category, ->(id){where category_id: id}
   scope :by_id, ->(id){where(id: id)}
+  scope :order_by_avg_star, -> {order avg_star: :desc}
 
   mount_uploader :avatar, ProductImageUploader,
                  reject_if: proc { |param| param[:avatar].blank? &&

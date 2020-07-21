@@ -1,0 +1,33 @@
+<div class="product-box">
+  <div class="img-wrapper">
+    <div class="front">
+      <%= link_to product_path product.id do %>
+        <%= image_tag product.avatar.url,
+          onerror: 'this.src="public/uploads/products/hi.jpg"', class: "img-fluid blur-up lazyload bg-img" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="product-detail">
+    <div class="rating">
+      <% if star_int? product %>
+        <% product.avg_star.to_i.times do %>
+          <i class="fa fa-star"></i>
+        <% end %>
+      <% else %>
+        <% product.avg_star.to_i.times do %>
+          <i class="fa fa-star"></i>
+        <% end %>
+        <i class="fa fa-star-half"></i>
+      <% end %>
+    </div>
+    <%= link_to product_path product.id do %>
+      <h6><%= product.name %></h6>
+    <% end %>
+    <h4>$<%= product.price %></h4>
+    <ul class="color-variant">
+      <li class="bg-light0"></li>
+      <li class="bg-light1"></li>
+      <li class="bg-light2"></li>
+    </ul>
+  </div>
+</div>

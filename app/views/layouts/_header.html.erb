@@ -7,7 +7,11 @@
         <div class="col-lg-6 text-right">
           <ul class="header-dropdown">
             <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
-              <%= t "home.header.account" %>
+              <% if current_user %>
+                  <%= current_user.name %>
+              <% else %>
+                <%= t "home.header.account" %>
+              <% end %>
               <ul class="onhover-show-div">
                 <% if user_signed_in? %>
                   <li><%= link_to t("shop.index.title"), shops_root_path %></li>
@@ -56,7 +60,6 @@
             <div>
               <div class="icon-nav">
                 <ul>
-                  <li class="onhover-div mobile-search"></li>
                   <li class="onhover-div mobile-setting">
                     <div><img src="http://themes.pixelstrap.com/multikart/assets/images/icon/setting.png" class="img-fluid blur-up lazyload" alt="">
                       <i class="ti-settings"></i></div>
@@ -71,6 +74,13 @@
                    <li class="onhover-div mobile-cart">
                       <div><img src="http://themes.pixelstrap.com/multikart/assets/images/icon/cart.png" class="img-fluid blur-up lazyload" alt="">
                         <i class="ti-shopping-cart"></i><span class="badge badge-danger"></span></div>
+                      <div>
+                        <img src="https://img.icons8.com/nolan/64/favorite-cart.png" class="img-fluid blur-up lazyload" alt="" width="40px">
+                        <i class="ti-shopping-cart"></i>
+                        <span class="badge badge-danger">
+                          <%= session[:order].size if session[:order] %>
+                        </span>
+                      </div>
                       <ul class="show-div shopping-cart">
                         <% if session[:order] %>
                           <%= render "users/order_items/shop"%>
