@@ -382,6 +382,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    select2-rails (4.0.13)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -497,6 +498,7 @@ DEPENDENCIES
   rubocop-rails (~> 2.3.2)
   sass-rails (~> 5.0)
   sassc-rails (>= 2.1.0)
+  select2-rails
   selenium-webdriver
   shoulda-matchers (~> 3.0)
   sidekiq

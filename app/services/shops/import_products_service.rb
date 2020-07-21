@@ -1,10 +1,9 @@
 class Shops::ImportProductsService
   attr_reader :error
 
-  def initialize params, current_user, error = nil
+  def initialize params, current_user
     @file = params[:file]
     @current_user = current_user
-    @error = error
   end
 
   def import_data
@@ -36,19 +35,26 @@ class Shops::ImportProductsService
     product_names = Product.pluck :name
     category_ids = Category.ids
     brand_ids = Brand.ids
+    _error = []
+    @error = []
     sheet.each_with_index do |row, i|
       next if i == 0
       _data = Hash[[columns, row].transpose]
 
-      @error = case true
-      when product_names.include?(_data.values[0]) then "name_exist"
-      when category_ids.exclude?(_data.values[2]) then "category_no_exist"
-      when brand_ids.exclude?(_data.values[3]) then "brand_not_exist"
-      when !_data.values[4].is_a?(Numeric) then "price_numeric"
-      when _data.values.include?(nil) then "error_row"
+      case true
+      when product_names.include?(_data.values[0]) then _error << "name_exist"
+      when category_ids.exclude?(_data.values[2]) then _error << "category_no_exist"
+      when brand_ids.exclude?(_data.values[3]) then _error << "brand_not_exist"
+      when !_data.values[4].is_a?(Numeric) then _error << "price_numeric"
+      when _data.values.include?(nil) then _error << "error_row"
       else nil
       end
-      @error.blank? ? data << _data : @error = I18n.t("shop.product.create.#{@error}", i: i + 1)
+      if _error.blank?
+        data << _data
+      else
+        _error.each {|e| @error << I18n.t("shop.product.create.#{e}", i: i + 1)}
+        _error = []
+      end
     end
   end
 end

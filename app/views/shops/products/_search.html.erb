@@ -2,8 +2,14 @@
   <div class="row align-items-center">
     <div class="col-md-12 pt-2 form-inline form-group">
       <%= f.search_field :name_cont, placeholder: t("shop.product.create.name"), class: "form-control ml-1" %>
-      <%= f.search_field :brand_name_cont, placeholder: t("shop.product.create.brand"), class: "form-control ml-1" %>
-      <%= f.search_field :category_name_cont, placeholder: t("shop.product.create.category"), class: "form-control ml-1" %>
+      <%= f.select :brand_name_cont,
+                   @brands.unshift(t("shop.product.index.choose_brand")),
+                   {}, class: "form-control ml-1 selectpicker" %>
+      <%= f.select :category_name_cont,
+                   @categories.unshift(t("shop.product.index.choose_category")),
+                   {}, class: "form-control ml-1" %>
+      <%= f.select :per_page, Settings.shop.product_per_page.split(", "),
+                   selected: @limit, class: "selectpicker form-control ml-1 p-3" %>
       <%= f.hidden_field :price_gteq, value: load_price(params[:price_gteq]) %>
       <%= f.hidden_field :price_lteq, value: load_price(params[:price_lteq], Settings.shop.price_max) %>
     </div>

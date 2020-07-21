@@ -8,7 +8,6 @@
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "user/user", "data-turbolinks-track": "reload" %>
-    <%= javascript_include_tag "config" %>
   </head>
 
   <body>
@@ -21,7 +20,8 @@
       <%= render "layouts/footer" %>
     </div>
   <!-- Theme js-->
-  <%= javascript_include_tag "user/theme", "data-turbolinks-track": "reload" %>
-  <%= javascript_include_tag "user/price_range", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "user/theme", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "user/price_range", "data-turbolinks-track": "reload" %>
+    <%= render "layouts/config" %>
   </body>
 </html>

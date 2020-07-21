@@ -15,8 +15,11 @@
                     <%= t "shop.product.import" %><i class="fa fa-upload "></i>
                   <% end %>
                 <% end %>
-                <%= button_tag class: "btn btn-outline-primary ml-2", id: "btn-export", title: t("shop.product.export") do %>
-                  <%= t "shop.product.export" %><i class="fa fa-download"></i>
+                <% if @products.present? %>
+                  <%= button_tag class: "btn btn-outline-primary ml-2",
+                                 id: "btn-export", title: t("shop.product.export") do %>
+                    <%= t "shop.product.export" %><i class="fa fa-download"></i>
+                  <% end %>
                 <% end %>
                 <%= link_to new_shops_product_path, class: "btn btn-outline-success ml-2" do %>
                   <%= t "shop.product.create.add" %> <i class="fa fa-plus-square"></i>
