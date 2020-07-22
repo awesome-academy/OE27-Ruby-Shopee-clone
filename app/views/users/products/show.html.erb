@@ -7,7 +7,7 @@
             <div class="col-12 p-0">
               <div class="slider-right-nav">
                 <% @product.images.each do |image| %>
-                  <div><%= image_tag image.image.url, onerror: 'this.src="public/uploads/products/hi.jpg"', class: "img-fluid blur-up lazyload" %></div>
+                  <div><%= image_tag image.image.url, onerror: "this.src= #{Settings.image_default}", class: "img-fluid blur-up lazyload" %></div>
                 <% end %>
               </div>
             </div>
@@ -16,7 +16,7 @@
         <div class="col-lg-3 col-sm-10 col-xs-12 order-up">
           <div class="product-right-slick">
             <div>
-              <%= image_tag @product.avatar.url, onerror: 'this.src="public/uploads/products/hi.jpg"', class: "img-fluid blur-up lazyload image_zoom_cls-0" %>
+              <%= image_tag @product.avatar.url, onerror: "this.src= #{Settings.image_default}", class: "img-fluid blur-up lazyload image_zoom_cls-0" %>
             </div>
           </div>
         </div>

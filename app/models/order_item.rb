@@ -7,7 +7,7 @@ class OrderItem < ApplicationRecord
   validates :price_product, presence: true, numericality: {numericality: true, greater_than: Settings.quantity_min}
   validate :validate_quantity
 
-  delegate :name, :avatar, to: :product, prefix: true
+  delegate :product_avatar, :product_name, :color_color, to: :product_color
 
   after_save :update_quantity
 

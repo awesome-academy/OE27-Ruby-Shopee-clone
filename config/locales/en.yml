@@ -94,6 +94,13 @@ en:
     action: "Action"
     total: "Total"
 
+  cart:
+    your_cart: "Your cart"
+    pending: "Pending"
+    checked: "Checked"
+    shiped: "Shiped"
+    empty: "Your cart is empty"
+
   shop:
     import:
       header:

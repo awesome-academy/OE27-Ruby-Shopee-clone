@@ -3,7 +3,7 @@
     <div class="front">
       <%= link_to product_path product.id do %>
         <%= image_tag product.avatar.url,
-          onerror: 'this.src="public/uploads/products/hi.jpg"', class: "img-fluid blur-up lazyload bg-img" %>
+          onerror: "this.src= #{Settings.image_default}", class: "img-fluid blur-up lazyload bg-img" %>
       <% end %>
     </div>
   </div>

@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table cart-table table-responsive-xs">
+      <thead>
+        <tr class="table-head">
+          <th scope="col"><%= t "order_item.image" %></th>
+          <th scope="col"><%= t "order_item.product_name" %></th>
+          <th scope="col"><%= t "order_item.color" %></th>
+          <th scope="col"><%= t "order_item.price" %></th>
+          <th scope="col"><%= t "order_item.quantity" %></th>
+          <th scope="col"><%= t "order_item.action" %></th>
+          <th scope="col"><%= t "order_item.total" %></th>
+        </tr>
+      </thead>
+      <%= render "cart" %>
+    </table>
+    <table class="table cart-table table-responsive-md">
+      <tfoot>
+        <tr>
+          <td><%= t "order.total" %></td>
+          <td>
+            <h2 class="total" id="total-order"><%= total_order session[:order] %></h2>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+<div class="row cart-buttons">
+  <div class="col-6">
+   <%= link_to t("order.continue"), root_url, class: "btn btn-solid" %>
+  </div>
+  <div class="col-6">
+    <%= link_to t("order.checkout"), new_order_path, class: "btn btn-solid" %>
+  </div>
+</div>
+<div id="data_a">
+  <%= hidden_field :sessions, nil, data: {session: session[:order].to_json }, class: "data-session" %>
+</div>

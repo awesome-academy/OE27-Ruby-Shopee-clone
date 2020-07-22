@@ -9,6 +9,7 @@ class Users::OrdersController < ApplicationController
       session.delete :order
     end
     respond_to :js
+    redirect_to carts_path
   end
 
   private
