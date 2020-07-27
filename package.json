@@ -1,5 +1,9 @@
 {
   "name": "shoppe",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.5.0",
+    "eslint-plugin-react": "^7.20.4"
+  }
 }

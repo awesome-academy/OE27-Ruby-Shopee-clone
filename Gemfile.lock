@@ -67,6 +67,7 @@ GEM
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
+    brakeman (4.8.2)
     builder (3.2.4)
     byebug (11.1.3)
     cancancan (3.1.0)
@@ -96,6 +97,8 @@ GEM
     ckeditor (5.1.0)
       orm_adapter (~> 0.5.0)
     cocoon (1.2.14)
+    code_analyzer (0.5.2)
+      sexp_processor
     coderay (1.1.3)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -161,6 +164,7 @@ GEM
       dry-initializer (~> 3.0)
       dry-schema (~> 1.5)
     erubi (1.9.0)
+    erubis (2.7.0)
     et-orbi (1.2.4)
       tzinfo
     execjs (2.7.0)
@@ -206,6 +210,7 @@ GEM
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
     jquery-validation-rails (1.19.0)
+    json (2.3.1)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.1)
@@ -218,6 +223,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
+    kwalify (0.7.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -259,6 +265,7 @@ GEM
       method_source (~> 1.0)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
+    psych (3.1.0)
     public_suffix (4.0.5)
     puma (3.12.6)
     raabro (1.3.1)
@@ -292,6 +299,14 @@ GEM
     rails-i18n (5.1.3)
       i18n (>= 0.7, < 2)
       railties (>= 5.0, < 6)
+    rails_best_practices (1.20.0)
+      activesupport
+      code_analyzer (>= 0.5.1)
+      erubis
+      i18n
+      json
+      require_all (~> 3.0)
+      ruby-progressbar
     railties (5.2.4.3)
       actionpack (= 5.2.4.3)
       activesupport (= 5.2.4.3)
@@ -311,6 +326,12 @@ GEM
     redis (4.2.1)
     redis-namespace (1.7.0)
       redis (>= 3.0.4)
+    reek (6.0.1)
+      kwalify (~> 0.7.0)
+      parser (>= 2.5.0.0, < 2.8, != 2.5.1.1)
+      psych (~> 3.1.0)
+      rainbow (>= 2.0, < 4.0)
+    require_all (3.0.0)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -382,10 +403,14 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    scss_lint (0.59.0)
+      sass (~> 3.5, >= 3.5.5)
+    scss_lint_reporter_checkstyle (0.2.0)
     select2-rails (4.0.13)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    sexp_processor (4.15.0)
     shoulda-matchers (3.1.3)
       activesupport (>= 4.0.0)
     sidekiq (6.1.0)
@@ -453,6 +478,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap-kaminari-views
   bootstrap-sass (= 3.4.1)
+  brakeman (~> 4.7, >= 4.7.1)
   byebug
   cancancan
   capybara (~> 2.13)
@@ -488,7 +514,9 @@ DEPENDENCIES
   rails (~> 5.2.0)
   rails-controller-testing
   rails-i18n
+  rails_best_practices
   ransack
+  reek
   resque
   resque-scheduler
   roo
@@ -498,6 +526,8 @@ DEPENDENCIES
   rubocop-rails (~> 2.3.2)
   sass-rails (~> 5.0)
   sassc-rails (>= 2.1.0)
+  scss_lint
+  scss_lint_reporter_checkstyle
   select2-rails
   selenium-webdriver
   shoulda-matchers (~> 3.0)

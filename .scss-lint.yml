@@ -1,0 +1,11 @@
+scss_files: 'app/assets/stylesheets/**'
+exclude:
+  - 'vendor/assets/**'
+  - 'app/assets/stylesheets/application.scss'
+linters:
+  Comment:
+    exclude:
+      ''
+  ImportantRule:
+    exclude:
+      ''

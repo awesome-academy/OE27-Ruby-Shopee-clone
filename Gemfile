@@ -68,6 +68,11 @@ group :development, :test do
   gem "factory_bot_rails"
   gem "rails-controller-testing"
   gem "rspec-support"
+  gem "rails_best_practices"
+  gem "reek"
+  gem "scss_lint", require: false
+  gem "scss_lint_reporter_checkstyle", require: false
+  gem "brakeman", "~> 4.7", ">= 4.7.1"
 end
 
 group :development do

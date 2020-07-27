@@ -1,0 +1,20 @@
+detectors:
+  FeatureEnvy:
+    enabled: false
+  IrresponsibleModule:
+    enabled: false
+  TooManyMethods:
+    max_methods: 60
+  TooManyStatements:
+    max_statements: 50
+  NestedIterators:
+    max_allowed_nesting: 3
+  UtilityFunction:
+    public_methods_only: true
+  TooManyInstanceVariables:
+    max_instance_variables: 8
+  NilCheck:
+    enabled: false
+exclude_paths:
+  - "vendor"
+  - "db/migrate"
