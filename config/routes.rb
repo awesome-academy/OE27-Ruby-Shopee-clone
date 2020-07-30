@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     scope module: "users" do
       root "home#index"
-      get "/login", to: "sessions#new"
-      post "/login", to: "sessions#create"
-      delete "/logout", to: "sessions#destroy"
-      resources :users
+      devise_for :users, controllers: {
+        sessions: "users/sessions",
+        registrations: "users/registrations",
+        passwords: "users/passwords"
+      }
       resources :products
       resources :categories do
         resources :products

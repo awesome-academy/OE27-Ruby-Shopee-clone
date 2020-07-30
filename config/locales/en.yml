@@ -17,6 +17,9 @@ en:
       logout: "Logout"
       sign_up: "Sign up"
       fail_find_cat: "Can not find any categories!"
+      forgot_password: "Forgot password"
+      submit: "Submit"
+      confirm: "Comfirm"
 
     footer:
       know_text: "KNOW IT ALL FIRST!"

@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h3><%= t "home.header.forgot_password" %></h3>
+      <div class="theme-card">
+        <div class="theme-form">
+          <%= form_for resource, as: resource_name, url: password_path(resource_name),
+          html: { method: :put } do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <%= f.hidden_field :reset_password_token %>
+            <div class="field">
+              <%= f.label :password, t("user.reset_pw") %>
+              <% if @minimum_password_length %>
+                <em>(<%= t "user.minimum_pw", count: @minimum_password_length %>)</em><br />
+              <% end %>
+              <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control m-2", id: "reset-pw" %>
+            </div>
+            <div class="field">
+              <%= f.label :password_confirmation, t("home.header.confirm") %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control m-2" %>
+            </div>
+            <%= f.submit t("home.header.submit"), class: "btn btn-primary" %>
+          <% end %>
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

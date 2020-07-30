@@ -1,24 +1,24 @@
-<% provide :title, t("home.header.login") %>
-<% provide :button_text, t("home.header.login") %>
+<% provide :title, t("home.header.sign_up") %>
+<% provide :button_text, t("home.header.sign_up") %>
 <section class="login-page section-b-space">
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <h3><%= t "home.header.login" %></h3>
+        <h3><%= t "new.title" %></h3>
         <div class="theme-card">
           <div class="theme-form">
-            <%= form_for :user, url: user_session_path do |f| %>
+            <%= form_for :user, url: user_registration_path, method: :post do |f| %>
+              <%= render "shared/users/error_messages" %>
+              <%= f.label :name %>
+              <%= f.text_field :name, class: "form-control" %>
               <%= f.label :email %>
               <%= f.email_field :email, class: "form-control" %>
               <%= f.label :password %>
               <%= f.password_field :password, class: "form-control" %>
-              <div class="form-check">
-                <%= f.check_box :remember_me, class: "form-checkbox" %>
-                <%= f.label :remember_me %>
-              </div>
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, class: "form-control" %>
               <%= f.submit yield(:button_text), class: "btn btn-primary" %>
             <% end %>
-            <%= link_to t("home.header.forgot_password"), new_user_password_path %>
           </div>
         </div>
       </div>

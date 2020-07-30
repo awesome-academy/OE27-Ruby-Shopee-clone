@@ -17,6 +17,9 @@ vi:
       logout: "Đăng xuất"
       sign_up: "Đăng ký"
       fail_find_cat: "Lỗi không tìm thấy danh mục"
+      forgot_password: "Quên mật khẩu"
+      submit: "Gửi"
+      confirm: "Xác nhận"
 
     footer:
       know_text: "BIẾT TẤT CẢ ĐỀU ĐẦU TIÊN!"
