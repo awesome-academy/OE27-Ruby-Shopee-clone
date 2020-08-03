@@ -29,7 +29,7 @@ RSpec.describe Users::UsersController, type: :controller do
       end
 
       it "flash create user successfully" do
-        expect(flash[:info]).to match(I18n.t("home.sign_up.success"))
+        expect(flash[:info]).to match(I18n.t("devise.sessions.signed_in"))
       end
 
       it "test number of user" do

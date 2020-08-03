@@ -9,12 +9,12 @@
             <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
               <%= t "home.header.account" %>
               <ul class="onhover-show-div">
-                <% if logger_in? %>
+                <% if user_signed_in? %>
                   <li><%= link_to t("home.header.account"), "#" %></li>
                 <% else %>
-                  <li><%= link_to t("home.header.login"), login_path %></li>
+                  <li><%= link_to t("home.header.login"), new_user_session_path %></li>
                 <% end %>
-                <li><%= link_to t("home.header.logout"), logout_path, method: :delete %></li>
+                <li><%= link_to t("home.header.logout"), destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
           </ul>
