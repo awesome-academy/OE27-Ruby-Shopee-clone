@@ -17,6 +17,9 @@ en:
       logout: "Logout"
       sign_up: "Sign up"
       fail_find_cat: "Can not find any categories!"
+      forgot_password: "Forgot password"
+      submit: "Submit"
+      confirm: "Comfirm"
 
     footer:
       know_text: "KNOW IT ALL FIRST!"
@@ -31,6 +34,7 @@ en:
       success: "Login successfuly"
       fail: "Login fail"
       require: "You have to login"
+      login_github: "Login with Github"
 
     sign_up:
       success: "sign_up successfuly"

@@ -42,6 +42,8 @@ gem "mini_magick"
 gem "axlsx_rails"
 gem "roo"
 gem "activerecord-import"
+gem "devise"
+gem "omniauth-github"
 
 group :development, :test do
   gem "pry-rails"
@@ -56,6 +58,7 @@ group :development, :test do
   gem "factory_bot_rails"
   gem "rails-controller-testing"
   gem "rspec-support"
+  gem "simplecov", require: false
 end
 
 group :development do

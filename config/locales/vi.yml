@@ -17,6 +17,9 @@ vi:
       logout: "Đăng xuất"
       sign_up: "Đăng ký"
       fail_find_cat: "Lỗi không tìm thấy danh mục"
+      forgot_password: "Quên mật khẩu"
+      submit: "Gửi"
+      confirm: "Xác nhận"
 
     footer:
       know_text: "BIẾT TẤT CẢ ĐỀU ĐẦU TIÊN!"
@@ -34,6 +37,7 @@ vi:
       success: "Đăng nhập thành công"
       fail: "Đăng nhập thất bại"
       require: "Bạn chưa đăng nhâp"
+      login_github: "Đăng nhập bằng Github"
 
     sign_up:
       success: "Tạo tài khoản thành công"

@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users, skip: [:session, :password, :registration], controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   mount Ckeditor::Engine => '/ckeditor'
   scope "(:locale)", locale: /en|vi/ do
     scope module: "users" do
       root "home#index"
-      get "/login", to: "sessions#new"
-      post "/login", to: "sessions#create"
-      delete "/logout", to: "sessions#destroy"
-      resources :users
+      devise_for :users, skip: [:omniauth_callbacks]
       resources :products
       resources :categories do
         resources :products
