@@ -14,4 +14,6 @@ Devise.setup do |config|
   config.scoped_views = true
   Devise::TRUE_VALUES << ["on"]
   config.remember_for = 2.weeks
+  config.omniauth :github, ENV["client_id"], ENV["client_secret"],
+    scope: "user:email, user:follow, repo, read:org"
 end

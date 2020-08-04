@@ -34,6 +34,7 @@ en:
       success: "Login successfuly"
       fail: "Login fail"
       require: "You have to login"
+      login_github: "Login with Github"
 
     sign_up:
       success: "sign_up successfuly"

@@ -43,6 +43,7 @@ gem "axlsx_rails"
 gem "roo"
 gem "activerecord-import"
 gem "devise"
+gem "omniauth-github"
 
 group :development, :test do
   gem "pry-rails"

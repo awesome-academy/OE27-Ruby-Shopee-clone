@@ -37,6 +37,7 @@ vi:
       success: "Đăng nhập thành công"
       fail: "Đăng nhập thất bại"
       require: "Bạn chưa đăng nhâp"
+      login_github: "Đăng nhập bằng Github"
 
     sign_up:
       success: "Tạo tài khoản thành công"

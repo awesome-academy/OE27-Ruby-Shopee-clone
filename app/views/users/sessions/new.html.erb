@@ -19,6 +19,7 @@
               <%= f.submit yield(:button_text), class: "btn btn-primary" %>
             <% end %>
             <%= link_to t("home.header.forgot_password"), new_user_password_path %>
+            <%= link_to t("home.login.login_github"), user_github_omniauth_authorize_path %>
           </div>
         </div>
       </div>
