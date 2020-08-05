@@ -7,7 +7,7 @@
             <div class="col-12 p-0">
               <div class="slider-right-nav">
                 <% @product.images.each do |image| %>
-                  <div><%= image_tag image.image.url, class: "img-fluid blur-up lazyload" if @product.avatar.present? %></div>
+                  <div><%= image_tag image.image.url, onerror: "this.src= #{Settings.image_default}", class: "img-fluid blur-up lazyload" %></div>
                 <% end %>
               </div>
             </div>
@@ -16,13 +16,14 @@
         <div class="col-lg-3 col-sm-10 col-xs-12 order-up">
           <div class="product-right-slick">
             <div>
-              <%= image_tag @product.avatar.url, class: "img-fluid blur-up lazyload image_zoom_cls-0" if @product.avatar.present? %>
+              <%= image_tag @product.avatar.url, onerror: "this.src= #{Settings.image_default}", class: "img-fluid blur-up lazyload image_zoom_cls-0" %>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="product-right product-description-box">
             <h2><%= @product.name %></h2>
+            <%= hidden_field_tag :product_id, @product.id, id: "product_id" %>
             <div class="border-product">
               <h6 class="product-title"><%= t "product.product_details" %></h6>
               <p><%= @product.description %></p>
@@ -33,6 +34,24 @@
                   <tr>
                     <td><%= t "product.brand" %></td>
                     <td><%= @product.brand_name %></td>
+                  </tr>
+                  <tr>
+                    <td><%= t "product.rate" %>:</td>
+                    <td>
+                      <div id="rating", class="rating">
+                        <% if current_user && (rate @product.id, current_user.id) %>
+                          <% rate(@product.id, current_user.id).star.to_i.times do %>
+                            <i class="fa fa-star"></i>
+                          <% end %>
+                        <% else %>
+                          <% (1..5).to_a.reverse_each do |index| %>
+                            <%= radio_button_tag :rating, index, false,
+                            class: "rate" , id: "star#{index}" %>
+                            <%= label_tag "star#{index}", nil, title: "Awesome - #{index} stars",class: "full" %>
+                          <% end %>
+                        <% end %>
+                      </div>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -52,24 +71,33 @@
               <div class="size-box">
                 <ul>
                   <% @product.colors.each do |color| %>
-                    <li><a href="#"><%= color.color %></a></li>
+                    <label class="container"><%= color.color %>
+                      <%= radio_button_tag :radio_color, color.id, false,
+                          data: {url: product_colors_path},
+                          class: "inp_color" %>
+                      <span class="checkmark"></span>
+                    </label>
                   <% end %>
                 </ul>
               </div>
-              <h6 class="product-title"><%= t "product.quantity" %></h6>
-              <div class="qty-box">
-                <div class="input-group"><span class="input-group-prepend"><button type="button"
-                      class="btn quantity-left-minus" data-type="minus" data-field=""><i
-                        class="fa fa-chevron-down"></i></button> </span>
-                  <input type="text" name="quantity" class="form-control input-number" value="1">
-                  <span class="input-group-prepend"><button type="button"
-                      class="btn quantity-right-plus" data-type="plus" data-field=""><i
-                        class="fa fa-chevron-up"></i></button></span></div>
-              </div>
+              <%= form_for OrderItem.new, remote: true do |f| %>
+                <h6 class="product-title"><%= t "product.quantity" %>:<span id="quantity_avai"><%= @product.total_quantity%></span></h6>
+                <div class="qty-box">
+                  <div class="input-group">
+                    <%= f.number_field :quantity, value: 1, class: "form-control input-number-show", min: Settings.min_quantity, required: true %>
+                  </div>
+                </div>
+                <div id="data_a">
+                  <%= hidden_field :sessions, nil, data: {session: session[:order].to_json }, class: "data-session" %>
+                </div>
+                <%= f.hidden_field :product_color, value: nil %>
+                <%= f.hidden_field :price, value: @product.price %>
+                <div class="product-buttons">
+                  <%= f.submit t("order.order"), class: "btn btn-solid submit-order" %>
+                </div>
+              <% end %>
             </div>
-            <div class="product-buttons"><a href="#" data-toggle="modal" data-target="#addtocart"
-                class="btn btn-solid"><%= t "product.add_cart" %></a> <a href="#" class="btn btn-solid"><%= t "product.buy" %></a>
-            </div>
+            <%= hidden_field_tag :link, nil, data: {url: ratings_path }, class: "data-link" %>
           </div>
         </div>
       </div>
@@ -118,11 +146,17 @@
             </div>
           </div>
           <div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab">
-            <form class="theme-form"></form>
+            <div class="theme-form">
+              <%= render "form_review" %>
+            </div>
+            <ul class="comment-list form-control ">
+              <% if @reviews %>
+                <%= render @reviews %>
+              <% end %>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- product-tab ends -->

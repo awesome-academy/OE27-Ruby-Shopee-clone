@@ -1,20 +1,15 @@
-User.create!(name: "Example User",
-             phone: "23423423",
-             email: "example@railstutorial.org",
-             password: "foobar",
-             password_confirmation: "foobar",
-             activated: true,
-             activated_at: Time.zone.now)
-
 20.times do |n|
   name = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
-  User.create!(
+  Product.create!(
     name: name,
-    email: email,
-    password: password,
-    password_confirmation: password,
-    activated: true,
-    activated_at: Time.zone.now)
+    price: 100,
+    user_id: User.pluck(:id).sample,
+    category_id: Category.pluck(:id).sample,
+    brand_id: 1,
+    count_rate: 1,
+    total_star: 5,
+    avg_star: 5,
+    description: name,
+    created_at: Time.zone.now
+    )
 end
