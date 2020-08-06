@@ -44,6 +44,7 @@ gem "roo"
 gem "activerecord-import"
 gem "devise"
 gem "omniauth-github"
+gem "ransack"
 
 group :development, :test do
   gem "pry-rails"

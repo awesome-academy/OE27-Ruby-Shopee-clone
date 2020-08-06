@@ -3,73 +3,92 @@
     <div class="img-wrapper">
       <div class="front">
         <%= link_to product_path product.id do %>
-          <%= image_tag product.avatar.url, class: "img-fluid blur-up lazyload bg-img" if product.avatar.present? %>
+          <%= image_tag product.avatar.url, onerror: "this.src= #{Settings.image_default}", class: "img-fluid blur-up lazyload bg-img" %>
         <% end %>
       </div>
       <div class="back">
         <%= link_to product_path product.id do %>
-          <%= image_tag product.avatar.url, class: "img-fluid blur-up lazyload bg-img" if product.avatar.present? %>
+          <%= image_tag product.avatar.url, onerror: "this.src= #{Settings.image_default}", class: "img-fluid blur-up lazyload bg-img" %>
         <% end %>
       </div>
-      <div class="cart-info cart-wrap"><i class="fas fa-cart-plus"></i>
-        <button data-toggle="modal" data-target="#addtocart" title="Add to cart"><i class="fa fa-shopping-cart"></i></button><a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View"><i class="fa fa-search"></i></a>
+      <div class="cart-info cart-wrap">
+          <a href="#" data-toggle="modal" data-target="#quick-view<%= product.id %>" title= <%= t "product.quick_view" %>><i class="fa fa-search"></i></a>
       </div>
     </div>
     <div class="product-detail">
       <div>
-        <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-         <i class="fa fa-star"></i></div>
-        <p></p>
+        <div class="rating">
+          <% if star_int? product %>
+            <% product.avg_star.to_i.times do %>
+              <i class="fa fa-star"></i>
+            <% end %>
+          <% else %>
+            <% product.avg_star.to_i.times do %>
+              <i class="fa fa-star"></i>
+            <% end %>
+            <i class="fa fa-star-half"></i>
+          <% end %>
+        </div>
           <%= link_to product_path product.id do %>
             <h6><%= product.name %></h6>
           <% end %>
         <h4><%= product.price %></h4>
-        <ul class="color-variant">
-          <li class="bg-light0"></li>
-          <li class="bg-light1"></li>
-          <li class="bg-light2"></li>
-        </ul>
       </div>
     </div>
   </div>
-</div>
-<div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-    <div class="modal-content quick-view-modal">
-      <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-            aria-hidden="true">&times;</span></button>
-        <div class="row">
-          <div class="col-lg-6 col-xs-12">
-            <div class="quick-view-img"><img src="http://themes.pixelstrap.com/multikart/assets/images/pro3/1.jpg" alt="" class="img-fluid blur-up lazyload"></div>
-          </div>
-          <div class="col-lg-6 rtl-text">
-            <div class="product-right">
-              <%= link_to category_product_path product.id, product.id do %>
-                <h6><%= product.name %></h6>
-              <% end %>
-              <h3><%= product.price %>$</h3>
-              <ul class="color-variant">
-                <li class="bg-light0"></li>
-                <li class="bg-light1"></li>
-                <li class="bg-light2"></li>
-              </ul>
-              <div class="border-product">
-                <h6 class="product-title">product details</h6>
-                <p><%= product.description %></p>
+  <div class="modal fade bd-example-modal-lg theme-modal" id="quick-view<%= product.id %>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content quick-view-modal">
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <div class="row">
+            <div class="col-lg-6 col-xs-12">
+              <div class="quick-view-img">
+                <%= image_tag product.avatar.url, onerror: 'this.src="public/uploads/products/hi.jpg"', class: "img-fluid blur-up lazyload" %>
               </div>
-              <div class="product-description border-product">
-                <h6 class="product-title">quantity</h6>
-                <div class="qty-box">
-                  <div class="input-group"><span class="input-group-prepend"><button type="button"
-                        class="btn quantity-left-minus" data-type="minus" data-field=""><i
-                          class="fa fa-chevron-down"></i></button> </span>
-                    <input type="text" name="quantity" class="form-control input-number" value="1"> <span class="input-group-prepend"><button type="button"
-                        class="btn quantity-right-plus" data-type="plus" data-field=""><i
-                          class="fa fa-chevron-up"></i></button></span></div>
+            </div>
+            <div class="col-lg-6 rtl-text">
+              <div class="product-right">
+                <%= link_to product_path product.id do %>
+                  <h6><%= product.name %></h6>
+                <% end %>
+                <%= hidden_field :product_id, product.id, id: "product_id" %>
+                <h3><%= product.price %>$</h3>
+                <ul class="color-variant">
+                   <% product.colors.each do |color| %>
+                    <label class="container"><%= color.color %>
+                      <%= radio_button_tag :radio_color, color.id, false,
+                          data: {url: product_colors_path},
+                          class: "inp_color" %>
+                      <span class="checkmark"></span>
+                    </label>
+                  <% end %>
+                </ul>
+                <div class="border-product">
+                  <h6 class="product-title"><%= t "product.details" %></h6>
+                  <p><%= product.description %></p>
+                </div>
+                <%= form_for OrderItem.new, remote: true do |f| %>
+                  <div class="product-description border-product">
+                    <h6 class="product-title"><%= t "product.quantity" %>:<span id="quantity_avai"><%= product.total_quantity%></span></h6>
+                    <div class="qty-box">
+                      <div class="input-group">
+                      <%= f.number_field :quantity, class: "form-control input-number-show", min: Settings.min_quantity, required: true %>
+                      </div>
+                    </div>
+                  </div>
+                  <%= f.hidden_field :product_color, value: nil %>
+                  <%= f.hidden_field :price, value: product.price %>
+                  <div class="product-buttons">
+                    <%= f.submit t("order.order"), class: "btn btn-solid submit-order" %>
+                    <%= link_to t("product.details"), (product_path product.id), class: "btn btn-solid" %>
+                  </div>
+                <% end %>
+                <div id="data_a">
+                  <%= hidden_field_tag :sessions, nil, data: {session: session[:order].to_json }, class: "data-session" %>
                 </div>
               </div>
-              <div class="product-buttons"><a href="#" class="btn btn-solid">add to cart</a> <a href="#" class="btn btn-solid">view detail</a></div>
             </div>
           </div>
         </div>

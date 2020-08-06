@@ -10,6 +10,8 @@ Rails.application.routes.draw do
         resources :products
       end
       resources :reviews
+      resources :order_items
+      resources :product_colors
     end
 
     namespace :shops do
