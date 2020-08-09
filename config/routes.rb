@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   require "sidekiq/web"
-
+  devise_for :users, skip: [:session, :password, :registration], controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   mount Ckeditor::Engine => "/ckeditor"
   mount Sidekiq::Web, at: "/sidekiq"
   scope "(:locale)", locale: /en|vi/ do
@@ -17,11 +17,7 @@ Rails.application.routes.draw do
 
     scope module: "users" do
       root "home#index"
-      devise_for :users, controllers: {
-        sessions: "users/sessions",
-        registrations: "users/registrations",
-        passwords: "users/passwords"
-      }
+      devise_for :users, skip: [:omniauth_callbacks]
       resources :users, except: %i(new create)
       resources :products
       resources :categories do
