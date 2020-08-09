@@ -42,13 +42,17 @@ en:
       account: "My account"
       cause: "why we choose"
       store_information: "store information"
+
     login:
       success: "Login successfuly"
       fail: "Login fail"
       require: "You have to login"
+      login_github: "Login with Github"
+
     sign_up:
       success: "sign_up successfuly"
       fail: "sign_up fail"
+
   product:
     filter:
       price_100: "100$ 200$"

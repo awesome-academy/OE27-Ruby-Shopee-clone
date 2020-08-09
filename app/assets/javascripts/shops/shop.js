@@ -2,7 +2,6 @@
 //= require activestorage
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require_tree ../shops
 //= require cocoon
 //= require i18n
 //= require i18n.js
@@ -10,5 +9,12 @@
 //= require dataTables/jquery.dataTables
 //= require Chart.bundle
 //= require chartkick
+//= require jquery
+//= require jquery3
+//= require jquery_ujs
 //= require jquery-ui
 //= require select2
+//= require toastr
+//= require_tree ../channels
+//= require ../cable
+//= require_tree ../shops
