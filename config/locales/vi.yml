@@ -97,6 +97,8 @@ vi:
     order: "Đặt hàng ngay"
     product: "Sản phẩm"
     fail: "Có lỗi xảy ra vui lòng thử lại sau!!"
+    waiting: "đang được sử lý!"
+    thankyou: "Cảm ơn"
 
   order_item:
     image: "Ảnh"
@@ -106,6 +108,7 @@ vi:
     quantity: "Số lượng"
     action: "Hành động"
     total: "Tổng"
+    status: "Status"
 
   cart:
     your_cart: "Giỏ hàng"

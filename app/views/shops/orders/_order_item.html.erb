@@ -1,0 +1,14 @@
+<tr>
+  <td><%= image_tag @order_items.product_avatar.url,:size => Settings.img_size if @order_items.product_avatar.present? %></td>
+  <td><%= @order_items.product.name %></td>
+  <td>
+    <%= format_currency(@order_items.price_product) %>
+  </td>
+  <td><%= @order_items.product_color.color.color %></td>
+  <td>
+    <%= @order_items.quantity %>
+  </td>
+  <td>
+     <%= format_currency(@order_items.amount) %>
+  </td>
+</tr>

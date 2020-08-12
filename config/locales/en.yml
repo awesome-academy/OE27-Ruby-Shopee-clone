@@ -88,6 +88,8 @@ en:
     order: "Order now"
     product: "Product"
     fail: "Oh no, We have an error occurred!!"
+    waiting: "is progressing"
+    thankyou: "Thank you"
 
   order_item:
     image: "Image"
@@ -97,6 +99,7 @@ en:
     quantity: "Quantity"
     action: "Action"
     total: "Total"
+    status: "Status"
 
   cart:
     your_cart: "Your cart"

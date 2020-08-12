@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, skip: [:session, :password, :registration], controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   mount Ckeditor::Engine => "/ckeditor"
   mount Sidekiq::Web, at: "/sidekiq"
+  mount ActionCable.server => "/cable"
   scope "(:locale)", locale: /en|vi/ do
     devise_for :admins, controllers: {
       sessions: "admins/sessions",
@@ -40,6 +41,7 @@ Rails.application.routes.draw do
         end
       end
       resources :orders, only: %i(index show update)
+      resources :order_items, only: %i(index show update)
       get "export/products", to: "export_products#export_products", as: "export"
       post "import/products", to: "import_products#import_products", as: "import"
       get "export_status", to: "export_products#export_status"

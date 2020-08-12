@@ -6,13 +6,7 @@
             <%= link_to t("home.cart.your_cart"), "tab-4" %>
           </li>
           <li>
-            <%= link_to t("home.cart.pending"), "tab-5" %>
-          </li>
-          <li>
-            <%= link_to t("home.cart.checked"), "tab-6" %>
-          </li>
-          <li>
-            <%= link_to t("home.cart.shiped"), "tab-7" %>
+            <%= link_to "Bought", "tab-5" %>
           </li>
         </ul>
         <div class="tab-content-cls">
@@ -25,22 +19,8 @@
           </div>
           <div id="tab-5" class="tab-content">
             <tbody>
-              <% if @order[:order_pending] %>
-                <%= render "staging_order", orders: @order[:order_pending] %>
-              <% end %>
-            </tbody>
-          </div>
-          <div id="tab-6" class="tab-content">
-            <tbody>
-              <% if @order[:order_checked] %>
-                <%= render "staging_order", orders: @order[:order_checked] %>
-              <% end %>
-            </tbody>
-          </div>
-          <div id="tab-7" class="tab-content">
-            <tbody>
-              <% if @order[:order_shiped] %>
-                <%= render "staging_order", orders: @order[:order_shiped] %>
+              <% if @order %>
+                <%= render "staging_order", orders: @order %>
               <% end %>
             </tbody>
           </div>

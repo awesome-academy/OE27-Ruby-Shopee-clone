@@ -55,7 +55,8 @@ gem "paranoia"
 gem "select2-rails"
 gem "cancancan"
 gem "omniauth-github"
-gem "devise"
+gem "redis", "~> 3.0"
+
 
 group :development, :test do
   gem "pry-rails"

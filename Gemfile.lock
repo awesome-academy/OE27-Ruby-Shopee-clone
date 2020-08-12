@@ -115,7 +115,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.6)
+    concurrent-ruby (1.1.7)
     config (2.2.1)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
@@ -350,7 +350,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redis (4.2.1)
+    redis (3.3.5)
     redis-namespace (1.7.0)
       redis (>= 3.0.4)
     reek (6.0.1)
@@ -440,10 +440,11 @@ GEM
     sexp_processor (4.15.0)
     shoulda-matchers (3.1.3)
       activesupport (>= 4.0.0)
-    sidekiq (6.1.1)
-      connection_pool (>= 2.2.2)
+    sidekiq (5.2.9)
+      connection_pool (~> 2.2, >= 2.2.2)
       rack (~> 2.0)
-      redis (>= 4.2.0)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.5, < 4.2)
     sidekiq-status (1.1.4)
       chronic_duration
       sidekiq (>= 3.0)
@@ -544,6 +545,7 @@ DEPENDENCIES
   rails-i18n
   rails_best_practices
   ransack
+  redis (~> 3.0)
   reek
   resque
   resque-scheduler

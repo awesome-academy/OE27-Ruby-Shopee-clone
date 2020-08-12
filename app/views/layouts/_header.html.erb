@@ -71,7 +71,7 @@
                       </ul>
                     </div>
                   </li>
-                   <li class="onhover-div mobile-cart">
+                  <li class="onhover-div mobile-cart">
                       <%= link_to carts_path do %>
                         <div>
                           <%= image_tag Settings.icon_cart, class: "img-fluid blur-up lazyload icon_cart" %>
@@ -86,7 +86,23 @@
                           <%= render "users/order_items/shop"%>
                         <% end %>
                       </ul>
-                    </li>
+                  </li>
+                  <li class="onhover-div mobile-cart">
+                   <div>
+                      <%= image_tag Settings.bell, class: "img-fluid blur-up lazyload icon_cart" %>
+                      <i class="ti-shopping-cart"></i>
+                      <span class="badge badge-danger badge-notification">
+                          1
+                      </span>
+                    </div>
+                    <ul class="show-div" id="notifications">
+                      <div class="cart-pop">
+                        <% if current_user %>
+                          <%= render current_user.notifications %>
+                        <% end %>
+                      </div>
+                    </ul>
+                  </li>
                 </ul>
               </div>
             </div>

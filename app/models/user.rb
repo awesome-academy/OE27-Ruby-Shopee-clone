@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :orders
   has_many :reviews
   has_many :products
+  has_many :notifications
+
   validates :name, presence: true, length: {maximum: Settings.name.maximum}
   validates :email, format: {with: VALID_EMAIL_REGEX},
                              presence: true, uniqueness: true, length: { maximum: Settings.email.maximum}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_09_024933) do
+ActiveRecord::Schema.define(version: 2020_08_11_152712) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -67,6 +67,14 @@ ActiveRecord::Schema.define(version: 2020_08_09_024933) do
     t.index ["product_id"], name: "index_images_on_product_id"
   end
 
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "order_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.float "amount"
     t.integer "quantity"
@@ -76,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_024933) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "product_color_id"
+    t.integer "status"
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["product_color_id"], name: "index_order_items_on_product_color_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
@@ -140,6 +149,24 @@ ActiveRecord::Schema.define(version: 2020_08_09_024933) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "subscriptions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "target_type", null: false
+    t.bigint "target_id", null: false
+    t.string "key", null: false
+    t.boolean "subscribing", default: true, null: false
+    t.boolean "subscribing_to_email", default: true, null: false
+    t.datetime "subscribed_at"
+    t.datetime "unsubscribed_at"
+    t.datetime "subscribed_to_email_at"
+    t.datetime "unsubscribed_to_email_at"
+    t.text "optional_targets"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_subscriptions_on_key"
+    t.index ["target_type", "target_id", "key"], name: "index_subscriptions_on_target_type_and_target_id_and_key", unique: true
+    t.index ["target_type", "target_id"], name: "index_subscriptions_on_target_type_and_target_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "name"
     t.text "phone"
@@ -166,6 +193,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_024933) do
   end
 
   add_foreign_key "images", "products"
+  add_foreign_key "notifications", "users"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "users"
