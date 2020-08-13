@@ -1,16 +1,15 @@
 <tr>
-  <td><%= order_counter + 1 %></td>
-  <td><%= order.user_name %></td>
-  <td><%= order.address %></td>
+  <td><%= order_item.order.user.name %></td>
+  <td><%= order_item.order.user.adress %></td>
   <td>
-    <%= format_currency(order.total_amount) %>
+    <%= format_currency(order_item.amount) %>
   </td>
-  <td><%= format_date order.created_at %></td>
+  <td><%= format_date order_item.order.created_at %></td>
   <td>
-    <%= label_tag nil, get_status(order.status), class: get_color_status(order.status) %>
+    <%= label_tag nil, get_status(order_item.status), class: get_color_status(order_item.status) %>
   </td>
   <td>
-    <%= link_to shops_order_path(order), class: "btn btn-info" do %>
+    <%= link_to shops_order_item_path(order_item.id), class: "btn btn-info" do %>
       <i class="fa fa-eye"></i>
     <% end %>
   </td>

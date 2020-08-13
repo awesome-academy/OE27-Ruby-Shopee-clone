@@ -1,28 +1,115 @@
-<div class="page-main-header">
-  <div class="main-header-right row">
-    <div class="main-header-left d-lg-none">
-      <div class="logo-wrapper">
-        <%= link_to "#" do %>
-          <%= image_tag "multikart-logo.png", class: "blur-up lazyloaded" %>
-        <% end %>
+<header>
+  <div class="top-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+        </div>
+        <div class="col-lg-6 text-right">
+          <ul class="header-dropdown">
+            <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
+              <% if current_user %>
+                  <%= current_user.name %>
+              <% else %>
+                <%= t "home.header.account" %>
+              <% end %>
+              <ul class="onhover-show-div">
+                <% if user_signed_in? %>
+                  <li><%= link_to t("shop.index.title"), shops_root_path %></li>
+                  <li><%= link_to t("home.header.logout"), destroy_user_session_path, method: :delete %></li>
+                <% else %>
+                  <li><%= link_to t("home.header.login"), new_user_session_path %></li>
+                  <li><%= link_to t("home.header.sign_up"), new_user_registration_path %></li>
+                <% end %>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="nav-right col">
-      <ul class="nav-menus">
-        <li><%= link_to "", "#" %></li>
-        <li class="onhover-dropdown">
-          <div class="media align-items-center">
-            <%= image_tag "avatar-default.png", class: "align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" %>
-            <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="main-menu">
+          <div class="menu-left">
+            <div class="brand-logo">
+              <%= link_to root_path do %>
+                <%= image_tag Settings.image_home, class: "img-fluid blur-up lazyload" %>
+              <% end %>
+            </div>
           </div>
-          <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
-            <li><%= link_to t("shop.header.profile"), "#" %></li>
-            <li><%= link_to t("shop.header.setting"), "#" %></li>
-            <li><%= link_to t("shop.header.logout"), destroy_user_session_path, method: :delete %></li>
-          </ul>
-        </li>
-      </ul>
-      <div class="d-lg-none mobile-toggle pull-right"><i data-feather="more-horizontal"></i></div>
+          <div class="menu-right pull-right">
+            <div>
+              <nav id="main-nav">
+                <div class="toggle-nav">
+                  <i class="fa fa-bars sidebar-bar"></i>
+                </div>
+                <!-- Horizontal menu -->
+                <ul id="main-menu" class="sm pixelstrap sm-horizontal">
+                  <% load_categories_origin.each do |category| -%>
+                    <li>
+                      <%= link_to category_products_path category.id do %>
+                        <%= category.name %>
+                      <% end %>
+                       <%= render "layouts/category", category: category%>
+                    </li>
+                  <% end -%>
+                </ul>
+              </nav>
+            </div>
+            <div>
+              <div class="icon-nav">
+                <ul>
+                  <li class="onhover-div mobile-setting">
+                    <div><img src="http://themes.pixelstrap.com/multikart/assets/images/icon/setting.png" class="img-fluid blur-up lazyload" alt="">
+                      <i class="ti-settings"></i></div>
+                    <div class="show-div setting">
+                      <h6><%= t "home.language" %></h6>
+                      <ul>
+                        <li><%= link_to t("english"), locale: "en" %></li>
+                        <li><%= link_to t("vietnamese"), locale: "vi" %></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="onhover-div mobile-cart">
+                      <%= link_to carts_path do %>
+                        <div>
+                          <%= image_tag Settings.icon_cart, class: "img-fluid blur-up lazyload icon_cart" %>
+                          <i class="ti-shopping-cart"></i>
+                          <span class="badge badge-danger">
+                            <%= session[:order].size if session[:order] %>
+                          </span>
+                        </div>
+                      <% end %>
+                      <ul class="show-div shopping-cart">
+                        <% if session[:order] %>
+                          <%= render "users/order_items/shop"%>
+                        <% end %>
+                      </ul>
+                  </li>
+                  <li class="onhover-div mobile-cart">
+                   <div>
+                      <%= image_tag Settings.bell, class: "img-fluid blur-up lazyload icon_cart" %>
+                      <i class="ti-shopping-cart"></i>
+                      <span class="badge badge-danger badge-notification">
+                          1
+                      </span>
+                    </div>
+                    <ul class="show-div" id="notifications">
+                      <div class="cart-pop">
+                        <% if current_user %>
+                          <%= render current_user.notifications %>
+                        <% end %>
+                      </div>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+  <%= hidden_field :url_sessions, "", data: {url: product_path(1) }, id: "url-session" %>
+</header>
