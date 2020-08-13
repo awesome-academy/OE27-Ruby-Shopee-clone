@@ -52,10 +52,13 @@ vi:
       address: "Multikart Demo Store, Demo store India 345-659"
       phone: "123-456-7898"
       mail: "Email Us: Support@Fiot.com"
+
     login:
       success: "Đăng nhập thành công"
       fail: "Đăng nhập thất bại"
       require: "Bạn chưa đăng nhâp"
+      login_github: "Đăng nhập bằng Github"
+
     sign_up:
       success: "Tạo tài khoản thành công"
       fail: "Tạo tài khoản thất bại"
@@ -94,6 +97,8 @@ vi:
     order: "Đặt hàng ngay"
     product: "Sản phẩm"
     fail: "Có lỗi xảy ra vui lòng thử lại sau!!"
+    waiting: "đang được sử lý!"
+    thankyou: "Cảm ơn"
 
   order_item:
     image: "Ảnh"
@@ -103,6 +108,7 @@ vi:
     quantity: "Số lượng"
     action: "Hành động"
     total: "Tổng"
+    status: "Status"
 
   cart:
     your_cart: "Giỏ hàng"

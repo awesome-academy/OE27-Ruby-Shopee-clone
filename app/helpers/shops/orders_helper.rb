@@ -11,7 +11,6 @@ module Shops::OrdersHelper
       shipped: "success",
       cancel: "danger"
     }
-    "badge badge-#{badge_class[status.to_sym]}"
   end
 
   def select_status

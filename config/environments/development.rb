@@ -2,6 +2,7 @@ Rails.application.configure do
   config.cache_classes = false
   config.eager_load = false
   config.consider_all_requests_local = true
+  config.active_job.queue_adapter = :sidekiq
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
     config.action_controller.perform_caching = true
     config.cache_store = :memory_store
@@ -24,6 +25,8 @@ Rails.application.configure do
   config.middleware.use I18n::JS::Middleware
   config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
     user_name: ENV["user_name"],
     password: ENV["password"],

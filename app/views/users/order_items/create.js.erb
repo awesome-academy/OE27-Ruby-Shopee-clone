@@ -1,6 +1,5 @@
 var quantityy = parseFloat($('.input-number-show').val());
 var max_quantity = parseFloat($('.input-number-show').attr('max'));
-var session_data = $('.data-session').data('session');
 
 $('.shopping-cart').html("<%= j render 'shop' %>")
 $('.input-number-show').prop('max', max_quantity - quantityy);
@@ -14,5 +13,4 @@ if((max_quantity - quantityy) == 0){
   $('#quantity_avai').text(max_quantity - quantityy);
 }
 
-$("#data_a").load($('#url-session').data('url') +' #data_a');
 toastr.success(I18n.t('order.susscess'));

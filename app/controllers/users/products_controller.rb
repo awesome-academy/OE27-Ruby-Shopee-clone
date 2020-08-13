@@ -2,13 +2,12 @@ class Users::ProductsController < ApplicationController
   before_action :load_category, only: :index
 
   def index
-    @products = Product
+    @search = Product
       .by_category(@ids)
-      .price_range(price_min, price_max)
-      .by_brand(params[:brands])
-      .by_color(params[:colors])
-      .page(params[:page])
-      .per(Settings.record_per_page)
+      .price_range(price_min, price_max).ransack params[:q]
+    @products = @search.result
+      .includes(:product_colors, :colors)
+      .page(params[:page]).per(Settings.record_per_page)
   end
 
   def new; end
@@ -24,9 +23,9 @@ class Users::ProductsController < ApplicationController
 
   private
   def load_category
-    category = Category.find_by(id: params[:category_id])
+    category = Category.find_by(id: params[:category_id] || params[:q][:category_id])
     if category
-      @ids = category.load_ids(category, @id).flatten!
+      @ids = category.load_ids(category, @id).flatten
     else
       flash[:error] = t "home.header.fail_find_cat"
       redirect_to root_url

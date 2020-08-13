@@ -42,13 +42,17 @@ en:
       account: "My account"
       cause: "why we choose"
       store_information: "store information"
+
     login:
       success: "Login successfuly"
       fail: "Login fail"
       require: "You have to login"
+      login_github: "Login with Github"
+
     sign_up:
       success: "sign_up successfuly"
       fail: "sign_up fail"
+
   product:
     filter:
       price_100: "100$ 200$"
@@ -84,6 +88,8 @@ en:
     order: "Order now"
     product: "Product"
     fail: "Oh no, We have an error occurred!!"
+    waiting: "is progressing"
+    thankyou: "Thank you"
 
   order_item:
     image: "Image"
@@ -93,6 +99,7 @@ en:
     quantity: "Quantity"
     action: "Action"
     total: "Total"
+    status: "Status"
 
   cart:
     your_cart: "Your cart"

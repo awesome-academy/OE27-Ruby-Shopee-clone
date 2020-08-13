@@ -1,7 +1,7 @@
 20.times do |n|
-  ProductColor.create!(
-    quantity: 100,
+  Review.create!(
+    content: "ffhsjdhfsdkjfhsdkj",
     product_id: Product.pluck(:id).sample,
-    color_id: Color.pluck(:id).sample
+    user_id: User.pluck(:id).sample
     )
 end

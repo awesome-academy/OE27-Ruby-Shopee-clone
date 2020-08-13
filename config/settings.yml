@@ -40,5 +40,8 @@ quantity_min: 0
 admin:
   per_page: 2
 format_date: "%H:%M %Y/%m/%d"
+image_home: "https://img.icons8.com/color/48/000000/vietnam.png"
 icon_cart: "https://img.icons8.com/nolan/64/favorite-cart.png"
 image_default: "public/uploads/products/hi.jpg"
+bell: "https://img.icons8.com/nolan/64/bell.png"
+img_size: "100"

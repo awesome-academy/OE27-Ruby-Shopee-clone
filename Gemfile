@@ -7,7 +7,7 @@ gem "jquery-validation-rails"
 gem "toastr-rails"
 gem "bootstrap-kaminari-views"
 gem "kaminari"
-gem "faker", "1.7.3"
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem "bcrypt", "3.1.13"
 gem "jquery-slick-rails"
 gem "popper_js", "~> 1.14.5"
@@ -54,6 +54,9 @@ gem "devise-async"
 gem "paranoia"
 gem "select2-rails"
 gem "cancancan"
+gem "omniauth-github"
+gem "redis", "~> 3.0"
+
 
 group :development, :test do
   gem "pry-rails"

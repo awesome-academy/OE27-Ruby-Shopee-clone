@@ -3,7 +3,6 @@ $(document).on('turbolinks:load', function() {
     let url = $(this).data('url');
     let color_id = $('.inp_color:checked').val();
     let product_id = $('#product_id').val();
-    let url_session = $('#url-session').data('url');
     $.ajax({
       method: 'GET',
       dataType: 'json',
@@ -13,7 +12,6 @@ $(document).on('turbolinks:load', function() {
         product_id: product_id
       },
       success: function(result) {
-        $("#data_a").load(url_session +' #data_a');
         var session_data = $('.data-session').data('session');
 
         $('#order_item_product_color').val(result['product_color']);

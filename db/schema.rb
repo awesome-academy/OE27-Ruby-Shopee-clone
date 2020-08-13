@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_16_081151) do
+ActiveRecord::Schema.define(version: 2020_08_11_152712) do
 
-  create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_081151) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "name"
     t.text "phone"
     t.string "slug"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_081151) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "parent_id"
     t.text "name"
     t.string "slug"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_081151) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
     t.integer "data_file_size"
@@ -53,13 +53,13 @@ ActiveRecord::Schema.define(version: 2020_07_16_081151) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
-  create_table "colors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "colors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "image"
     t.bigint "product_id"
     t.datetime "created_at", null: false
@@ -67,7 +67,15 @@ ActiveRecord::Schema.define(version: 2020_07_16_081151) do
     t.index ["product_id"], name: "index_images_on_product_id"
   end
 
-  create_table "order_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
+  create_table "order_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.float "amount"
     t.integer "quantity"
     t.float "price_product"
@@ -76,14 +84,15 @@ ActiveRecord::Schema.define(version: 2020_07_16_081151) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "product_color_id"
+    t.integer "status"
     t.index ["order_id"], name: "index_order_items_on_order_id"
-    t.index ["product_color_id"], name: "index_order_items_on_product_colors_id"
+    t.index ["product_color_id"], name: "index_order_items_on_product_color_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
-  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.float "total_amount"
-    t.integer "status", default: 0
+    t.integer "status"
     t.string "address"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -92,7 +101,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_081151) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "product_colors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "product_colors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "quantity"
     t.bigint "product_id"
     t.bigint "color_id"
@@ -102,7 +111,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_081151) do
     t.index ["product_id"], name: "index_product_colors_on_product_id"
   end
 
-  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "name"
     t.text "avatar"
     t.float "price"
@@ -114,15 +123,15 @@ ActiveRecord::Schema.define(version: 2020_07_16_081151) do
     t.string "slug"
     t.text "description"
     t.datetime "deleted_at"
-    t.integer "count_rate", default: 0
-    t.integer "total_star", default: 0
-    t.float "avg_star", default: 0.0
+    t.integer "count_rate"
+    t.integer "total_star"
+    t.float "avg_star"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
-  create_table "ratings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "ratings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "star"
     t.bigint "product_id"
     t.bigint "user_id"
@@ -130,7 +139,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_081151) do
     t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
-  create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id"
     t.bigint "product_id"
@@ -140,18 +149,30 @@ ActiveRecord::Schema.define(version: 2020_07_16_081151) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "subscriptions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "target_type", null: false
+    t.bigint "target_id", null: false
+    t.string "key", null: false
+    t.boolean "subscribing", default: true, null: false
+    t.boolean "subscribing_to_email", default: true, null: false
+    t.datetime "subscribed_at"
+    t.datetime "unsubscribed_at"
+    t.datetime "subscribed_to_email_at"
+    t.datetime "unsubscribed_to_email_at"
+    t.text "optional_targets"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_subscriptions_on_key"
+    t.index ["target_type", "target_id", "key"], name: "index_subscriptions_on_target_type_and_target_id_and_key", unique: true
+    t.index ["target_type", "target_id"], name: "index_subscriptions_on_target_type_and_target_id"
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "name"
     t.text "phone"
     t.text "email"
     t.integer "role"
     t.integer "status"
-    t.text "password_digest"
-    t.string "activation_digest"
-    t.boolean "activated"
-    t.datetime "activated_at"
-    t.string "reset_digest"
-    t.datetime "reset_sent_at"
     t.string "adress"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -161,12 +182,19 @@ ActiveRecord::Schema.define(version: 2020_07_16_081151) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "deleted_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.string "provider"
+    t.string "uid"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "images", "products"
+  add_foreign_key "notifications", "users"
   add_foreign_key "order_items", "orders"
-  add_foreign_key "order_items", "product_colors"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "product_colors", "colors"
