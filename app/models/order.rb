@@ -3,6 +3,11 @@ class Order < ApplicationRecord
   has_many :order_items, dependent: :destroy
   has_many :products, through: :order_items
 
+  # ransack with scope
+  # scope :find_address, (lambda do |add, name|
+  #   ransack(address_cont: add, user_name_cont: name)
+  # end)
+
   accepts_nested_attributes_for :order_items
 
   delegate :name, :phone, to: :user, prefix: true
@@ -22,7 +27,7 @@ class Order < ApplicationRecord
   scope :search_by_id, -> id {where id: id}
 
   def subtotal
-    order_items.to_a.sum { |item| item.amount }
+    order_items.to_a.sum {|item| item.amount}
   end
 
   private

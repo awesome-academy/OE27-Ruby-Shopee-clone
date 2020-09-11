@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_16_081151) do
+ActiveRecord::Schema.define(version: 2020_07_31_073242) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_081151) do
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
     t.index ["product_id"], name: "index_images_on_product_id"
   end
 
@@ -75,15 +76,14 @@ ActiveRecord::Schema.define(version: 2020_07_16_081151) do
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "product_color_id"
+    t.integer "product_color_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
-    t.index ["product_color_id"], name: "index_order_items_on_product_colors_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.float "total_amount"
-    t.integer "status", default: 0
+    t.integer "status"
     t.string "address"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -114,9 +114,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_081151) do
     t.string "slug"
     t.text "description"
     t.datetime "deleted_at"
-    t.integer "count_rate", default: 0
-    t.integer "total_star", default: 0
-    t.float "avg_star", default: 0.0
+    t.float "avg_star"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
@@ -146,27 +144,24 @@ ActiveRecord::Schema.define(version: 2020_07_16_081151) do
     t.text "email"
     t.integer "role"
     t.integer "status"
-    t.text "password_digest"
-    t.string "activation_digest"
-    t.boolean "activated"
-    t.datetime "activated_at"
-    t.string "reset_digest"
-    t.datetime "reset_sent_at"
     t.string "adress"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "remember_digest"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
+    t.string "remember_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "remember_digest"
     t.datetime "deleted_at"
+    t.string "provider"
+    t.string "provider_id"
+    t.datetime "confirmed_at"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "images", "products"
   add_foreign_key "order_items", "orders"
-  add_foreign_key "order_items", "product_colors"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "product_colors", "colors"

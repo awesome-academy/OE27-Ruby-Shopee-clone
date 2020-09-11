@@ -3,12 +3,20 @@ class Shops::OrdersController < ShopsController
 
   def index
     @search = Order.by_status(params[:status])
-      .order_status
-      .includes(:user, :order_items)
-      .search(params[:q])
+                .order_status
+                .includes(:user, :order_items)
+                .search(params[:q])
     @orders = @search.result
-      .page(params[:page])
-      .per(Settings.record_per_page)
+                .page(params[:page])
+                .per(Settings.record_per_page)
+
+    # With scope
+    # @search = Order.order_status
+    #        .find_address(params[:add], params[:name])
+    # @orders = @search.result
+    #             .includes(:user, :order_items)
+    #             .page(params[:page])
+    #             .per(Settings.record_per_page)
   end
 
   def show; end
@@ -16,7 +24,7 @@ class Shops::OrdersController < ShopsController
   def update
     status = @order.update status: params[:status].to_i
     respond_to do |format|
-      format.js{render json: status}
+      format.js {render json: status}
     end
   end
 
@@ -24,8 +32,8 @@ class Shops::OrdersController < ShopsController
 
   def load_order
     @order = Order.search_by_id(params[:id])
-      .includes(:user, :order_items, products: [:product_colors, :colors])
-      .first
+               .includes(:user, :order_items, products: [:product_colors, :colors])
+               .first
     return if @order
 
     flash[:danger] = t "shop.order.detail.no_order"

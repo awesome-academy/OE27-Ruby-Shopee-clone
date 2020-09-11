@@ -74,17 +74,13 @@ $(document).on('turbolinks:load', function() {
         $statusElm.text(I18n.t("shop.product.exporting") + ' ' + percentage + '%');
         if (response.status === 'complete') {
           $statusElm.text(I18n.t("shop.product.export_success"));
-          download();
+          setTimeout(function() {
+            clearInterval(window[intervalName]);
+            delete window[intervalName];
+            $(location).attr('href', '/shops/export_download.xlsx?id=' + jobId);
+          }, 2000);
         }
       }
     })
-  }
-  
-  function download() {
-    setTimeout(function() {
-      clearInterval(window[intervalName]);
-      delete window[intervalName];
-      $(location).attr('href', '/shops/export_download.xlsx?id=' + jobId);
-    }, 2000);
   }
 });
