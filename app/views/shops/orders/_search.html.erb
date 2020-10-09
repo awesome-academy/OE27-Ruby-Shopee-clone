@@ -5,13 +5,13 @@
       <%= f.search_field :address_cont, placeholder: t("shop.order.index.address"), class: "form-control ml-1" %>
       <%= f.search_field :created_at_gteq, placeholder: t("shop.product.index.start_date"), class: "form-control date ml-1", autocomplete: :off %>
       <%= f.search_field :created_at_lteq, placeholder: t("shop.product.index.end_date"), class: "form-control date ml-1", autocomplete: :off %>
-      <%= f.search_field :total_amount_gteq, placeholder: t("shop.order.index.from_price"), class: "form-control ml-1", autocomplete: :off %>
-      <%= f.search_field :total_amount_lteq, placeholder: t("shop.order.index.to_price"), class: "form-control ml-1", autocomplete: :off %>
-      <%= select_tag :status,
+      <%= f.search_field :total_money_gteq, placeholder: t("shop.order.index.from_price"), class: "form-control ml-1", autocomplete: :off %>
+      <%= f.search_field :total_money_lteq, placeholder: t("shop.order.index.to_price"), class: "form-control ml-1", autocomplete: :off %>
+      <%= f.select :status_eq,
                      options_for_select(
                          select_status.unshift(t("shop.order.index.choose_select")),
                          selected: params[:status],
-                         ),
+                         ), {},
                      {class: "form-control ml-1 mt-1"}
       %>
     </div>
@@ -21,17 +21,3 @@
     </div>
   </div>
 <% end %>
-
-<!-- ransack with scope -->
-<%#= form_tag shops_orders_path, method: :get, id: "form-search" do |f| %>
-<!--  <div class="row align-items-center">-->
-<!--    <div class="col-md-12 pt-2 form-inline form-group">-->
-      <%#= text_field_tag :name, nil, placeholder: t("shop.order.index.customer"), class: "form-control ml-1" %>
-      <%#= text_field_tag :add, nil, placeholder: t("shop.order.index.address"), class: "form-control ml-1" %>
-<!--    </div>-->
-<!--    <div class="col-md-4 ml-1 mt-1">-->
-      <%#= link_to t("shop.product.index.reset"), shops_orders_path, class: "btn btn-outline-danger" %>
-      <%#= button_tag t("shop.product.index.search"), type: :submit, class: "btn btn-outline-info" %>
-<!--    </div>-->
-<!--  </div>-->
-<%# end %>

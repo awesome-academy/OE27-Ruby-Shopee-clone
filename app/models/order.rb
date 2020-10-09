@@ -3,11 +3,6 @@ class Order < ApplicationRecord
   has_many :order_items, dependent: :destroy
   has_many :products, through: :order_items
 
-  # ransack with scope
-  # scope :find_address, (lambda do |add, name|
-  #   ransack(address_cont: add, user_name_cont: name)
-  # end)
-
   accepts_nested_attributes_for :order_items
 
   delegate :name, :phone, to: :user, prefix: true
@@ -25,6 +20,24 @@ class Order < ApplicationRecord
   scope :by_status, -> status {where status: status if status.present?}
   scope :order_status, -> {order status: :asc}
   scope :search_by_id, -> id {where id: id}
+
+  ransacker :total_money do
+    Arel.sql("(SELECT DISTINCT SUM(price_product * quantity) FROM order_items
+      WHERE order_items.order_id = orders.id GROUP BY orders.id)")
+  end
+
+  # Có thể sử dụng với scope hoặc viết như bên trên
+  # scope :total_money_gteq, (lambda do |total|
+  #   having("SUM(price_product * quantity) >= #{total}")
+  # end)
+  #
+  # scope :total_money_lteq, (lambda do |total|
+  #   having("SUM(price_product * quantity) <= #{total}")
+  # end)
+  #
+  # def self.ransackable_scopes auth_object = nil
+  #   %i(total_money_gteq total_money_lteq)
+  # end
 
   def subtotal
     order_items.to_a.sum {|item| item.amount}
