@@ -3,7 +3,7 @@
   <td><%= order.user_name %></td>
   <td><%= order.address %></td>
   <td>
-    <%= format_currency(order.total_amount) %>
+    <%= format_currency(total_money(order.order_items)) %>
   </td>
   <td><%= format_date order.created_at %></td>
   <td>

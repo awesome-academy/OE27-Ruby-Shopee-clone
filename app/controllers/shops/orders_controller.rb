@@ -2,21 +2,12 @@ class Shops::OrdersController < ShopsController
   before_action :load_order, only: %i(show update)
 
   def index
-    @search = Order.by_status(params[:status])
-                .order_status
+    @search = Order.order_status
                 .includes(:user, :order_items)
                 .search(params[:q])
     @orders = @search.result
                 .page(params[:page])
                 .per(Settings.record_per_page)
-
-    # With scope
-    # @search = Order.order_status
-    #        .find_address(params[:add], params[:name])
-    # @orders = @search.result
-    #             .includes(:user, :order_items)
-    #             .page(params[:page])
-    #             .per(Settings.record_per_page)
   end
 
   def show; end
