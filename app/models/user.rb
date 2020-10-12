@@ -1,11 +1,12 @@
 class User < ApplicationRecord
-  acts_as_paranoid
   VALID_EMAIL_REGEX = Settings.reg.email
   USER_PARAMS = [:name, :email, :password, :password_confirmation].freeze
   PASSWORD_PARAMS = [:password, :password_confirmation].freeze
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :async
+
+  enum role: {user: 0, admin: 1}
 
   attr_accessor :remember_token
   before_save :email_downcase

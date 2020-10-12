@@ -1,10 +1,11 @@
 class Shops::ProductsController < ShopsController
+  load_and_authorize_resource
   include Shops::ProductsConcern
 
   before_action :load_product, except: %i(index new create)
 
   def index
-    @search = load_products params, current_user
+    @search = load_products params
     @limit = params[:q].present? ? params[:q][:per_page] : Settings.shop.default_per_page
     @products = @search.result.page(params[:page]).per @limit
     @brands = Brand.pluck :name

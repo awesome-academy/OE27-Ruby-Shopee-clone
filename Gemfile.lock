@@ -48,9 +48,6 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    ajax-datatables-rails (1.2.0)
-      railties (>= 5.0)
-      zeitwerk
     animate-rails (1.0.10)
       rails
     arel (9.0.0)
@@ -196,11 +193,6 @@ GEM
     jaro_winkler (1.5.4)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
-    jquery-datatables-rails (3.4.0)
-      actionpack (>= 3.1)
-      jquery-rails
-      railties (>= 3.1)
-      sass-rails
     jquery-rails (4.4.0)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -463,7 +455,6 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.4.0)
 
 PLATFORMS
   ruby
@@ -471,7 +462,6 @@ PLATFORMS
 DEPENDENCIES
   active_storage_validations (= 0.8.2)
   activerecord-import
-  ajax-datatables-rails
   animate-rails
   bcrypt (= 3.1.13)
   bootsnap (>= 1.1.0)
@@ -497,7 +487,6 @@ DEPENDENCIES
   font-awesome-sass (~> 4.2.0)
   i18n-js
   jbuilder (~> 2.5)
-  jquery-datatables-rails
   jquery-rails
   jquery-slick-rails
   jquery-ui-rails
