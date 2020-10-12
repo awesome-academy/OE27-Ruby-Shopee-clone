@@ -8,8 +8,9 @@
       <%= f.select :category_name_cont,
                    @categories.unshift(t("shop.product.index.choose_category")),
                    {}, class: "form-control ml-1" %>
-      <%= f.select :per_page, Settings.shop.product_per_page.split(", "),
-                   selected: @limit, class: "selectpicker form-control ml-1 p-3" %>
+      <%= f.select :per_page, options_for_select(Settings.shop.product_per_page.split(", "), selected: @limit),
+                   {}, {class: "form-control ml-1 p-3"}
+      %>
       <%= f.hidden_field :price_gteq, value: load_price(params[:price_gteq]) %>
       <%= f.hidden_field :price_lteq, value: load_price(params[:price_lteq], Settings.shop.price_max) %>
     </div>

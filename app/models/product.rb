@@ -35,7 +35,7 @@ class Product < ApplicationRecord
   before_save :set_slug
 
   scope :by_created_at_and_deleted_at, -> {order deleted_at: :asc, created_at: :desc}
-  scope :select_fields, -> {select :id, :name, :slug, :price, :brand_id, :category_id, :created_at, :deleted_at}
+  scope :select_fields, -> {select :id, :name, :slug, :user_id, :price, :brand_id, :category_id, :created_at, :deleted_at}
   scope :by_slug, -> slug {where slug: slug}
   scope :search_product, -> value {
     if value.present?
